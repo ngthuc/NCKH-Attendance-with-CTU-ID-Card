@@ -18,17 +18,17 @@ class Demo extends CI_Controller{
             redirect(base_url()."demo/index2");
         }
 
-        public function index2(){
-             echo $this->session->flashdata("flash_open");
-             $user=$this->session->userdata("username");
-             $level=$this->session->userdata("level");
-             $email=$this->session->userdata("email");
-             echo "Username: $user, Email: $email, Level: $level";
-             $data=$this->session->all_data();
-             echo "<pre>";
-             print_r($data);
-             echo "</pre>";
-    }
+    //     public function index2(){
+    //          echo $this->session->flashdata("flash_open");
+    //          $user=$this->session->userdata("username");
+    //          $level=$this->session->userdata("level");
+    //          $email=$this->session->userdata("email");
+    //          echo "Username: $user, Email: $email, Level: $level";
+    //          $data=$this->session->all_data();
+    //          echo "<pre>";
+    //          print_r($data);
+    //          echo "</pre>";
+    // }
 
     // public function index(){
     //     $data=array(
@@ -48,16 +48,16 @@ class Demo extends CI_Controller{
     //         echo "Username: $user, Email: $email, Level: $level";
     //   }
 
-    // public function index2(){
-    //     $user=$this->session->userdata("username");
-    //     $level=$this->session->userdata("level");
-    //     $email=$this->session->userdata("email");
-    //     echo "Username: $user, Email: $email, Level: $level";
-    //     $data=$this->session->all_userdata();
-    //     echo "<pre>";
-    //     print_r($data);
-    //     echo "</pre>";
-    // }
+    public function index2(){
+        $user=$this->session->userdata("username");
+        $level=$this->session->userdata("level");
+        $email=$this->session->userdata("email");
+        echo "Username: $user, Email: $email, Level: $level";
+        $data=$this->session->all_userdata();
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+    }
 
     public function index3(){
              $this->session->sess_destroy();
