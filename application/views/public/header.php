@@ -6,6 +6,4 @@
 <script type = 'text/javascript' src = "<?php echo base_url();?>js/bootstrap.min.js"></script>
 </head>
 <body>
-  <div class="container">
-
-  
+  <!-- <div class="container"> -->
