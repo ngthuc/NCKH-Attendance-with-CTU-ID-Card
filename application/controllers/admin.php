@@ -1,20 +1,19 @@
 <?php
 
-class Category extends CI_Controller{
+class Admin extends CI_Controller{
     public function __construct() {
         parent::__construct();
+        $this->load->helper("url");
     }
 
-    public function add(){
+    // public function index(){
+    //    $data['subview'] = 'admin/index_view';
+    //     $this->load->view('admin/main', $data);
+    // }
+
+    public function index(){
         $data['subview'] = 'admin/index_view';
-        $data['info'] =  array(
-            'name' => 'Hasegawa kaito',
-            'website' => 'freetuts.net',
-            'email' => 'hoaiminhit1990@gmail.com',
-            'phone' => '1234567894556',
-        );
-        $data['title'] = 'Add A Category';
+        $data['title'] = 'Admin System';
         $this->load->view('admin/main', $data);
     }
 }
-?>

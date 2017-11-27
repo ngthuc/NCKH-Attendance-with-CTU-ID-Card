@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title></title>
+<title><?php echo $title; ?></title>
 <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/bootstrap.min.css">
 <script type = 'text/javascript' src = "<?php echo base_url();?>js/bootstrap.min.js"></script>
 <style>
@@ -17,7 +17,7 @@ body{ width: 780px; margin: 0px auto;}
 <body>
     <div id="top">Banner</div>
         <div id="content">
-            <?php echo $subview; ?>
+            <?php $this->load->view($subview); ?>
         </div>
         <div id="footer">2014 © by freetuts.net</div>
 </body>
