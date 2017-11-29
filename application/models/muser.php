@@ -37,9 +37,10 @@ class Muser extends CI_Model{
         return $this->db->count_all($this->_table);
     }
 
-   // public function deleteUser($id){
-   //     return $this->db->delete($this->_table);
-   //  }
+   public function deleteUser($id){
+       $this->db->where("id", $id);
+       return $this->db->delete($this->_table);
+    }
 
    public function checkUsername($user, $id=""){
         if($id != ""){
