@@ -10,22 +10,22 @@ class User extends CI_Controller {
     public function index() {
        $this->_data['subview'] = 'user/index_view';
        $this->_data['titlePage'] = 'List All User';
-
+       $this->_data['userName'] = $sess_userdata;
 
        $this->_data['info'] = $this->Muser->getList();
        $this->_data['total_user'] = $this->Muser->countAll();
        $this->load->view('user/main.php', $this->_data);
    }
 
-   public function check_login($uid, $pwd) {
-        $id=$this->uri->segment(3);
-        if ($this->Muser->checkLogin($uid, $pwd) == FALSE) {
-            $this->form_validation->set_message("check_user", "Your username has been registed, please try again!");
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
+   // public function check_login($uid, $pwd) {
+   //      $id=$this->uri->segment(3);
+   //      if ($this->Muser->checkLogin($uid, $pwd) == FALSE) {
+   //          $this->form_validation->set_message("check_login", "Your username or password has been wrong, please try again!");
+   //          return FALSE;
+   //      } else {
+   //          return TRUE;
+   //      }
+   //  }
 
    public function check_user($user, $id) {
         $id=$this->uri->segment(3);
@@ -139,15 +139,27 @@ class User extends CI_Controller {
 
     public function login($act = null) {
        if($act){
-         $uid = $_POST['username'];
-         $pwd = $_POST['password'];
          $this->_data['subview'] = 'user/alert_view';
          $this->_data['titlePage'] = 'Alert Active Login';
-         $this->_data['alert'] = array(
-              "type" => "success",
-              "url" => base_url("user"),
-              "content"    => "Login Success ".$uid." ".$pwd,
-            );
+         // $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|callback_check_user");
+         // $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|callback_check_user");
+         // if ($this->form_validation->run() == TRUE) {
+         if ($this->Muser->checkLogin($_POST['username'], $_POST['password']) == TRUE) {
+           $user_data = $this->Muser->getUser($_POST['username']);
+           $this->session->set_userdata($user_data);
+           $sess_userdata = $this->session->userdata();
+           $this->_data['alert'] = array(
+               "type" => "success",
+               "url" => base_url("user"),
+               "content"    => "Login Success ".$_POST['username']." ".$_POST['password'],
+             );
+         } else {
+           $this->_data['alert'] = array(
+               "type" => "warning",
+               "url" => base_url("user/login"),
+               "content"    => "Login Fail",
+             );
+         }
          $this->load->view('user/main.php', $this->_data);
        } else {
          $this->_data['subview'] = 'user/login_form';

@@ -1,4 +1,13 @@
 <div class="container">
+  <?php
+  echo "<div class='mess_error'>";
+  echo "<ul>";
+      if(validation_errors() != ''){
+          echo "<li>".validation_errors()."</li>";
+      }
+  echo "</ul>";
+  echo "</div>";
+  ?>
     <form class="form-vertical" action="<?php echo base_url("user/login/act");?>" method="POST">
         <div class="input-group">
           <span class="input-group-addon">Username</span>

@@ -51,21 +51,25 @@ class Muser extends CI_Model{
         return $this->db->get($this->_table)->row_array();
     }
 
-   public function updateUser($data_update, $id){
+    public function updateUser($data_update, $id){
         $this->db->where("id", $id);
         $this->db->update($this->_table, $data_update);
     }
 
+    public function getUser($id){
+        $this->db->where('id', $id);
+        return $this->db->get($this->_table)->result_array();
+    }
+
     public function checkLogin($uid, $pwd){
+         $exe_query = "";
          if(($uid != "") && ($pwd != "")){
-             $this->db->where("username ==", $uid);
+             $exe_query = $this->db->query('SELECT * FROM user WHERE username = "'.$uid.'" AND password = "'.$pwd.'"');
          }
-         $this->db->where('username',$user);
-         $query=$this->db->get($this->_table);
-         if($query->num_rows() > 0){
-             return FALSE;
-         }else{
+         if($exe_query->num_rows() == 1){
              return TRUE;
+         }else{
+             return FALSE;
          }
      }
 
