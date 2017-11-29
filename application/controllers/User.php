@@ -10,37 +10,66 @@ class User extends CI_Controller {
     public function index() {
        $this->_data['subview'] = 'user/index_view';
        $this->_data['titlePage'] = 'List All User';
-       $this->load->model('Muser');
+
 
        $this->_data['info'] = $this->Muser->getList();
        $this->_data['total_user'] = $this->Muser->countAll();
        $this->load->view('user/main.php', $this->_data);
    }
 
+   public function check_login($uid, $pwd) {
+        $id=$this->uri->segment(3);
+        if ($this->Muser->checkLogin($uid, $pwd) == FALSE) {
+            $this->form_validation->set_message("check_user", "Your username has been registed, please try again!");
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+   public function check_user($user, $id) {
+        $id=$this->uri->segment(3);
+        if ($this->Muser->checkUsername($user, $id) == FALSE) {
+            $this->form_validation->set_message("check_user", "Your username has been registed, please try again!");
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+    // public function check_email($email,$id) {
+    //
+    //     $id=$this->uri->segment(3);
+    //     if ($this->Muser->checkEmail($email, $id) == FALSE) {
+    //         $this->form_validation->set_message("check_email", "Your email has been registed, please try again!");
+    //         return FALSE;
+    //     } else {
+    //         return TRUE;
+    //     }
+    // }
+
    public function del($id = null) {
        if($id) {
          $this->_data['subview'] = 'user/alert_view';
          $this->_data['titlePage'] = 'Alert Active User';
 
-         $this->load->model('Muser');
          // $this->db->where("id", $id);
          // if($this->db->delete("user")){
          if($this->Muser->deleteUser($id)){
          $this->_data['alert'] = array(
               "type" => "success",
-              "url" => base_url()."user",
+              "url" => base_url("user"),
               "content"    => "Delete Success",
             );
          $this->load->view('user/main.php', $this->_data);
+         } else {
+           $this->_data['alert'] = array(
+                 "type" => "warning",
+                 "url" => base_url("user"),
+                 "content"    => "Delete Fail",
+             );
+             $this->load->view('user/main.php', $this->_data);
          }
-         // else {
-         //   $this->_data['alert'] = array(
-         //         "type" => "warning",
-         //         "url" => base_url() . "user",
-         //         "content"    => "Delete Fail",
-         //     );
-         //     $this->load->view('user/main.php', $this->_data);
-         // }
        } else {
          $this->_data['subview'] = 'user/alert_view';
          $this->_data['titlePage'] = 'Alert Active User';
@@ -53,15 +82,12 @@ class User extends CI_Controller {
    public function add() {
        $this->_data['titlePage'] = 'Add A User';
        $this->_data['subview'] = 'user/add_view';
-
        $this->form_validation->set_rules("username", "Username", "required|trim|min_length[4]|xss_clean|callback_check_user");
        $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|min_length[4]|callback_check_user");
        $this->form_validation->set_rules("password2", "Re-Password", "required|matches[password]|xss_clean|trim|min_length[4]|callback_check_user");
-       // $this->form_validation->set_rules("password", "Password", "required|matches[password2]|trim");
        // $this->form_validation->set_rules("email", "Email", "required|trim|xss_clean|valid_email|callback_check_email");
 
        if ($this->form_validation->run() == TRUE) {
-           $this->load->model("Muser");
            $data_insert = array(
                "username" => $this->input->post("username"),
                "password" => $this->input->post("password"),
@@ -74,45 +100,20 @@ class User extends CI_Controller {
 
            $this->_data['alert'] = array(
                 "type" => "success",
-                "url" => base_url()."user",
+                "url" => base_url("user"),
                 "content"    => "Add Success",
               );
        }
        $this->load->view('user/main.php', $this->_data);
    }
 
-   public function check_user($user, $id) {
-        $this->load->model('Muser');
-        $id=$this->uri->segment(3);
-        if ($this->Muser->checkUsername($user, $id) == FALSE) {
-            $this->form_validation->set_message("check_user", "Your username has been registed, please try again!");
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
-
-    // public function check_email($email,$id) {
-    //     $this->load->model('Muser');
-    //     $id=$this->uri->segment(3);
-    //     if ($this->Muser->checkEmail($email, $id) == FALSE) {
-    //         $this->form_validation->set_message("check_email", "Your email has been registed, please try again!");
-    //         return FALSE;
-    //     } else {
-    //         return TRUE;
-    //     }
-    // }
-
     public function edit($id) {
-        $this->load->model('Muser');
         $this->_data['titlePage'] = "Edit A User";
         $this->_data['subview'] = "user/edit_view";
-
         $this->_data['info'] = $this->Muser->getUserById($id);
         $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|min_length[4]|callback_check_user");
         $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|min_length[4]|callback_check_user");
         $this->form_validation->set_rules("password2", "Re-Password", "required|matches[password]|xss_clean|trim|min_length[4]|callback_check_user");
-        // $this->form_validation->set_rules("password", "Password", "matches[password2]|trim|xss_clean");
         // $this->form_validation->set_rules("email", "Email", "required|trim|xss_clean|valid_email|callback_check_email");
         if ($this->form_validation->run() == TRUE) {
             $data_update = array(
@@ -129,10 +130,41 @@ class User extends CI_Controller {
 
             $this->_data['alert'] = array(
                  "type" => "success",
-                 "url" => base_url()."user",
+                 "url" => base_url("user"),
                  "content"    => "Edit Success",
                );
         }
         $this->load->view('user/main.php', $this->_data);
     }
+
+    public function login($act = null) {
+       if($act){
+         $uid = $_POST['username'];
+         $pwd = $_POST['password'];
+         $this->_data['subview'] = 'user/alert_view';
+         $this->_data['titlePage'] = 'Alert Active Login';
+         $this->_data['alert'] = array(
+              "type" => "success",
+              "url" => base_url("user"),
+              "content"    => "Login Success ".$uid." ".$pwd,
+            );
+         $this->load->view('user/main.php', $this->_data);
+       } else {
+         $this->_data['subview'] = 'user/login_form';
+         $this->_data['titlePage'] = 'Login';
+         $this->load->view('user/main.php', $this->_data);
+       }
+   }
+
+   public function logout() {
+         $this->_data['subview'] = 'user/alert_view';
+         $this->_data['titlePage'] = 'Alert Active Logout';
+         $this->session->sess_destroy();
+         $this->_data['alert'] = array(
+              "type" => "success",
+              "url" => base_url("user"),
+              "content"    => "Logout Success ",
+            );
+         $this->load->view('user/main.php', $this->_data);
+  }
 }
