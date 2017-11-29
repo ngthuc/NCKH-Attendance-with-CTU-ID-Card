@@ -5,6 +5,8 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="author" content="Hasegawa Kaito" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css" charset="utf-8" />
+        <link rel = "stylesheet" type = "text/css" href = "<?php echo base_url(); ?>css/bootstrap.min.css">
+        <script type = 'text/javascript' src = "<?php echo base_url();?>js/bootstrap.min.js"></script>
         <script language="javascript">
             function xacnhan() {
                 if (!window.confirm('You want delete user ?')) {

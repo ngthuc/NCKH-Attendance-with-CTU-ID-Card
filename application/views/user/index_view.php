@@ -1,8 +1,3 @@
-<?php
-// echo "<pre>";
-// print_r($info);
-// echo "</pre>";
-?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" id="list_cate" class="list">
     <tr>
          <td colspan="6" align="center"><a href="<?php echo base_url(); ?>user/add">Add User</a><br /></td>
@@ -43,13 +38,3 @@
 
 
 </table>
-
-<?php
-    if(isset($mess) && $mess != ''){
-        echo "<div class='mess_succ'>";
-        echo "<ul>";
-            echo "<li>$mess</li>";
-        echo "</ul>";
-        echo "</div>";
-    }
-?>
