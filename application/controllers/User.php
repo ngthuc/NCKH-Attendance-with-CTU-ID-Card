@@ -124,7 +124,7 @@
 
    public function del($id = null) {
        if($id) {
-         $this->_data['subview'] = 'alert/alert_view';
+         $this->_data['subview'] = 'user/alert_view';
          $this->_data['titlePage'] = 'Alert Active User';
 
          $this->db->where("id", $id);
@@ -141,10 +141,10 @@
                  "url" => base_url() . "user",
                  "content"    => "Delete Fail",
              );
-             $this->load->view('user/main.php', $this->_data['alert']);
+             $this->load->view('user/main.php', $this->_data);
          }
        } else {
-         $this->_data['subview'] = 'alert/alert_view';
+         $this->_data['subview'] = 'user/alert_view';
          $this->_data['titlePage'] = 'Alert Active User';
 
          $this->_data['alert'] = null;
@@ -156,8 +156,10 @@
        $this->_data['titlePage'] = 'Add A User';
        $this->_data['subview'] = 'user/add_view';
 
-       $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|min_length[4]|callback_check_user");
-       $this->form_validation->set_rules("password", "Password", "required|matches[password2]|trim|xss_clean");
+       // $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|min_length[4]|callback_check_user");
+       $this->form_validation->set_rules("username", "Username", "required|trim|min_length[4]|callback_check_user");
+       // $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|min_length[4]|callback_check_user");
+       $this->form_validation->set_rules("password", "Password", "required|trim");
        // $this->form_validation->set_rules("email", "Email", "required|trim|xss_clean|valid_email|callback_check_email");
 
        if ($this->form_validation->run() == TRUE) {
@@ -169,8 +171,14 @@
                "level"    => $this->input->post("level"),
            );
            $this->Muser->insertUser($data_insert);
-           $this->session->set_flashdata("flash_mess", "Added");
-           redirect(base_url() . "user");
+           $this->_data['subview'] = 'user/alert_view';
+           $this->_data['titlePage'] = 'Alert Active User';
+
+           $this->_data['alert'] = array(
+                "type" => "success",
+                "url" => base_url()."user",
+                "content"    => "Add Success",
+              );
        }
        $this->load->view('user/main.php', $this->_data);
    }
@@ -218,8 +226,14 @@
                 $data_update['password'] = $this->input->post("password");
             }
             $this->Muser->updateUser($data_update, $id);
-            $this->session->set_flashdata("flash_mess", "Update Success");
-            redirect(base_url() . "user");
+            $this->_data['subview'] = 'user/alert_view';
+            $this->_data['titlePage'] = 'Alert Active User';
+
+            $this->_data['alert'] = array(
+                 "type" => "success",
+                 "url" => base_url()."user",
+                 "content"    => "Edit Success",
+               );
         }
         $this->load->view('user/main.php', $this->_data);
     }
