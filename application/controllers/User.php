@@ -110,6 +110,7 @@
     public function __construct() {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('form_validation');
     }
 
     public function index() {
@@ -156,10 +157,10 @@
        $this->_data['titlePage'] = 'Add A User';
        $this->_data['subview'] = 'user/add_view';
 
-       // $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|min_length[4]|callback_check_user");
-       $this->form_validation->set_rules("username", "Username", "required|trim|min_length[4]|callback_check_user");
-       // $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|min_length[4]|callback_check_user");
-       $this->form_validation->set_rules("password", "Password", "required|trim");
+       $this->form_validation->set_rules("username", "Username", "required|trim|min_length[4]|xss_clean|callback_check_user");
+       // $this->form_validation->set_rules("username", "Username", "required|trim|min_length[4]|callback_check_user");
+       $this->form_validation->set_rules("password", "Password", "required|matches[password2]|xss_clean|trim|min_length[4]|callback_check_user");
+       // $this->form_validation->set_rules("password", "Password", "required|matches[password2]|trim");
        // $this->form_validation->set_rules("email", "Email", "required|trim|xss_clean|valid_email|callback_check_email");
 
        if ($this->form_validation->run() == TRUE) {
@@ -213,7 +214,7 @@
         $this->_data['info'] = $this->Muser->getUserById($id);
         $this->form_validation->set_rules("username", "Username", "required|trim|min_length[4]|callback_check_user");
         // $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|min_length[4]|callback_check_user");
-        $this->form_validation->set_rules("password", "Password", "trim");
+        $this->form_validation->set_rules("password", "Password", "matches[password2]|trim");
         // $this->form_validation->set_rules("password", "Password", "matches[password2]|trim|xss_clean");
         // $this->form_validation->set_rules("email", "Email", "required|trim|xss_clean|valid_email|callback_check_email");
         if ($this->form_validation->run() == TRUE) {
