@@ -61,14 +61,14 @@ class Muser extends CI_Model{
         $this->db->update($this->_table, $data_update);
     }
 
-    public function logIn($user){
-        $this->session->set_userdata($this->Muser->getUserByUsername($user))
-        if ($this->session->has_userdata('username')) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
+    // public function logIn($user){
+    //     $this->session->set_userdata($this->Muser->getUserByUsername($user))
+    //     if ($this->session->has_userdata('username')) {
+    //         return TRUE;
+    //     } else {
+    //         return FALSE;
+    //     }
+    // }
 
     public function logOut(){
         if ($this->session->sess_destroy()) {

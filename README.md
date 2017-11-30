@@ -9,7 +9,7 @@ My project for student science research topic
 * Javascript
 * AJAX
 * Jquery
-* Code Igniter (PHP Web Framework)
+* Code Igniter 3.1.6 (PHP Web Framework)
 * Java for Raspberry Pi (Pi4J package)
 * Wiring for Arduino (using C)
 
