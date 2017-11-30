@@ -24,7 +24,7 @@
                 <li><a href="#">Comment</a></li>
             </ul>
             <p>
-                Xin chào <span><?php echo $userName; ?></span>
+                Xin chào <span><?php //echo $userName; ?></span>
                 <a href="<?php echo base_url("user/logout"); ?>">[ Thoát ]</a>
             </p>
         </div><!-- End header -->

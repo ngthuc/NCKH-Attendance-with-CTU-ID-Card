@@ -10,7 +10,7 @@ class User extends CI_Controller {
     public function index() {
        $this->_data['subview'] = 'user/index_view';
        $this->_data['titlePage'] = 'List All User';
-       $this->_data['userName'] = $sess_userdata;
+       // $this->_data['userName'] = $sess_userdata;
 
        $this->_data['info'] = $this->Muser->getList();
        $this->_data['total_user'] = $this->Muser->countAll();
@@ -137,36 +137,43 @@ class User extends CI_Controller {
         $this->load->view('user/main.php', $this->_data);
     }
 
-    public function login($act = null) {
-       if($act){
-         $this->_data['subview'] = 'user/alert_view';
-         $this->_data['titlePage'] = 'Alert Active Login';
-         // $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|callback_check_user");
-         // $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|callback_check_user");
-         // if ($this->form_validation->run() == TRUE) {
-         if ($this->Muser->checkLogin($_POST['username'], $_POST['password']) == TRUE) {
-           $user_data = $this->Muser->getUser($_POST['username']);
-           $this->session->set_userdata($user_data);
-           $sess_userdata = $this->session->userdata();
-           $this->_data['alert'] = array(
-               "type" => "success",
-               "url" => base_url("user"),
-               "content"    => "Login Success ".$_POST['username']." ".$_POST['password'],
-             );
-         } else {
-           $this->_data['alert'] = array(
-               "type" => "warning",
-               "url" => base_url("user/login"),
-               "content"    => "Login Fail",
-             );
-         }
-         $this->load->view('user/main.php', $this->_data);
-       } else {
-         $this->_data['subview'] = 'user/login_form';
-         $this->_data['titlePage'] = 'Login';
-         $this->load->view('user/main.php', $this->_data);
-       }
+    public function login() {
+        $this->_data['subview'] = 'user/login_form';
+        $this->_data['titlePage'] = 'Login';
+        $this->load->view('user/main.php', $this->_data);
    }
+
+   public function loginActive() {
+        // $this->_data['subview'] = 'user/alert_view';
+        // $this->_data['titlePage'] = 'Alert Active Login';
+        // $this->form_validation->set_rules("username", "Username", "required|xss_clean|trim|callback_check_user");
+        // $this->form_validation->set_rules("password", "Password", "required|xss_clean|trim|callback_check_user");
+        // if ($this->form_validation->run() == TRUE) {
+        // var_dump($this->Muser->checkLogin($_POST['username'], $_POST['password']));
+        var_dump($this->Muser->logIn($_POST['username']));
+        // if ($this->Muser->checkLogin($_POST['username'], $_POST['password']) == TRUE) {
+        //   if ($this->Muser->logIn($_POST['username']) == TRUE) {
+        //     $this->_data['alert'] = array(
+        //         "type" => "success",
+        //         "url" => base_url("user"),
+        //         "content"    => "Login Success",
+        //       );
+        //   }
+        //   // else {
+        //   //   $this->_data['alert'] = array(
+        //   //       "type" => "warning",
+        //   //       "url" => base_url("user/login"),
+        //   //       "content"    => "Login Fail",
+        //   //     );
+        // } else {
+        //   $this->_data['alert'] = array(
+        //       "type" => "warning",
+        //       "url" => base_url("user/login"),
+        //       "content"    => "Login Fail",
+        //     );
+        // }
+        // $this->load->view('user/main.php', $this->_data);
+  }
 
    public function logout() {
          $this->_data['subview'] = 'user/alert_view';

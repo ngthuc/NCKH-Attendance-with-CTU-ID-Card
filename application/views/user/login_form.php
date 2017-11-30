@@ -8,7 +8,7 @@
   echo "</ul>";
   echo "</div>";
   ?>
-    <form class="form-vertical" action="<?php echo base_url("user/login/act");?>" method="POST">
+    <form class="form-vertical" action="<?php echo base_url("user/loginActive");?>" method="POST">
         <div class="input-group">
           <span class="input-group-addon">Username</span>
           <input type="text" name="username" class="form-control" placeholder="Enter username">
