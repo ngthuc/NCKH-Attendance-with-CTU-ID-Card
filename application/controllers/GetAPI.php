@@ -1,6 +1,8 @@
 <?php
 class GetAPI extends CI_Controller {
 
+
+
 		// Hàm khởi tạo
 		function __construct() {
 				// Gọi đến hàm khởi tạo của cha
