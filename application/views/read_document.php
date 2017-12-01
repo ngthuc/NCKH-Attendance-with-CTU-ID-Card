@@ -1,0 +1,1 @@
+<textarea>Nội dung</textarea>
