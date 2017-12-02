@@ -13,7 +13,7 @@ CREATE TABLE `event` (
   `dateEvent` date NOT NULL,
   `locationEvent` varchar(128) NOT NULL,
   `descriptionEvent` varchar(256) DEFAULT NULL,
-  `syncStatus` char(10) DEFAULT 0
+  `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Create table sinhvien
@@ -24,7 +24,7 @@ CREATE TABLE `student` (
   `idCard` char(10) NOT NULL,
   `idMajor` char(10) NOT NULL,
   `descriptionStudent` varchar(256) DEFAULT NULL,
-  `syncStatus` char(10) DEFAULT 0
+  `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Create table canbo
@@ -35,7 +35,7 @@ CREATE TABLE `staff` (
   `idCard` char(10) NOT NULL,
   `idDepartment` int(5) NOT NULL,
   `descriptionStaff` varchar(256) DEFAULT NULL,
-  `syncStatus` char(10) DEFAULT 0
+  `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Create table diemdanh
@@ -46,7 +46,7 @@ CREATE TABLE `attendance` (
   `timeIn` datetime DEFAULT NULL,
   `timeOut` datetime DEFAULT NULL,
   `isExistNumberId` char(10) DEFAULT 0,
-  `syncStatus` char(10) DEFAULT 0
+  `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Create table existNumberId
@@ -75,6 +75,13 @@ CREATE TABLE `major` (
   `idFaculty` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- Create table rfid
+CREATE TABLE `rfid` (
+  `idCard` char(10) NOT NULL PRIMARY KEY,
+  `numberId` char(10) NOT NULL,
+  `syncStatus` int(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- Create table joinEvent
 CREATE TABLE `join_event` (
   `idRegister` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -84,10 +91,10 @@ CREATE TABLE `join_event` (
 
 -- Add relationship
 ALTER TABLE student
-    ADD CONSTRAINT student1 FOREIGN KEY (idMajor) REFERENCES major(idMajor) ON DELETE CASCADE;
+    ADD CONSTRAINT studentmajor FOREIGN KEY (idMajor) REFERENCES major(idMajor) ON DELETE CASCADE;
 
 ALTER TABLE staff
-    ADD CONSTRAINT staff1 FOREIGN KEY (idDepartment) REFERENCES department(idDepartment) ON DELETE CASCADE;
+    ADD CONSTRAINT staffdepartment FOREIGN KEY (idDepartment) REFERENCES department(idDepartment) ON DELETE CASCADE;
 
 ALTER TABLE attendance
     ADD CONSTRAINT attendance FOREIGN KEY (idEvent) REFERENCES event(idEvent) ON DELETE CASCADE;
@@ -101,8 +108,8 @@ ALTER TABLE join_event
 ALTER TABLE department
     ADD CONSTRAINT departmentfaculty FOREIGN KEY (idFaculty) REFERENCES faculty(idFaculty) ON DELETE CASCADE;
 
-ALTER TABLE student
-    ADD CONSTRAINT studentmajor FOREIGN KEY (idMajor) REFERENCES major(idMajor) ON DELETE SET NULL;
+ALTER TABLE rfid
+    ADD CONSTRAINT rfidstudent FOREIGN KEY (numberId) REFERENCES student(idStudent) ON DELETE CASCADE;
 
-ALTER TABLE staff
-    ADD CONSTRAINT staffdepartment FOREIGN KEY (idDepartment) REFERENCES department(idDepartment) ON DELETE SET NULL;
+ALTER TABLE rfid
+    ADD CONSTRAINT rfidstaff FOREIGN KEY (numberId) REFERENCES staff(idStaff) ON DELETE CASCADE;
