@@ -78,7 +78,8 @@ CREATE TABLE `existNumberId` (
 -- Create table department
 CREATE TABLE `department` (
   `idDepartment` int(100) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `nameDepartment` varchar(128) NOT NULL
+  `nameDepartment` varchar(128) NOT NULL,
+  `idFaculty` char(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Create table faculty
