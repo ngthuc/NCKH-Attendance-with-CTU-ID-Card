@@ -106,8 +106,8 @@ ALTER TABLE attendance
 ALTER TABLE major
     ADD CONSTRAINT major FOREIGN KEY (idFaculty) REFERENCES faculty(idFaculty) ON DELETE NO ACTION;
 
-ALTER TABLE join_event
-    ADD CONSTRAINT join_event FOREIGN KEY (idEvent) REFERENCES event(idEvent) ON DELETE CASCADE;
+ALTER TABLE register
+    ADD CONSTRAINT register FOREIGN KEY (idEvent) REFERENCES event(idEvent) ON DELETE CASCADE;
 
 ALTER TABLE department
     ADD CONSTRAINT departmentfaculty FOREIGN KEY (idFaculty) REFERENCES faculty(idFaculty) ON DELETE CASCADE;
