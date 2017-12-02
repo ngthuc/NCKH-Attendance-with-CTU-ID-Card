@@ -4,18 +4,6 @@ CREATE DATABASE diemdanh_nckh COLLATE=utf8_unicode_ci;
 -- Use database
 USE diemdanh_nckh;
 
--- Create table sukien
-CREATE TABLE `event` (
-  `idEvent` int(128) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `nameEvent` varchar(256) NOT NULL,
-  `timeStart` time NOT NULL,
-  `timeEnd` time NOT NULL,
-  `dateEvent` date NOT NULL,
-  `locationEvent` varchar(128) NOT NULL,
-  `descriptionEvent` varchar(256) DEFAULT NULL,
-  `syncStatus` int(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- Create table sinhvien
 CREATE TABLE `student` (
   `idStudent` char(10) NOT NULL PRIMARY KEY,
@@ -31,6 +19,25 @@ CREATE TABLE `staff` (
   `firstNameStaff` varchar(256) NOT NULL,
   `lastNameStaff` varchar(256) NOT NULL,
   `idDepartment` int(5) DEFAULT NULL,
+  `syncStatus` int(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Create table rfid
+CREATE TABLE `rfid` (
+  `idCard` char(10) NOT NULL PRIMARY KEY,
+  `numberId` char(10) NOT NULL,
+  `syncStatus` int(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Create table sukien
+CREATE TABLE `event` (
+  `idEvent` int(128) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `nameEvent` varchar(256) NOT NULL,
+  `timeStart` time NOT NULL,
+  `timeEnd` time NOT NULL,
+  `dateEvent` date NOT NULL,
+  `locationEvent` varchar(128) NOT NULL,
+  `descriptionEvent` varchar(256) DEFAULT NULL,
   `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -64,18 +71,26 @@ CREATE TABLE `major` (
   `idFaculty` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Create table rfid
-CREATE TABLE `rfid` (
-  `idCard` char(10) NOT NULL PRIMARY KEY,
-  `numberId` char(10) NOT NULL,
-  `syncStatus` int(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- Create table joinEvent
-CREATE TABLE `join_event` (
+CREATE TABLE `register` (
   `idRegister` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `numberId` char(10) NOT NULL,
   `idEvent` int(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Create table account
+CREATE TABLE `account` (
+  `username` char(255) NOT NULL PRIMARY KEY,
+  `password` char(10) NOT NULL,
+  `name` char(128) DEFAULT NULL,
+  `role` char(10) DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Create table apikey
+CREATE TABLE `apikey` (
+  `idApi` int(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `valueApi` char(20) NOT NULL,
+  `encriptApi` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Add relationship
