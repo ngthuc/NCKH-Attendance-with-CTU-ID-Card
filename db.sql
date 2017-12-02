@@ -1,5 +1,5 @@
 -- Create database
-CREATE DATABASE diemdanh_nckh;
+-- CREATE DATABASE diemdanh_nckh;
 
 -- Create table sukien
 CREATE TABLE `event` (
