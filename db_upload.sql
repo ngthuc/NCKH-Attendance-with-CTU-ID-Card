@@ -21,9 +21,7 @@ CREATE TABLE `student` (
   `idStudent` char(10) NOT NULL PRIMARY KEY,
   `firstNameStudent` varchar(256) NOT NULL,
   `lastNameStudent` varchar(256) NOT NULL,
-  `idCard` char(10) NOT NULL,
-  `idMajor` char(10) NOT NULL,
-  `descriptionStudent` varchar(256) DEFAULT NULL,
+  `idMajor` char(10) DEFAULT NULL,
   `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -32,9 +30,7 @@ CREATE TABLE `staff` (
   `idStaff` char(10) NOT NULL PRIMARY KEY,
   `firstNameStaff` varchar(256) NOT NULL,
   `lastNameStaff` varchar(256) NOT NULL,
-  `idCard` char(10) NOT NULL,
-  `idDepartment` int(5) NOT NULL,
-  `descriptionStaff` varchar(256) DEFAULT NULL,
+  `idDepartment` int(5) DEFAULT NULL,
   `syncStatus` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -42,17 +38,10 @@ CREATE TABLE `staff` (
 CREATE TABLE `attendance` (
   `idAttendance` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `idEvent` int(128) NOT NULL,
-  `idCard` char(10) NOT NULL,
+  `idCard` char(10) DEFAULT NULL,
   `timeIn` datetime DEFAULT NULL,
   `timeOut` datetime DEFAULT NULL,
-  `isExistNumberId` char(10) DEFAULT 0,
   `syncStatus` int(1) DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- Create table existNumberId
-CREATE TABLE `existNumberId` (
-  `idKey` int(255) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `idCard` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Create table department
@@ -113,3 +102,6 @@ ALTER TABLE rfid
 
 ALTER TABLE rfid
     ADD CONSTRAINT rfidstaff FOREIGN KEY (numberId) REFERENCES staff(idStaff) ON DELETE CASCADE;
+
+ALTER TABLE attendance
+    ADD CONSTRAINT attendancerfid FOREIGN KEY (idCard) REFERENCES rfid(idCard) ON DELETE CASCADE;
