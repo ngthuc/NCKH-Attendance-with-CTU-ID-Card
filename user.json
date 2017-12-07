@@ -1,0 +1,150 @@
+{
+  "user": [{
+    "id": "1",
+    "studentID": "B1400731",
+    "firstNameStudent": "Nguyên Thức",
+    "lastNameStudent": "Lê",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  }, {
+    "id": "2",
+    "studentID": "B1400704",
+    "firstNameStudent": "Minh Luân",
+    "lastNameStudent": "Lê",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "3",
+    "studentID": "B1400706",
+    "firstNameStudent": "Thiện Minh",
+    "lastNameStudent": "Nguyễn",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "4",
+    "studentID": "B1400729",
+    "firstNameStudent": "Hoàng Thơ",
+    "lastNameStudent": "Huỳnh",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "5",
+    "studentID": "B1400730",
+    "firstNameStudent": "Anh Thư",
+    "lastNameStudent": "Hồ Lê",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "6",
+    "studentID": "B1400711",
+    "firstNameStudent": "Thanh Nhi",
+    "lastNameStudent": "Phan",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "7",
+    "studentID": "B1410187",
+    "firstNameStudent": "Anh Vũ",
+    "lastNameStudent": "Nguyễn",
+    "major": "Công nghệ thông tin",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "8",
+    "studentID": "B1425833",
+    "firstNameStudent": "Bảo Tuấn",
+    "lastNameStudent": "Lê",
+    "major": "Luật tư pháp",
+    "faculty": "Luật"
+  },{
+    "id": "9",
+    "studentID": "B1507227",
+    "firstNameStudent": "Thúy Duy",
+    "lastNameStudent": "Huỳnh",
+    "major": "Quản trị kinh doanh",
+    "faculty": "Kinh tế"
+  },{
+    "id": "10",
+    "studentID": "B1502580",
+    "firstNameStudent": "Thùy Linh",
+    "lastNameStudent": "Phạm Thị",
+    "major": "Kỹ thuật môi trường",
+    "faculty": "MT&TNTN"
+  },{
+    "id": "11",
+    "studentID": "B1508933",
+    "firstNameStudent": "Thảo Nguyên",
+    "lastNameStudent": "Nguyễn",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "12",
+    "studentID": "B1606833",
+    "firstNameStudent": "Bảo Ngọc",
+    "lastNameStudent": "Nguyễn",
+    "major": "Công nghệ thông tin Chất lượng cao",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "13",
+    "studentID": "B1600123",
+    "firstNameStudent": "Bửu Minh",
+    "lastNameStudent": "Phương",
+    "major": "Công nghệ thông tin Chất lượng cao",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "14",
+    "studentID": "B1601234",
+    "firstNameStudent": "Vàng Y",
+    "lastNameStudent": "Trần Thị",
+    "major": "Công nghệ thông tin Chất lượng cao",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "15",
+    "studentID": "B1707007",
+    "firstNameStudent": "Ý Nguyện",
+    "lastNameStudent": "Dương",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "16",
+    "studentID": "B1707083",
+    "firstNameStudent": "Vạn Hên",
+    "lastNameStudent": "Nguyễn",
+    "major": "Kỹ thuật phần mềm",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "17",
+    "studentID": "B1710110",
+    "firstNameStudent": "Tấn Phát",
+    "lastNameStudent": "Nguyễn",
+    "major": "Công nghệ thông tin Chất lượng cao",
+    "faculty": "CNTT&TT"
+  },{
+    "id": "18",
+    "studentID": "B1701001",
+    "firstNameStudent": "Thanh Thảo",
+    "lastNameStudent": "Nguyễn Hoàng",
+    "major": "Ngôn ngữ Anh",
+    "faculty": "Ngoại ngữ"
+  },{
+    "id": "19",
+    "studentID": "B1700001",
+    "firstNameStudent": "Thúy Vy",
+    "lastNameStudent": "Dương",
+    "major": "Sư phạm Sinh học",
+    "faculty": "Sư phạm"
+  },{
+    "id": "20",
+    "studentID": "B1700120",
+    "firstNameStudent": "Tây Du",
+    "lastNameStudent": "Nguyễn",
+    "major": "Sư phạm Lịch sử",
+    "faculty": "Sư phạm"
+  },{
+    "id": "21",
+    "studentID": "B1701208",
+    "firstNameStudent": "Minh Tiến",
+    "lastNameStudent": "Phạm",
+    "major": "Kỹ thuật công trình dân dụng",
+    "faculty": "Công nghệ"
+  }]
+}

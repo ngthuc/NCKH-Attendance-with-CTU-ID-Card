@@ -10,7 +10,7 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+07:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -57,7 +57,7 @@ CREATE TABLE `apikey` (
 CREATE TABLE `attendance` (
   `id` int(255) NOT NULL,
   `idEvent` int(128) NOT NULL,
-  `idCard` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `timeIn` datetime DEFAULT NULL,
   `timeOut` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -136,7 +136,7 @@ CREATE TABLE `register` (
 CREATE TABLE `rfid` (
   `id` int(5) NOT NULL,
   `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  `numberId` char(10) COLLATE utf8_unicode_ci NOT NULL
+  `numberId` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -184,6 +184,18 @@ ALTER TABLE `apikey`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `event`
+--
+ALTER TABLE `event`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faculty`
+--
+ALTER TABLE `faculty`
+  ADD PRIMARY KEY (`id`,`idFaculty`);
+
+--
 -- Indexes for table `attendance`
 --
 ALTER TABLE `attendance`
@@ -197,18 +209,6 @@ ALTER TABLE `attendance`
 ALTER TABLE `department`
   ADD PRIMARY KEY (`id`),
   ADD KEY `departmentfaculty` (`idFaculty`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `faculty`
---
-ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`id`,`idFaculty`);
 
 --
 -- Indexes for table `major`
