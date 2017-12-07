@@ -34,15 +34,128 @@
        }
      });
    });
-
-
    </script>
+
+   <style>
+            .loader {
+                background: #333;
+                height: 100%;
+                z-index: 100000;
+                color: #fff;
+                text-align: center;
+                padding-top: 10%;
+            }
+            body{
+                padding-right: 0px !important;
+            }
+    </style>
+    <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
+<style type="text/css">
+    body {
+        background-color: #32393F !important;
+        padding-top: 150px;
+    }
+    .logo{
+        padding: 4px 15px;
+    }
+    .bootstrap-table{
+        background-color: #fff;
+    }
+    .navbar-menu {
+        background-color: #fff;
+        margin-bottom: 0;
+    }
+
+    .navbar-cmd {
+        border-radius: 0;
+        border-bottom: none;
+        border-top: none;
+        margin-bottom: 0;
+        box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
+        z-index: 1;
+    }
+
+    .main-content {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .navbar-navi {
+        padding-top: 10px;
+        padding-left: 0;
+    }
+
+    .navbar-navi a{
+        color: #777;
+        cursor: pointer;
+        border-radius: 0 !important;
+    }
+
+    .navbar-cmd-btn {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 8px;
+        margin-left: -10px;
+    }
+    .footer {
+        background-color: #0F1112;
+        padding: 15px;
+        position: static !important;
+    }
+    .footer .container .author{
+        text-align: center;
+    }
+    .footer .container .author hr{
+        border-top: 1px solid #000 !important;
+        border-bottom: 1px solid #222 !important;
+    }
+
+    .footer{
+        background-image: url("http://cit.ctu.edu.vn/quanlylaodong/img/worldmap.png");
+        background-repeat: no-repeat;
+        min-height: 100px;
+    }
+    .contact{
+        color: #C3C3C3;
+    }
+    .contact h3:after{
+        content: "";
+        display: block;
+        background: #5cace2;
+        position: absolute;
+        height: 1px;
+        width: 100px;
+        margin: 5px 0px;
+    }
+    .con{
+        min-height: 600px;
+    }
+    .app-menu{
+        background-color: #fff !important;
+        border-bottom: 1px solid #fff !important;
+          box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+    .navbar-header a{
+        color: #32393F !important;
+    }
+    .title{
+        color: #fff;
+    }
+</style>
+
 </head>
 <body id="page-header">
+  <!-- <div class="loader modal-backdrop">
+            <img alt="Đang xử lý ..." src="http://cit.ctu.edu.vn/quanlylaodong/img/puff.svg">
+            <h5>Đang xử lý ...</h5>
+	</div> -->
   <!--Menu bar-->
   <!-- Fixed navbar -->
-      <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container-fluid">
+      <nav class="navbar navbar-inverse navbar-fixed-top app-menu" role="navigation">
+        <div class="container">
           <div class="navbar-header">
             <a href="<?php echo base_url(); ?>"><img class="navbar-left logo-ctu" src="<?php echo base_url('images/ctu_logo.gif'); ?>" alt="logo-CTU"></a>
             <a class="navbar-brand" href="<?php echo base_url(); ?>"> HỆ THỐNG ĐIỂM DANH </a>
@@ -55,9 +168,9 @@
             <a class="navbar-brand" href="#"></a>
           </div>
 
-          <div class="collapse navbar-collapse" id="ctudocsnavbar">
+          <!-- <div class="collapse navbar-collapse" id="ctudocsnavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
+              <li class="active"><a href="<?php // echo base_url(); ?>">Trang chủ</a></li>
               <li><a href="#">Đóng góp đề cương</a></li>
             </ul>
 
@@ -74,9 +187,10 @@
                   </ul>
               </li>
             </ul>
-          </div><!-- /.navbar-collapse -->
+          </div> --><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
+
 
   <script type="text/javascript">
   $(document).click(function(e) {
@@ -92,12 +206,11 @@
 
 </body>
 <div class="footer">
-  <hr>
     <div class="container">
         <div class="col-md-12 contact">
             Khoa Công nghệ Thông tin &amp; Truyền thông - Trường Đại học Cần Thơ<br>
 	                                 Khu 2, đường 3/2, Phường Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ, Việt Nam;<br>
-	                                 Điện thoại: 84 710 &nbsp;3831301; Fax: <span style="font-size: 10pt; font-family: 'Arial','sans-serif';">84 710 3830841; Email: <a href="http://www.cit.ctu.edu.vn">Webmaster@cit.ctu.edu.vn</a></span>        </div>
+	                                 Điện thoại: 84 710 &nbsp;3831301; Fax: <span style="font-size: 10pt; font-family: 'Arial','sans-serif';">84 710 3830841; Email: <a href="http://www.cit.ctu.edu.vn">Webmaster@cit.ctu.edu.vn</a></span></div>
     </div>
 </div>
 

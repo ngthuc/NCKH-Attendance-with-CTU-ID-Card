@@ -30,7 +30,15 @@ class Home extends CI_Controller {
       $this->_data['subview'] = 'table_view';
       $this->_data['titlePage'] = 'Bảng tính';
       $this->_data['idTable'] = 'student-table';
-      
+
+      $this->_data['resultTable'] = $this->Muser->listUser();
+      $this->load->view('main.php', $this->_data);
+    }
+
+    public function cit()
+    {
+      $this->_data['subview'] = 'cit_view';
+      $this->_data['titlePage'] = 'Khoa CNTT&TT';
       $this->load->view('main.php', $this->_data);
     }
 }

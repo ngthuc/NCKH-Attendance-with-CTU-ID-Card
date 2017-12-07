@@ -9,8 +9,9 @@
       <th>Khoa/Viện</th>
     </thead>
     <tbody>
-      <?php $json = json_decode(file_get_contents(base_url('user.json')));
-      foreach ($json->user as $index => $obj): ?>
+      <?php
+      // $json = json_decode(file_get_contents(base_url('user.json')));
+      foreach ($resultTable->user as $index => $obj): ?>
         <tr>
           <td><?php echo $obj->id; ?></td>
           <td><?php echo $obj->studentID; ?></td>
