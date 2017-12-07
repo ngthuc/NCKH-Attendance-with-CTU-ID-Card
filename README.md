@@ -5,10 +5,10 @@ My project for student science research topic
 * PHP
 * MySQL
 * HTML/CSS
-* Bootstrap
+* Bootstrap 3.3.7
 * Javascript
 * AJAX
-* Jquery
+* Jquery 3.2.1
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Java for Raspberry Pi (Pi4J package)
 * Wiring for Arduino (using C)
