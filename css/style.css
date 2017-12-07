@@ -3,11 +3,11 @@
   height: 44px;
 }
 
-.navbar-default {
-  background-color: #0b619d !important;
-}
+/*.navbar-default {
+  background-color: #000 !important;
+}*/
 
-.navbar-default a {
+/*.navbar-default a {
   color: #fff !important;
 }
 
@@ -23,7 +23,7 @@
 .open>a {
   background-color: #836FFF !important;
   color: #fff !important;
-}
+}*/
 
 .search {
   padding-top: 150px;

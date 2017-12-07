@@ -3,14 +3,14 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2017 at 04:27 PM
+-- Generation Time: Dec 07, 2017 at 06:38 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "+07:00";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -71,7 +71,7 @@ CREATE TABLE `attendance` (
 CREATE TABLE `department` (
   `id` int(5) NOT NULL,
   `nameDepartment` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `idFaculty` char(10) COLLATE utf8_unicode_ci NOT NULL
+  `idFaculty` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -87,7 +87,7 @@ CREATE TABLE `event` (
   `timeEnd` time NOT NULL,
   `dateEvent` date NOT NULL,
   `locationEvent` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `descriptionEvent` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `descriptionEvent` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -112,7 +112,7 @@ CREATE TABLE `major` (
   `id` int(5) NOT NULL,
   `idMajor` char(10) COLLATE utf8_unicode_ci NOT NULL,
   `nameMajor` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
-  `idFaculty` char(10) COLLATE utf8_unicode_ci NOT NULL
+  `idFaculty` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -136,7 +136,7 @@ CREATE TABLE `register` (
 CREATE TABLE `rfid` (
   `id` int(5) NOT NULL,
   `idCard` char(10) COLLATE utf8_unicode_ci NOT NULL,
-  `numberId` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
+  `personalID` char(10) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -184,6 +184,20 @@ ALTER TABLE `apikey`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `attendance` (`idEvent`),
+  ADD KEY `attendancerfid` (`idCard`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
@@ -196,26 +210,10 @@ ALTER TABLE `faculty`
   ADD PRIMARY KEY (`id`,`idFaculty`);
 
 --
--- Indexes for table `attendance`
---
-ALTER TABLE `attendance`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `attendance` (`idEvent`),
-  ADD KEY `attendancerfid` (`idCard`);
-
---
--- Indexes for table `department`
---
-ALTER TABLE `department`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `departmentfaculty` (`idFaculty`);
-
---
 -- Indexes for table `major`
 --
 ALTER TABLE `major`
   ADD PRIMARY KEY (`id`,`idMajor`),
-  ADD KEY `major` (`idFaculty`),
   ADD KEY `idMajor` (`idMajor`);
 
 --
@@ -230,7 +228,6 @@ ALTER TABLE `register`
 --
 ALTER TABLE `rfid`
   ADD PRIMARY KEY (`id`,`idCard`),
-  ADD KEY `rfidstaff` (`numberId`),
   ADD KEY `idCard` (`idCard`);
 
 --
@@ -334,12 +331,6 @@ ALTER TABLE `department`
   ADD CONSTRAINT `department_ibfk_1` FOREIGN KEY (`id`) REFERENCES `staff` (`idDepartment`) ON DELETE CASCADE;
 
 --
--- Constraints for table `major`
---
-ALTER TABLE `major`
-  ADD CONSTRAINT `major_ibfk_1` FOREIGN KEY (`idMajor`) REFERENCES `student` (`idMajor`) ON DELETE CASCADE;
-
---
 -- Constraints for table `register`
 --
 ALTER TABLE `register`
@@ -350,6 +341,12 @@ ALTER TABLE `register`
 --
 ALTER TABLE `rfid`
   ADD CONSTRAINT `rfid_ibfk_1` FOREIGN KEY (`idCard`) REFERENCES `attendance` (`idCard`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`idMajor`) REFERENCES `major` (`idMajor`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

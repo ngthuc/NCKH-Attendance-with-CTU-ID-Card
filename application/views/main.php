@@ -41,7 +41,7 @@
 <body id="page-header">
   <!--Menu bar-->
   <!-- Fixed navbar -->
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
             <a href="<?php echo base_url(); ?>"><img class="navbar-left logo-ctu" src="<?php echo base_url('images/ctu_logo.gif'); ?>" alt="logo-CTU"></a>
@@ -91,10 +91,14 @@
 <?php $this->load->view($subview); ?>
 
 </body>
-<footer class="mt-5">
-    <hr>
-        <div class="text-center center-block">
-            <p class="txt-railway">- Ngthuc.com -</p>
-        </div>
-</footer>
+<div class="footer">
+  <hr>
+    <div class="container">
+        <div class="col-md-12 contact">
+            Khoa Công nghệ Thông tin &amp; Truyền thông - Trường Đại học Cần Thơ<br>
+	                                 Khu 2, đường 3/2, Phường Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ, Việt Nam;<br>
+	                                 Điện thoại: 84 710 &nbsp;3831301; Fax: <span style="font-size: 10pt; font-family: 'Arial','sans-serif';">84 710 3830841; Email: <a href="http://www.cit.ctu.edu.vn">Webmaster@cit.ctu.edu.vn</a></span>        </div>
+    </div>
+</div>
+
 </html>
