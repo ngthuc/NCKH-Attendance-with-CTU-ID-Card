@@ -13,13 +13,16 @@ class Home extends CI_Controller {
 		{
       $this->_data['subview'] = 'index_view';
       $this->_data['titlePage'] = 'Trang chủ';
-      $this->_data['urlFormPage'] = 'home/search';
+      $this->_data['urlFormPage'] = 'home/query';
       $this->load->view('main.php', $this->_data);
 		}
 
-    public function search()
+    public function query()
     {
-      echo $_POST['query'];
+      $this->_data['subview'] = 'process_query';
+      $this->_data['titlePage'] = 'Trang chủ';
+      $this->_data['result'] = $_POST['query'];
+      $this->load->view('main.php', $this->_data);
     }
 
     public function table()
