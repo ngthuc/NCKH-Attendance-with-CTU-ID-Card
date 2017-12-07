@@ -3,8 +3,9 @@ My project for student science research topic
 
 ## Technology
 * PHP 7.1.10
-* MySQL
-* HTML/CSS
+* MySQL/MariaDB 4.7.4
+* HTML 5
+* CSS
 * Bootstrap 3.3.7
 * Javascript
 * AJAX
