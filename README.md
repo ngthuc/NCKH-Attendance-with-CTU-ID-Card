@@ -2,13 +2,14 @@
 My project for student science research topic
 
 ## Technology
-* PHP
+* PHP 7.1.10
 * MySQL
 * HTML/CSS
 * Bootstrap 3.3.7
 * Javascript
 * AJAX
 * Jquery 3.2.1
+* DataTales 1.0.16 with Vietnamese language of Trinh Phuoc Thai (https://datatables.net/plug-ins/i18n/Vietnamese)
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Java for Raspberry Pi (Pi4J package)
 * Wiring for Arduino (using C)

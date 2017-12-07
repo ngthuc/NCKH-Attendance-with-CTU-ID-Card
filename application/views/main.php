@@ -12,25 +12,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
    <!-- Bootstrap core JS -->
-   <!-- <script src="<?php //echo base_url('js/main.js'); ?>"></script> -->
+   <script src="<?php // echo base_url('js/main.js'); ?>"></script>
 
    <!-- ImportCSS -->
    <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet">
-
-   <!-- Latest compiled and minified CSS -->
-   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
-
-   <!-- Optional theme -->
-   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
-
-   <!-- Latest compiled and minified JavaScript -->
-   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
    <link href="<?php echo base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
 
    <!-- Bootstrap core CSS & JS online -->
-   <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
    <script src="<?php echo base_url('js/jquery-3.2.1.min.js'); ?>"></script>
    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+
+   <!-- DataTable 1.10.16 -->
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('DataTables/datatables.min.css'); ?>"/>
+   <script type="text/javascript" src="<?php echo base_url('DataTables/datatables.min.js'); ?>"></script>
 </head>
 <body id="page-header">
   <!--Menu bar-->
@@ -39,7 +33,7 @@
         <div class="container-fluid">
           <div class="navbar-header">
             <a href="<?php echo base_url(); ?>"><img class="navbar-left logo-ctu" src="<?php echo base_url('images/ctu_logo.gif'); ?>" alt="logo-CTU"></a>
-            <a class="navbar-brand" href="<?php echo base_url(); ?>">Tìm kiếm Đề cương</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>"> HỆ THỐNG ĐIỂM DANH </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ctudocsnavbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -72,15 +66,18 @@
         </div><!-- /.container-fluid -->
       </nav>
 
-  <!-- <script type="text/javascript">
+  <script type="text/javascript">
   $(document).click(function(e) {
   if (!$(e.target).is('a')) {
       $('.collapse').collapse('hide');
     }
   });
-  </script> -->
+  </script>
 <!-- End Nav -->
+
+<!-- Load subview -->
 <?php $this->load->view($subview); ?>
+
 </body>
 <footer class="mt-5">
     <hr>

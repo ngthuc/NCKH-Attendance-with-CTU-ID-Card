@@ -10,7 +10,12 @@ class Test extends CI_Controller {
 		{
       $this->_data['subview'] = 'index_view';
       $this->_data['titlePage'] = 'Trang chủ';
-      $this->_data['contentPage'] = 'Đây là nội dung';
+      $this->_data['urlFormPage'] = 'test/search';
       $this->load->view('main.php', $this->_data);
 		}
+
+    public function search()
+    {
+      echo $_POST['query'];
+    }
 }
