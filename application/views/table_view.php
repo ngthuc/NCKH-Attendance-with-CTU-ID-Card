@@ -1,5 +1,5 @@
 <div class="container">
-  <table class="table table-striped" id="student-table">
+  <table class="table table-striped" id="<?php echo $idTable; ?>">
     <thead>
       <th>ID</th>
       <th>MSSV</th>
@@ -148,14 +148,3 @@
     </tbody>
   </table>
 </div>
-
-<!-- Using datatables -->
-<script type="text/javascript">
-$(document).ready(function () {
-    $('#student-table').DataTable({
-      "language" : {
-        "url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Vietnamese.json"
-    }
-  });
-});
-</script>

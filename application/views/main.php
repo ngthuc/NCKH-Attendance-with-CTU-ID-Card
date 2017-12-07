@@ -25,6 +25,18 @@
    <!-- DataTable 1.10.16 -->
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('DataTables/datatables.min.css'); ?>"/>
    <script type="text/javascript" src="<?php echo base_url('DataTables/datatables.min.js'); ?>"></script>
+   <!-- Using datatables -->
+   <script type="text/javascript">
+   $(document).ready(function () {
+       $('#<?php echo $idTable; ?>').DataTable({
+         "language" : {
+           "url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Vietnamese.json"
+       }
+     });
+   });
+
+
+   </script>
 </head>
 <body id="page-header">
   <!--Menu bar-->
