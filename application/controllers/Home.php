@@ -21,7 +21,9 @@ class Home extends CI_Controller {
     {
       $this->_data['subview'] = 'process_query';
       $this->_data['titlePage'] = 'Trang chủ';
-      $this->_data['result'] = $_POST['query'];
+      $this->_data['query'] = $_POST['query'];
+      $this->_data['resultUser'] = $this->Muser->findUser($_POST['query']);
+
       $this->load->view('main.php', $this->_data);
     }
 
