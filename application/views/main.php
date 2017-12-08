@@ -131,7 +131,7 @@
         margin: 5px 0px;
     }
     .con{
-        min-height: 600px;
+        min-height: 500px;
     }
     .app-menu{
         background-color: #fff !important;
@@ -200,10 +200,12 @@
   });
   </script>
 <!-- End Nav -->
+<div class="con">
 
 <!-- Load subview -->
 <?php $this->load->view($subview); ?>
 
+</div>
 </body>
 <div class="footer">
     <div class="container">
