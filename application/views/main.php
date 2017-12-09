@@ -36,7 +36,9 @@
    });
    </script>
 
-   JSTree
+   <!-- JSTree 3.3.4 -->
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('extensions/jstree/dist/themes/default/style.min.css'); ?>"/>
+   <script type="text/javascript" src="<?php echo base_url('extensions/jstree/dist/jstree.min.js'); ?>"></script>
 
    <style>
             .loader {
