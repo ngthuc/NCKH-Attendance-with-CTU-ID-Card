@@ -23,9 +23,9 @@
    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
    <!-- DataTable 1.10.16 -->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('DataTables/datatables.min.css'); ?>"/>
-   <script type="text/javascript" src="<?php echo base_url('DataTables/datatables.min.js'); ?>"></script>
-   <!-- Using datatables -->
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('library/DataTables/datatables.min.css'); ?>"/>
+   <script type="text/javascript" src="<?php echo base_url('library/DataTables/datatables.min.js'); ?>"></script>
+   <!-- Using DataTables -->
    <script type="text/javascript">
    $(document).ready(function () {
        $('#<?php echo $idTable; ?>').DataTable({
@@ -35,6 +35,8 @@
      });
    });
    </script>
+
+   JSTree
 
    <style>
             .loader {

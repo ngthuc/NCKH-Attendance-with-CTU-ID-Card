@@ -10,7 +10,9 @@ My project for student science research topic
 * Javascript
 * AJAX
 * Jquery 3.2.1
-* DataTales 1.10.16 with Vietnamese language of Trinh Phuoc Thai (https://datatables.net/plug-ins/i18n/Vietnamese)
+* JSTree 3.3.4
+* DataTales 1.10.16
+* DataTables Vietnamese language of Trinh Phuoc Thai (https://datatables.net/plug-ins/i18n/Vietnamese)
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Java for Raspberry Pi (Pi4J package)
 * Wiring for Arduino (using C)

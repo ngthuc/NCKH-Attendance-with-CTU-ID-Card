@@ -43,4 +43,11 @@ class Home extends CI_Controller {
       $this->_data['titlePage'] = 'Khoa CNTT&TT';
       $this->load->view('main.php', $this->_data);
     }
+
+    public function org()
+    {
+      $this->_data['subview'] = 'tree_view';
+      $this->_data['titlePage'] = 'Tổ chức';
+      $this->load->view('main.php', $this->_data);
+    }
 }
