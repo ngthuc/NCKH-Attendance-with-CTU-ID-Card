@@ -11,20 +11,18 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-   <!-- Bootstrap core JS -->
-   <script src="<?php // echo base_url('js/main.js'); ?>"></script>
-
-   <!-- ImportCSS -->
+   <!-- CSS and JS link -->
    <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet">
    <link href="<?php echo base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
+   <script src="<?php // echo base_url('js/main.js'); ?>"></script>
 
    <!-- Bootstrap core CSS & JS online -->
    <script src="<?php echo base_url('js/jquery-3.2.1.min.js'); ?>"></script>
    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
 
    <!-- DataTable 1.10.16 -->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('library/DataTables/datatables.min.css'); ?>"/>
-   <script type="text/javascript" src="<?php echo base_url('library/DataTables/datatables.min.js'); ?>"></script>
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('extensions/DataTables/datatables.min.css'); ?>"/>
+   <script type="text/javascript" src="<?php echo base_url('extensions/DataTables/datatables.min.js'); ?>"></script>
    <!-- Using DataTables -->
    <script type="text/javascript">
    $(document).ready(function () {
@@ -40,116 +38,117 @@
    <link rel="stylesheet" type="text/css" href="<?php echo base_url('extensions/jstree/dist/themes/default/style.min.css'); ?>"/>
    <script type="text/javascript" src="<?php echo base_url('extensions/jstree/dist/jstree.min.js'); ?>"></script>
 
-   <style>
-            .loader {
-                background: #333;
-                height: 100%;
-                z-index: 100000;
-                color: #fff;
-                text-align: center;
-                padding-top: 10%;
-            }
-            body{
-                padding-right: 0px !important;
-            }
+   <!-- College of ICT - Can Tho University Library -->
+   <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
+   <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
+
+   <!-- CSS and JS internal -->
+   <style type="text/css">
+        .loader {
+            background: #333;
+            height: 100%;
+            z-index: 100000;
+            color: #fff;
+            text-align: center;
+            padding-top: 10%;
+        }
+        body{
+            padding-right: 0px !important;
+        }
+
+        body {
+            background-color: #32393F !important;
+            padding-top: 150px;
+        }
+        .logo{
+            padding: 4px 15px;
+        }
+        .bootstrap-table{
+            background-color: #fff;
+        }
+        .navbar-menu {
+            background-color: #fff;
+            margin-bottom: 0;
+        }
+
+        .navbar-cmd {
+            border-radius: 0;
+            border-bottom: none;
+            border-top: none;
+            margin-bottom: 0;
+            box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
+            -moz-box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
+            -webkit-box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
+            z-index: 1;
+        }
+
+        .main-content {
+            padding-right: 0;
+            padding-left: 0;
+        }
+
+        .navbar-navi {
+            padding-top: 10px;
+            padding-left: 0;
+        }
+
+        .navbar-navi a{
+            color: #777;
+            cursor: pointer;
+            border-radius: 0 !important;
+        }
+
+        .navbar-cmd-btn {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 8px;
+            margin-left: -10px;
+        }
+        .footer {
+            background-color: #0F1112;
+            padding: 15px;
+            position: static !important;
+        }
+        .footer .container .author{
+            text-align: center;
+        }
+        .footer .container .author hr{
+            border-top: 1px solid #000 !important;
+            border-bottom: 1px solid #222 !important;
+        }
+
+        .footer{
+            background-image: url("http://cit.ctu.edu.vn/quanlylaodong/img/worldmap.png");
+            background-repeat: no-repeat;
+            min-height: 100px;
+        }
+        .contact{
+            color: #C3C3C3;
+        }
+        .contact h3:after{
+            content: "";
+            display: block;
+            background: #5cace2;
+            position: absolute;
+            height: 1px;
+            width: 100px;
+            margin: 5px 0px;
+        }
+        .con{
+            min-height: 600px;
+        }
+        .app-menu{
+            background-color: #fff !important;
+            border-bottom: 1px solid #fff !important;
+              box-shadow: 0 10px 30px rgba(0,0,0,.2);
+        }
+        .navbar-header a{
+            color: #32393F !important;
+        }
+        .title{
+            color: #fff;
+        }
     </style>
-    <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
-<style type="text/css">
-    body {
-        background-color: #32393F !important;
-        padding-top: 150px;
-    }
-    .logo{
-        padding: 4px 15px;
-    }
-    .bootstrap-table{
-        background-color: #fff;
-    }
-    .navbar-menu {
-        background-color: #fff;
-        margin-bottom: 0;
-    }
-
-    .navbar-cmd {
-        border-radius: 0;
-        border-bottom: none;
-        border-top: none;
-        margin-bottom: 0;
-        box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
-        -moz-box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
-        -webkit-box-shadow: 0px 0px 5px 0px rgba(50,50,50,0.3);
-        z-index: 1;
-    }
-
-    .main-content {
-        padding-right: 0;
-        padding-left: 0;
-    }
-
-    .navbar-navi {
-        padding-top: 10px;
-        padding-left: 0;
-    }
-
-    .navbar-navi a{
-        color: #777;
-        cursor: pointer;
-        border-radius: 0 !important;
-    }
-
-    .navbar-cmd-btn {
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 8px;
-        margin-left: -10px;
-    }
-    .footer {
-        background-color: #0F1112;
-        padding: 15px;
-        position: static !important;
-    }
-    .footer .container .author{
-        text-align: center;
-    }
-    .footer .container .author hr{
-        border-top: 1px solid #000 !important;
-        border-bottom: 1px solid #222 !important;
-    }
-
-    .footer{
-        background-image: url("http://cit.ctu.edu.vn/quanlylaodong/img/worldmap.png");
-        background-repeat: no-repeat;
-        min-height: 100px;
-    }
-    .contact{
-        color: #C3C3C3;
-    }
-    .contact h3:after{
-        content: "";
-        display: block;
-        background: #5cace2;
-        position: absolute;
-        height: 1px;
-        width: 100px;
-        margin: 5px 0px;
-    }
-    .con{
-        min-height: 500px;
-    }
-    .app-menu{
-        background-color: #fff !important;
-        border-bottom: 1px solid #fff !important;
-          box-shadow: 0 10px 30px rgba(0,0,0,.2);
-    }
-    .navbar-header a{
-        color: #32393F !important;
-    }
-    .title{
-        color: #fff;
-    }
-</style>
-
 </head>
 <body id="page-header">
   <!-- <div class="loader modal-backdrop">
