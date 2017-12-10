@@ -16,6 +16,7 @@ My project for student science research topic
 * Code Igniter 3.1.6 (PHP Web Framework)
 * Java for Raspberry Pi (Pi4J package)
 * Wiring for Arduino (using C)
+* Coming soon: Google Chart - https://developers.google.com/chart/interactive/docs/quick_start
 
 ## Hardware
 * Raspberry Pi 3
