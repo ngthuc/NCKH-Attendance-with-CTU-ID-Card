@@ -41,15 +41,17 @@
 
    <!-- College of ICT - Can Tho University Library -->
    <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
-   <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
+   <!-- <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/> -->
 
    <!-- Ho Chi Minh University of Sciences - Viet Nam University, Ho Chi Minh City Library -->
    <link href="http://sam.doantn.hcmus.edu.vn/static/v2/styles/common.css" rel="stylesheet">
 
    <!-- CSS and JS internal -->
-   <!-- <style type="text/css">
-
-    </style> -->
+   <style type="text/css">
+     body {
+       background-color: white !important;
+     }
+    </style>
 </head>
 <body id="page-header">
   <!-- <div class="loader modal-backdrop">
