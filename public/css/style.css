@@ -1,14 +1,15 @@
 .logo-ctu {
-  width: 65px;
-  height: 53px;
-  padding: 4px 10px;
+  width: 55px;
+  height: 44px;
+  padding-right: 10px;
 }
 
-/*.navbar-default {
+/*
+.navbar-default {
   background-color: #000 !important;
-}*/
+}
 
-/*.navbar-default a {
+.navbar-default a {
   color: #fff !important;
 }
 
@@ -17,36 +18,15 @@
   color: #fff !important;
 }
 
-.dropdown-menu a {
-  color: #00FF00 !important;
-}
-
 .open>a {
   background-color: #836FFF !important;
   color: #fff !important;
-}*/
-
-.search {
-  padding-top: 150px;
-  padding-bottom: 270px;
-  /*padding-left: 284px;
-  padding-right: 284px;*/
 }
+*/
 
 @media screen and (max-width: 768px) {
     .search {
       padding-top: 145px;
       padding-bottom: 145px;
     }
-}
-
-.search form {
-  max-width: 632px;
-}
-
-.search-result {
-  padding-top: 0px;
-  padding-bottom: 10px;
-  /*padding-left: 284px;
-  padding-right: 284px;*/
 }

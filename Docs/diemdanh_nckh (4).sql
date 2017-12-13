@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2017 at 05:43 PM
+-- Generation Time: Dec 13, 2017 at 11:47 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -45,7 +45,7 @@ CREATE TABLE `account` (
 
 CREATE TABLE `apikey` (
   `id` int(5) NOT NULL,
-  `valueApi` char(20) COLLATE utf8_unicode_ci NOT NULL,
+  `statusApi` bit(1) NOT NULL DEFAULT b'1',
   `encriptApi` char(30) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
