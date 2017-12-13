@@ -8,9 +8,18 @@ class Index extends CI_Controller {
 
 		public function index()
 		{
-      $this->_data['subview'] = 'index_view';
+      $this->_data['subview'] = 'index/index_view';
       $this->_data['titlePage'] = 'Trang chủ';
-      $this->_data['urlFormPage'] = 'home/query';
+      $this->load->view('main.php', $this->_data);
+		}
+
+    public function activity($id = '', $content = '', $author = '')
+		{
+      $this->_data['subview'] = 'index/activity_view';
+      $this->_data['titlePage'] = 'Trang chủ';
+      $this->_data['value'] = $id;
+      $this->_data['content'] = $content;
+      $this->_data['tacgia'] = $author;
       $this->load->view('main.php', $this->_data);
 		}
 }

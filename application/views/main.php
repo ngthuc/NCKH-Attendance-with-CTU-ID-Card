@@ -42,6 +42,9 @@
    <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
    <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
 
+   <!-- Ho Chi Minh University of Sciences - Viet Nam University, Ho Chi Minh City Library -->
+   <link href="http://sam.doantn.hcmus.edu.vn/static/v2/styles/common.css" rel="stylesheet">
+
    <!-- CSS and JS internal -->
    <style type="text/css">
         .loader {
