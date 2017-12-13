@@ -7,23 +7,23 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title><?php echo $titlePage; ?></title>
     <meta name="robots" content="INDEX, FOLLOW" />
-    <link rel="icon" href="<?php echo base_url('images/ctu_logo.gif'); ?>" type="image/png">
+    <link rel="icon" href="<?php echo base_url('public/images/ctu_logo.gif'); ?>" type="image/png">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
    <!-- CSS and JS link -->
-   <link href="<?php echo base_url('css/style.css'); ?>" rel="stylesheet">
-   <link href="<?php echo base_url('css/bootstrap.min.css'); ?>" rel="stylesheet">
-   <link href="<?php echo base_url('css/main_style.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/style.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/bootstrap.min.css'); ?>" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/main_style.css'); ?>" rel="stylesheet">
    <script src="<?php // echo base_url('js/main.js'); ?>"></script>
 
    <!-- Bootstrap core CSS & JS online -->
-   <script src="<?php echo base_url('js/jquery-3.2.1.min.js'); ?>"></script>
-   <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+   <script src="<?php echo base_url('public/js/jquery-3.2.1.min.js'); ?>"></script>
+   <script src="<?php echo base_url('public/js/bootstrap.min.js'); ?>"></script>
 
    <!-- DataTable 1.10.16 -->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('extensions/DataTables/datatables.min.css'); ?>"/>
-   <script type="text/javascript" src="<?php echo base_url('extensions/DataTables/datatables.min.js'); ?>"></script>
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/extensions/DataTables/datatables.min.css'); ?>"/>
+   <script type="text/javascript" src="<?php echo base_url('public/extensions/DataTables/datatables.min.js'); ?>"></script>
    <!-- Using DataTables -->
    <script type="text/javascript">
    $(document).ready(function () {
@@ -36,8 +36,8 @@
    </script>
 
    <!-- JSTree 3.3.4 -->
-   <link rel="stylesheet" type="text/css" href="<?php echo base_url('extensions/jstree/dist/themes/default/style.min.css'); ?>"/>
-   <script type="text/javascript" src="<?php echo base_url('extensions/jstree/dist/jstree.min.js'); ?>"></script>
+   <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/extensions/jstree/dist/themes/default/style.min.css'); ?>"/>
+   <script type="text/javascript" src="<?php echo base_url('public/extensions/jstree/dist/jstree.min.js'); ?>"></script>
 
    <!-- College of ICT - Can Tho University Library -->
    <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
@@ -61,7 +61,7 @@
       <nav class="navbar navbar-inverse navbar-fixed-top app-menu" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a href="<?php echo base_url(); ?>"><img class="navbar-left logo-ctu" src="<?php echo base_url('images/ctu_logo.gif'); ?>" alt="logo-CTU"></a>
+            <a href="<?php echo base_url(); ?>"><img class="navbar-left logo-ctu" src="<?php echo base_url('public/images/ctu_logo.gif'); ?>" alt="logo-CTU"></a>
             <a class="navbar-brand" href="<?php echo base_url(); ?>"> HỆ THỐNG ĐIỂM DANH </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#ctudocsnavbar">
               <span class="sr-only">Toggle navigation</span>
