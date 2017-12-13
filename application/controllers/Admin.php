@@ -1,9 +1,12 @@
 <?php
 class Admin extends CI_Controller {
+		protected $_data;
+
 		// Hàm khởi tạo
 		function __construct() {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
+				$this->_data['idTable'] = '';
 		}
 
 		public function index()

@@ -1,10 +1,13 @@
 <?php
 class Index extends CI_Controller {
-		// Hàm khởi tạo
-		function __construct() {
-				// Gọi đến hàm khởi tạo của cha
-				parent::__construct();
-		}
+    protected $_data;
+
+    // Hàm khởi tạo
+    function __construct() {
+        // Gọi đến hàm khởi tạo của cha
+        parent::__construct();
+        $this->_data['idTable'] = '';
+    }
 
 		public function index()
 		{
