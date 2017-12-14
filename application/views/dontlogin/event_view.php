@@ -9,7 +9,7 @@
           2017-2018
           <br>
         <span><i class="fa fa-home"></i><strong>Đơn vị tổ chức: </strong></span>
-          <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+          <a href="<?php echo base_url('/organizations/org/5/')?>">Chi Đoàn 14TTH2</a>
           <br>
         <span><i class="fa fa-calendar"></i><strong>Thời gian: </strong></span>
           08/12/2017 00:00 - 14/12/2017 23:55

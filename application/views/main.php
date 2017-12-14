@@ -93,7 +93,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
           <li><a href="<?php echo base_url('admin'); ?>">Quản trị</a></li>
-          <li><a href="<?php echo base_url('auth/login'.$_SERVER['REQUEST_URI']); ?>">Đăng nhập</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#loginform">Đăng nhập</a></li>
           <li><a href="<?php echo base_url('auth/logout'.$_SERVER['REQUEST_URI']); ?>">Đăng xuất</a></li>
         </ul>
       </div> <!-- /.navbar-collapse -->
@@ -108,12 +108,40 @@
   });
   </script>
 <!-- End Nav -->
-<div class="con">
+
+<!-- Begin Login form -->
+<div class="modal fade" id="loginform">
+  <div class="modal-dialog" role="document">
+    <form class="form-horizontal" action="<?php echo base_url('auth/login'.$_SERVER['REQUEST_URI']); ?>" method="post">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">Đăng nhập</h4>
+        </div>
+        <div class="modal-body">
+          <label for="uid">Tài khoản</label>
+          <input type="text" name="uid" class="form-control" placeholder="Nhập tài khoản">
+          <label for="pwd">Mật khẩu</label>
+          <input type="password" name="pwd" class="form-control" placeholder="Nhập mật khẩu">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="submit" name="loginSubmit" class="btn btn-primary">Đăng nhập</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </form>
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Login form -->
 
 <!-- Load subview -->
+<div class="con">
 <?php $this->load->view($subview); ?>
-
 </div>
+<!-- End subview -->
 
 </body>
 <div class="footer">
