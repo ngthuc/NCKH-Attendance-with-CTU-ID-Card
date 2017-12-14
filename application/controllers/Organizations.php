@@ -1,10 +1,14 @@
 <?php
 class Organizations extends CI_Controller {
+
+	  protected $_data = array('div_alert' => 'container','type' => null,'url' => null,'content' => null);
+
 		// Hàm khởi tạo
 		function __construct() {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
-        $this->load->model('Morg');
+	      $this->_data['url'] = base_url();
+				$this->load->model('Morg');
 		}
 
 		public function index()

@@ -1,20 +1,21 @@
 <?php
 class API extends CI_Controller {
+
+	  protected $_data = array('isCss' => null,'div_alert' => 'container','type' => null,'url' => null,'content' => null);
+
 		// Hàm khởi tạo
 		function __construct() {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
+	      $this->_data['url'] = base_url();
 				$this->load->model('Mapi');
 		}
 
 		public function index()
 		{
-				$data = array (
-					'type' => 'warning',
-					'url' => base_url(),
-					'content' => 'Access Denied'
-				);
-				$this->load->view('alert/load_alert_view', $data);
+				$this->_data['type'] = 'warning';
+				$this->_data['content'] = 'Access Denied';
+				$this->load->view('alert/load_alert_view',$this->_data);
 		}
 
 		public function gets($table = null, $where = null, $id = null)
@@ -45,12 +46,20 @@ class API extends CI_Controller {
 						echo json_encode($result);
 					}
 				} else {
-					$data = array (
-						'type' => 'warning',
-						'url' => base_url(),
-						'content' => 'Access Denied'
-					);
-					$this->load->view('alert/load_alert_view', $data);
+						$this->_data['type'] = 'warning';
+						$this->_data['content'] = 'Access Denied';
+						$this->load->view('alert/load_alert_view',$this->_data);
+				}
+		}
+
+		public function post($table = null, $json = null)
+		{
+				if ($table) {
+						echo $table;
+						echo '<br />';
+						print_r($json);
+				} else {
+
 				}
 		}
 }

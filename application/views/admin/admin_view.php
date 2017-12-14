@@ -56,8 +56,8 @@
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/permissions'); ?>">
-        <div class="alert alert-info">
+      <a href="<?php echo base_url('auth/login/admin/permissions'); ?>">
+        <div class="alert alert-success">
           <div class="form-activity">
             <div class="form-header">
               Quản lý phân quyền và quyền truy cập
@@ -68,7 +68,7 @@
     </div>
     <div class="col-md-4">
       <a href="<?php echo base_url('admin/user_account'); ?>">
-        <div class="alert alert-success">
+        <div class="alert alert-info">
           <div class="form-activity">
             <div class="form-header">
               Quản lý tài khoản và người dùng

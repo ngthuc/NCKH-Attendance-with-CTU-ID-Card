@@ -28,7 +28,7 @@
    <!-- Using DataTables -->
    <script type="text/javascript">
    $(document).ready(function () {
-       $('#<?php echo $idTable; ?>').DataTable({
+       $('#datatables').DataTable({
          "language" : {
            "url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Vietnamese.json"
        }
@@ -93,7 +93,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
           <li><a href="<?php echo base_url('admin'); ?>">Quản trị</a></li>
-          <li><a href="#">Đăng nhập/Đăng xuất</a></li>
+          <li><a href="#">Đăng nhập</a></li>
+          <li><a href="<?php echo base_url('auth/logout'); ?>">Đăng xuất</a></li>
         </ul>
       </div> <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -105,6 +106,7 @@
       $('.collapse').collapse('hide');
     }
   });
+  window.location.pathname;
   </script>
 <!-- End Nav -->
 <div class="con">
@@ -117,10 +119,13 @@
 </body>
 <div class="footer">
   <div class="container">
-      <div class="col-md-12 contact">
-          Khoa Công nghệ Thông tin &amp; Truyền thông - Trường Đại học Cần Thơ<br>
-	        Khu 2, đường 3/2, Phường Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ, Việt Nam;<br>
-	        Điện thoại: 84 710 &nbsp;3831301; Fax: <span style="font-size: 10pt; font-family: 'Arial','sans-serif';">84 710 3830841; Email: <a href="http://www.cit.ctu.edu.vn">Webmaster@cit.ctu.edu.vn</a></span></div>
+    <div class="col-md-12 contact">
+Khoa Công nghệ Thông tin &amp; Truyền thông - Trường Đại học Cần Thơ<br>
+Khu 2, đường 3/2, Phường Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ, Việt Nam;<br>
+Điện thoại: <span style="font-size: 10pt; font-family: 'Arial','sans-serif';">(+84) 2923 831 301;
+Fax: <span style="font-size: 10pt; font-family: 'Arial','sans-serif';">(+84) 2923 830 841;
+Email: <a href="http://www.cit.ctu.edu.vn">Webmaster@cit.ctu.edu.vn</a></span>
+    </div>
   </div>
 </div>
 </html>

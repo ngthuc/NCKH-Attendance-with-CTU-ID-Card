@@ -1,12 +1,13 @@
 <?php
 class Admin extends CI_Controller {
-		protected $_data;
+
+	  protected $_data = array('div_alert' => 'container','type' => null,'url' => null,'content' => null);
 
 		// Hàm khởi tạo
 		function __construct() {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
-				$this->_data['idTable'] = '';
+	      $this->_data['url'] = base_url();
 		}
 
 		public function index()
@@ -61,7 +62,7 @@ class Admin extends CI_Controller {
 		public function device_api()
 		{
       $this->_data['subview'] = 'admin/admin_view';
-      $this->_data['titlePage'] = 'Quản lý thiết bị và API';      
+      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
       $this->load->view('main.php', $this->_data);
 		}
 }
