@@ -18,12 +18,20 @@ class Organizations extends CI_Controller {
 
     public function org($id = '')
 		{
-      // echo 'This is '.$id.' organization page';
-      $getOrg = $this->Morg->getOrgById($id);
+			$getOrg = $this->Morg->getOrgById($id);
       if ($getOrg['parent'] == $getOrg['id']) {
-        $parent = '<i>Không có cấp cao hơn tại cơ sở</i>';
+				$parent['name'] = '<i>Không có cấp cao hơn tại cơ sở</i>';
+        $parent['id'] = $getOrg['id'];
       } else $parent = $this->Morg->getOrgById($getOrg['parent']);
-      echo 'Tên tổ chức: '.$getOrg['name'].'<br />Tổ chức quản lý: '.$parent['name'].'<br />Mô tả: '.$getOrg['description'].'<hr>';
+
+			$this->_data['subview'] = 'dontlogin/org_detail_view';
+			$this->_data['titlePage'] = 'Chi tiết tổ chức';
+
+      $this->_data['name'] = $getOrg['name'];
+			$this->_data['parent_name'] = $parent['name'];
+			$this->_data['parent_id'] = $parent['id'];
+			$this->_data['description'] = $getOrg['description'];
+			$this->load->view('main.php', $this->_data);
 		}
 
     public function test()

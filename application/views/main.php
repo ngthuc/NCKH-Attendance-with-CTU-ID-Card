@@ -93,8 +93,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
           <li><a href="<?php echo base_url('admin'); ?>">Quản trị</a></li>
-          <li><a href="#">Đăng nhập</a></li>
-          <li><a href="<?php echo base_url('auth/logout'); ?>">Đăng xuất</a></li>
+          <li><a href="<?php echo base_url('auth/login'.$_SERVER['REQUEST_URI']); ?>">Đăng nhập</a></li>
+          <li><a href="<?php echo base_url('auth/logout'.$_SERVER['REQUEST_URI']); ?>">Đăng xuất</a></li>
         </ul>
       </div> <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -106,7 +106,6 @@
       $('.collapse').collapse('hide');
     }
   });
-  window.location.pathname;
   </script>
 <!-- End Nav -->
 <div class="con">
