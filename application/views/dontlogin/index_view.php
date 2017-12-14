@@ -14,7 +14,7 @@
                 <div class="pull-right">
                   <i class="fa fa-calendar"></i> 07/12/2017 17:00</div>
                 <div class="form-organization">
-                  <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+                  <a href="<?php echo base_url('/organizations/org/7/')?>">Chi Đoàn 14TTH2</a>
                 </div>
               </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="pull-right">
                   <i class="fa fa-calendar"></i> 07/12/2017 17:00</div>
                 <div class="form-organization">
-                  <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+                  <a href="<?php echo base_url('/organizations/org/7/')?>">Chi Đoàn 14TTH2</a>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
                 <div class="pull-right">
                   <i class="fa fa-calendar"></i> 07/12/2017 17:00</div>
                 <div class="form-organization">
-                  <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+                  <a href="<?php echo base_url('/organizations/org/7/')?>">Chi Đoàn 14TTH2</a>
                 </div>
               </div>
             </div>
@@ -61,7 +61,7 @@
                 <div class="pull-right">
                   <i class="fa fa-calendar"></i> 07/12/2017 17:00</div>
                 <div class="form-organization">
-                  <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+                  <a href="<?php echo base_url('/organizations/org/7/')?>">Chi Đoàn 14TTH2</a>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@
                 <div class="pull-right">
                   <i class="fa fa-calendar"></i> 07/12/2017 17:00</div>
                 <div class="form-organization">
-                  <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+                  <a href="<?php echo base_url('/organizations/org/7/')?>">Chi Đoàn 14TTH2</a>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
                 <div class="pull-right">
                   <i class="fa fa-calendar"></i> 07/12/2017 17:00</div>
                 <div class="form-organization">
-                  <a href="<?php echo base_url('/organizations/org/CD14TTH2/')?>">Chi Đoàn 14TTH2</a>
+                  <a href="<?php echo base_url('/organizations/org/7/')?>">Chi Đoàn 14TTH2</a>
                 </div>
               </div>
             </div>
