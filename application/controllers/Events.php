@@ -17,13 +17,38 @@ class Events extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-    public function event($id = '', $content = '', $author = '')
+    public function event($id = null, $personal = null)
 		{
-      $this->_data['subview'] = 'dontlogin/event_view';
-      $this->_data['titlePage'] = 'Trang chủ';
-      $this->_data['value'] = $id;
-      $this->_data['content'] = $content;
-      $this->_data['tacgia'] = $author;
+      if ($id) {
+				$this->_data['subview'] = 'dontlogin/event_detail_view';
+				$this->_data['titlePage'] = 'Chi tiết sự kiện';
+				$this->_data['personalJoined'] = $personal;
+	      $this->_data['isJoined'] = 'NO';
+			} else {
+				$this->_data['subview'] = 'alert/load_alert_view';
+        $this->_data['titlePage'] = 'Cảnh báo';
+        $this->_data['type'] = 'warning';
+        $this->_data['url'] = base_url('events');
+        $this->_data['content'] = 'Access Denied';
+			}
+      $this->load->view('main.php', $this->_data);
+		}
+
+		public function org($id = null)
+		{
+      if ($id) {
+				$this->_data['subview'] = 'dontlogin/events_org_view';
+	      $this->_data['titlePage'] = 'Chi tiết sự kiện theo tổ chức';
+	      $this->_data['value'] = $id;
+	      $this->_data['content'] = $content;
+	      $this->_data['tacgia'] = $author;
+			} else {
+				$this->_data['subview'] = 'alert/load_alert_view';
+        $this->_data['titlePage'] = 'Cảnh báo';
+        $this->_data['type'] = 'warning';
+        $this->_data['url'] = base_url('events');
+        $this->_data['content'] = 'Access Denied';
+			}
       $this->load->view('main.php', $this->_data);
 		}
 }
