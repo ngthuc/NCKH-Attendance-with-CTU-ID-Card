@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page-header">
-    <h1>Quản lý tổ chức</h1>
+    <h1>Quản lý thiết bị điểm danh</h1>
   </div>
   <div class="col-md-12">
     <table class="table">
