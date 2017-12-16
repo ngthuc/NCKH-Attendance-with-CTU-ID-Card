@@ -17,13 +17,18 @@ class Events extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-    public function event($id = null, $personal = null)
+    public function event($id = null)
 		{
       if ($id) {
 				$this->_data['subview'] = 'dontlogin/event_detail_view';
 				$this->_data['titlePage'] = 'Chi tiết sự kiện';
-				$this->_data['personalJoined'] = $personal;
-	      $this->_data['isJoined'] = 'NO';
+				if (isset($_POST['checked'])) {
+					$this->_data['personalJoined'] = $_POST['personalid'];
+					$this->_data['isJoined'] = 'YES';
+				} else {
+					$this->_data['personalJoined'] = null;
+					$this->_data['isJoined'] = 'NO';
+				}
 			} else {
 				$this->_data['subview'] = 'alert/load_alert_view';
         $this->_data['titlePage'] = 'Cảnh báo';

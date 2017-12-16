@@ -20,7 +20,7 @@
         <span><i class="fa fa-certificate"></i><strong>Thời gian đăng ký: </strong></span>
           <i>Chưa có</i><?php if ($personalJoined) { echo '
           <br>
-        <span><i class="fa fa-certificate"></i><strong>Kết quả tra cứu: </strong></span>';
+        <span><i class="fa fa-certificate"></i><strong style="color:red">Kết quả tra cứu: </strong></span>';
         if ($isJoined == 'YES') { echo 'Có tham gia';} else { echo '
           <i>Không tham gia sự kiện hoặc không điểm danh</i>'; }}?>
       </div>
@@ -63,7 +63,7 @@
 <!-- modal check joined -->
 <div class="modal fade" id="checkjoined" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo base_url('events/event'); ?>" method="post">
+    <form class="form-horizontal" action="<?php echo base_url(str_replace( '/nckh/', '', $_SERVER['REQUEST_URI'] )); ?>" method="POST">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
