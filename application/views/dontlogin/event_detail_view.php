@@ -49,7 +49,8 @@
           <h4 class="modal-title">Đăng ký tham dự sự kiện</h4>
         </div>
         <div class="modal-body">
-
+          <input type="hidden" name="eventid" value="">
+          <input type="text" name="maso" class="form-control" placeholder="Nhập MSSV/MSCB để đăng ký">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
