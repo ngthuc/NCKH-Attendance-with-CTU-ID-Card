@@ -7,29 +7,20 @@
       <thead>
         <th>STT</th>
         <th>Tên sự kiện</th>
-        <th>Thời gian diễn ra</th>
-        <th>Địa điểm</th>
-        <th>Mô tả</th>
-        <th>Người đăng</th>
-        <th>Đơn vị tổ chức</th>
+        <th>Họ tên</th>
+        <th>Mã số cá nhân</th>
+        <th>Thời gian vào</th>
+        <th>Thời gian ra</th>
         <th>Quản lý</th>
       </thead>
       <tbody>
         <tr>
           <td>1</td>
           <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
+          <td>Nguyễn Văn A</td>
+          <td>B1401234</td>
+          <td>07:01</td>
+          <td>10:12</td>
           <td>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
@@ -38,18 +29,10 @@
         <tr>
           <td>2</td>
           <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
+          <td>Trần Văn B</td>
+          <td>B1401235</td>
+          <td>07:11</td>
+          <td>09:59</td>
           <td>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
@@ -58,18 +41,10 @@
         <tr>
           <td>3</td>
           <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
+          <td>Phạm Thị C</td>
+          <td>B1401236</td>
+          <td>06:59</td>
+          <td>10:32</td>
           <td>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>

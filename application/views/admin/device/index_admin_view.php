@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="page-header">
+    <h1>Quản lý thiết bị và API</h1>
+  </div>
   <div class="row">
     <div class="col-md-6">
       <a href="<?php echo base_url('admin/device_admin'); ?>">
