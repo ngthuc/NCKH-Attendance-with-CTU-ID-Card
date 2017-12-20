@@ -56,7 +56,7 @@
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('auth/login/admin/permissions'); ?>">
+      <a href="<?php echo base_url('admin/permissions'); ?>">
         <div class="alert alert-success">
           <div class="form-activity">
             <div class="form-header">
@@ -78,29 +78,6 @@
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/analytics'); ?>">
-        <div class="alert alert-warning">
-          <div class="form-activity">
-            <div class="form-header">
-              Báo cáo thống kê
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <!-- Tính năng khác -->
-    <div class="col-md-6">
-      <a href="<?php echo base_url('admin'); ?>">
-        <div class="alert alert-danger">
-          <div class="form-activity">
-            <div class="form-header">
-              Quay về trang quản trị
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-6">
       <a href="<?php echo base_url('admin/device_api'); ?>">
         <div class="alert alert-info">
           <div class="form-activity">
@@ -111,6 +88,19 @@
         </div>
       </a>
     </div>
+    <!-- Tính năng khác -->
+    <div class="col-md-12">
+      <a href="<?php echo base_url('admin/analytics'); ?>">
+        <div class="alert alert-warning">
+          <div class="form-activity">
+            <div class="form-header">
+              Báo cáo thống kê
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
+
 <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>

@@ -45,11 +45,18 @@ class Admin extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function permissions()
+		public function permissions($do = null, $id = null)
 		{
-      $this->_data['subview'] = 'admin/permission/permission_admin_view.php';
-      $this->_data['titlePage'] = 'Quản lý phân quyền và quyền truy cập';
-      $this->load->view('main.php', $this->_data);
+      if ($do) {
+				$this->_data['subview'] = 'admin/permission/custom_permission_view.php';
+				$this->_data['titlePage'] = 'Quản lý phân quyền';
+	      $this->_data['idRole'] = $id;
+	      $this->load->view('main.php', $this->_data);
+			} else {
+				$this->_data['subview'] = 'admin/permission/permission_admin_view.php';
+	      $this->_data['titlePage'] = 'Quản lý phân quyền và quyền truy cập';
+	      $this->load->view('main.php', $this->_data);
+			}
 		}
 
 		public function user_account()

@@ -71,10 +71,6 @@
     </style>
 </head>
 <body id="page-header">
-  <!-- <div class="loader modal-backdrop">
-            <img alt="Đang xử lý ..." src="http://cit.ctu.edu.vn/quanlylaodong/img/puff.svg">
-            <h5>Đang xử lý ...</h5>
-	</div> -->
   <!--Menu bar-->
   <nav class="navbar navbar-fixed-top app-menu" role="navigation">
     <div class="container">
