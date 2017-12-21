@@ -103,9 +103,4 @@
   </div>
 </div>
 
-<!-- Code begins here -->
-<a href="<?php echo base_url('admin/customize');?>" class="float">
-<b class="glyphicon glyphicon-cog my-float"></b>
-</a>
-
 <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
