@@ -8,7 +8,8 @@ class Admin extends CI_Controller {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
 	      $this->_data['url'] = base_url();
-				// $this->load->model('');
+				$this->load->model('Mstaff');
+				$this->load->model('Mstudent');
 		}
 
 		public function index()
@@ -51,19 +52,26 @@ class Admin extends CI_Controller {
 		{
       $this->_data['subview'] = 'admin/org/org_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý tổ chức và đơn vị';
+			$this->_data['content'] = $this->Morg->getList();
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function permissions($do = null, $id = null)
+		public function permissions($do = null, $name = null)
 		{
-      if ($do) {
+      if ($do == 'custom') {
 				$this->_data['subview'] = 'admin/permission/custom_permission_view.php';
-				$this->_data['titlePage'] = 'Quản lý phân quyền';
-	      $this->_data['idRole'] = $id;
+				$this->_data['titlePage'] = 'Tùy biến phân quyền';
+				$this->_data['role'] = $this->Mrole->getRoleByName($name);
+	      $this->_data['count'] = $this->Mrole->countAllByName($name);
+	      $this->load->view('main.php', $this->_data);
+			} else if ($do == 'add') {
+				$this->_data['subview'] = 'admin/permission/add_permission_view.php';
+				$this->_data['titlePage'] = 'Thêm nhóm quyền';
 	      $this->load->view('main.php', $this->_data);
 			} else {
 				$this->_data['subview'] = 'admin/permission/permission_admin_view.php';
 	      $this->_data['titlePage'] = 'Quản lý phân quyền và quyền truy cập';
+				$this->_data['content'] = $this->Mrole->getList();
 	      $this->load->view('main.php', $this->_data);
 			}
 		}
@@ -83,10 +91,27 @@ class Admin extends CI_Controller {
 			$this->load->view('main.php', $this->_data);
 		}
 
+		public function rfid_detail($id = null, $isStudent = null)
+		{
+			$this->_data['subview'] = 'admin/account/rfid_detail_view.php';
+			$this->_data['titlePage'] = 'Quản lý thẻ RFID - Chi tiết định danh';
+			if ($isStudent == 'student') {
+				$this->_data['typeID'] = 'studentID';
+				$this->_data['typeName'] = 'Student';
+				$this->_data['content'] = $this->Mstudent->getById($id);
+			} else {
+				$this->_data['typeID'] = 'staffID';
+				$this->_data['typeName'] = 'Staff';
+				$this->_data['content'] = $this->Mstaff->getById($id);
+			}
+			$this->load->view('main.php', $this->_data);
+		}
+
 		public function user_account()
 		{
       $this->_data['subview'] = 'admin/account/account_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý tài khoản';
+			$this->_data['content'] = $this->Maccount->getList();
       $this->load->view('main.php', $this->_data);
 		}
 

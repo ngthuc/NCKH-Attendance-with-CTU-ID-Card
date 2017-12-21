@@ -15,40 +15,42 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>admin</td>
-          <td>Quản trị viên</td>
-          <td>quantri_sam@ctu.edu.vn</td>
-          <td><span class="label label-danger">Admin</span></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>admin</td>
-          <td>Quản trị viên</td>
-          <td>quantri_sam@ctu.edu.vn</td>
-          <td><span class="label label-success">Manager</span></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>user</td>
-          <td>Nguyen Van A</td>
-          <td>ab1401234@student.ctu.edu.vn</td>
-          <td><span class="label label-default">User</span></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
+        <?php $stt = 0;
+        foreach ($content as $key => $row) {
+          $stt++;
+          echo '<tr>
+            <td>'.$stt.'</td>
+            <td>'.$row['username'].'</td>
+            <td>'.$row['name'].'</td>
+            <td>'.$row['email'].'</td>
+            <td>'; if ($row['rolename'] == 'admin') {
+              echo '<span class="label label-danger">Admin</span>';
+            } else if ($row['rolename'] == 'manager') {
+              echo '<span class="label label-success">Manager</span>';
+            } else if ($row['rolename'] == 'user') {
+              echo '<span class="label label-default">User</span>';
+            } else echo '<i>Không xác định</i>';
+            echo '</td>
+            <td>
+              <a href="#" class="btn btn-primary edit-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="#" class="btn btn-danger delete-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>';
+        } ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.edit-user').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.delete-user').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>

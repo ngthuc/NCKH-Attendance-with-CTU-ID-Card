@@ -14,37 +14,35 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Trường Đại học Cần Thơ</td>
-          <td><i>Không có</i></td>
-          <td>Trường Đại học vùng trọng điểm quốc gia</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Đoàn trường Đại học Cần Thơ</td>
-          <td></td>
-          <td></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Hội Sinh viên trường Đại học Cần Thơ</td>
-          <td></td>
-          <td></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
+        <?php $stt = 0;
+        foreach ($content as $key => $row) {
+          $stt++;
+          $parent = $this->Morg->getOrgById($row['parent']);
+          echo '<tr>
+            <td>'.$stt.'</td>
+            <td>'.$row['name'].'</td>
+            <td>'.$parent['name'].'</td>
+            <td>'.$row['description'].'</td>
+            <td>
+              <a href="#" class="btn btn-primary edit-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="#" class="btn btn-danger delete-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+          </tr>';
+        } ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.edit-org').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.delete-org').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>

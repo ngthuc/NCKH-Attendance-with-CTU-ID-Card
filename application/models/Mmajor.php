@@ -18,8 +18,8 @@ class Mmajor extends CI_Model{
         return $this->db->count_all($this->_table);
     }
 
-    public function getOrgById($id){
-        $this->db->where("id", $id);
+    public function getById($id){
+        $this->db->where("idMajor", $id);
         return $this->db->get($this->_table)->row_array();
     }
 }

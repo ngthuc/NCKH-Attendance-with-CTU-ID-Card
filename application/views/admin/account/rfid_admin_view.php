@@ -21,7 +21,11 @@
             <td>'.$row['idCard'].'</td>
             <td>'.$row['personalID'].'</td>
             <td>
-              <a href="#" class="btn btn-info view-info" data-id="'.$row['personalID'].'"><span class="glyphicon glyphicon-user"></span></a>
+              <a href="';
+              if ($row['isStudent'] == 1) { echo base_url('admin/rfid_detail/'.$row['personalID'].'/student'); }
+              else if ($row['isStudent'] == 0) { echo base_url('admin/rfid_detail/'.$row['personalID']); }
+              else echo base_url('admin/rfid_account/');
+              echo '" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a>
               <a href="#" class="btn btn-primary edit-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-edit"></span></a>
               <a href="#" class="btn btn-danger delete-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-remove"></span></a>
             </td>
@@ -34,11 +38,6 @@
 
 <!-- Load ajax -->
 <script type="text/javascript">
-$('.view-info').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
-
 $('.edit-card').on('click', function() {
    // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
    alert($(this).data('id'));
