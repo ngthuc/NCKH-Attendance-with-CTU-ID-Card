@@ -1,9 +1,11 @@
 <div class="container">
   <div class="page-header">
     <h1>Quản lý sự kiện</h1>
+    <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
+    <a href="#" class="btn btn-success">Thêm sự kiện mới</a>
   </div>
   <div class="col-md-12">
-    <table class="table">
+    <table class="table" id="datatables">
       <thead>
         <th>STT</th>
         <th>Tên sự kiện</th>
@@ -29,7 +31,7 @@
           </td>
           <td>Sự kiện việc làm CNTT</td>
           <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
+          <td>Đoàn khoa CNTT</td>
           <td>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
@@ -37,7 +39,7 @@
         </tr>
         <tr>
           <td>2</td>
-          <td>Khám phá tri thức - Buổi 1</td>
+          <td>Khám phá tri thức - Buổi 2</td>
           <td>
             Ngày 07/12/2017<br />
             Giờ bắt đầu: 07:00<br />
@@ -49,7 +51,7 @@
           </td>
           <td>Sự kiện việc làm CNTT</td>
           <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
+          <td>Đoàn khoa CNTT</td>
           <td>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
@@ -57,7 +59,7 @@
         </tr>
         <tr>
           <td>3</td>
-          <td>Khám phá tri thức - Buổi 1</td>
+          <td>Khám phá tri thức - Buổi 3</td>
           <td>
             Ngày 07/12/2017<br />
             Giờ bắt đầu: 07:00<br />
@@ -69,7 +71,7 @@
           </td>
           <td>Sự kiện việc làm CNTT</td>
           <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
+          <td>Đoàn khoa CNTT</td>
           <td>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>

@@ -67,7 +67,7 @@
       </a>
     </div>
     <div class="col-md-4">
-      <a href="<?php echo base_url('admin/user_account'); ?>">
+      <a href="<?php echo base_url('admin/admin_account'); ?>">
         <div class="alert alert-info">
           <div class="form-activity">
             <div class="form-header">
@@ -102,5 +102,10 @@
     </div>
   </div>
 </div>
+
+<!-- Code begins here -->
+<a href="<?php echo base_url('admin/customize');?>" class="float">
+<b class="glyphicon glyphicon-cog my-float"></b>
+</a>
 
 <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>

@@ -1,9 +1,11 @@
 <div class="container">
   <div class="page-header">
     <h1>Quản lý tổ chức</h1>
+    <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
+    <a href="#" class="btn btn-success">Thêm tổ chức mới</a>
   </div>
   <div class="col-md-12">
-    <table class="table">
+    <table class="table" id="datatables">
       <thead>
         <th>STT</th>
         <th>Tên tổ chức</th>

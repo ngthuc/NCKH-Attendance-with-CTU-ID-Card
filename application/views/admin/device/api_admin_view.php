@@ -1,9 +1,11 @@
 <div class="container">
   <div class="page-header">
     <h1>Quản lý API</h1>
+    <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
+    <a href="<?php echo base_url('admin/device_admin/'); ?>" class="btn btn-info">Quản lý thiết bị</a>
   </div>
   <div class="col-md-12">
-    <table class="table">
+    <table class="table" id="datatables">
       <thead>
         <th>STT</th>
         <th>Thiết bị được đăng ký</th>
