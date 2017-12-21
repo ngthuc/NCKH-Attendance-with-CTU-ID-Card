@@ -8,7 +8,6 @@ class API extends CI_Controller {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
 	      $this->_data['url'] = base_url();
-				$this->load->model('Mapi');
 		}
 
 		public function index()
