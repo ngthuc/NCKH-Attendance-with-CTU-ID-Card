@@ -8,6 +8,8 @@ class Admin extends CI_Controller {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
 	      $this->_data['url'] = base_url();
+				$this->load->model('Mrfid');
+				$this->load->model('Mevent');
 		}
 
 		public function index()
@@ -17,17 +19,11 @@ class Admin extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function customize()
-		{
-      $this->_data['subview'] = 'admin/customize';
-      $this->_data['titlePage'] = 'Trang tùy biến';
-      $this->load->view('main.php', $this->_data);
-		}
-
 		public function event()
 		{
       $this->_data['subview'] = 'admin/event/events_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý sự kiện';
+			$this->_data['content'] = $this->Mevent->getList();
       $this->load->view('main.php', $this->_data);
 		}
 
@@ -84,6 +80,7 @@ class Admin extends CI_Controller {
 		{
 			$this->_data['subview'] = 'admin/account/rfid_admin_view.php';
 			$this->_data['titlePage'] = 'Quản lý thẻ RFID';
+			$this->_data['content'] = $this->Mrfid->getList();
 			$this->load->view('main.php', $this->_data);
 		}
 
