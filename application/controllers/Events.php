@@ -44,9 +44,9 @@ class Events extends CI_Controller {
       if ($id) {
 				$this->_data['subview'] = 'dontlogin/events_org_view';
 	      $this->_data['titlePage'] = 'Chi tiết sự kiện theo tổ chức';
-	      $this->_data['value'] = $id;
-	      $this->_data['content'] = $content;
-	      $this->_data['tacgia'] = $author;
+	      // $this->_data['value'] = $id;
+	      // $this->_data['content'] = $content;
+	      // $this->_data['tacgia'] = $author;
 			} else {
 				$this->_data['subview'] = 'alert/load_alert_view';
         $this->_data['titlePage'] = 'Cảnh báo';

@@ -14,6 +14,7 @@
         <th>Mô tả</th>
         <th>Người đăng</th>
         <th>Đơn vị tổ chức</th>
+        <th>Test</th>
         <th>Quản lý</th>
       </thead>
       <tbody>
@@ -30,6 +31,10 @@
             <td>'.$row['descriptionEvent'].'</td>
             <td>'.$creator['name'].'</td>
             <td>'.$organization['name'].'</td>
+            <td>';
+            $time = $row['dateEvent'].' '.$row['timeStart'];
+            echo $this->Mtime->time_stamp(strtotime($time));
+            echo '</td>
             <td>
               <button class="btn btn-primary edit-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
               <button class="btn btn-danger delete-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
