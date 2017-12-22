@@ -18,8 +18,8 @@ class Maccount extends CI_Model{
         return $this->db->count_all($this->_table);
     }
 
-    public function getById($id){
-        $this->db->where("id", $id);
+    public function getByUsername($user){
+        $this->db->where("username", $user);
         return $this->db->get($this->_table)->row_array();
     }
 }

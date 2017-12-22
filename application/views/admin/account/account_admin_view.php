@@ -32,8 +32,8 @@
             } else echo '<i>Không xác định</i>';
             echo '</td>
             <td>
-              <a href="#" class="btn btn-primary edit-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-edit"></span></a>
-              <a href="#" class="btn btn-danger delete-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-remove"></span></a>
+              <button class="btn btn-primary edit-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-danger delete-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
         } ?>

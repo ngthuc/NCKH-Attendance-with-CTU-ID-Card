@@ -16,40 +16,39 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>TNTN_M_001</td>
-          <td>25852085245SNL</td>
-          <td>17-12-2017</td>
-          <td><span class="glyphicon glyphicon-ok"></span></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>TNTN_M_002</td>
-          <td>25852085245SNL</td>
-          <td>17-12-2017</td>
-          <td><span class="glyphicon glyphicon-ok"></span></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>TNTN_M_003</td>
-          <td>25852085245SNL</td>
-          <td>17-12-2017</td>
-          <td><span class="glyphicon glyphicon-ok"></span></td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
+        <?php $stt = 0;
+        foreach ($content as $key => $row) {
+          $stt++;
+          $key = $this->Mkey->getById($row['idApi']);
+          echo '<tr>
+            <td>'.$stt.'</td>
+            <td>'.$row['name'].'</td>
+            <td>'.$row['serialnumber'].'</td>
+            <td>'.$row['registerdate'].'</td>
+            <td>';
+            if ($key) echo '<span class="glyphicon glyphicon-ok" style="color:green;"><i> Đã cấp phép</i></span>';
+            else echo '<i style="color:red;">Chưa cấp phép</i>';
+            echo '</td>
+            <td>
+              <button class="btn btn-primary edit-device" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-danger delete-device" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+          </tr>';
+        } ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.edit-device').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.delete-device').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>

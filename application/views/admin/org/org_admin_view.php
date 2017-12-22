@@ -24,8 +24,8 @@
             <td>'.$parent['name'].'</td>
             <td>'.$row['description'].'</td>
             <td>
-              <a href="#" class="btn btn-primary edit-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></a>
-              <a href="#" class="btn btn-danger delete-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></a>
+              <button class="btn btn-primary edit-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-danger delete-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
         } ?>

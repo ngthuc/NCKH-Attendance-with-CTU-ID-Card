@@ -26,8 +26,8 @@
               else if ($row['isStudent'] == 0) { echo base_url('admin/rfid_detail/'.$row['personalID']); }
               else echo base_url('admin/rfid_account/');
               echo '" class="btn btn-info"><span class="glyphicon glyphicon-user"></span></a>
-              <a href="#" class="btn btn-primary edit-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-edit"></span></a>
-              <a href="#" class="btn btn-danger delete-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-remove"></span></a>
+              <button class="btn btn-primary edit-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-danger delete-card" data-id="'.$row['idCard'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
         } ?>

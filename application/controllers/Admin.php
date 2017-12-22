@@ -10,6 +10,8 @@ class Admin extends CI_Controller {
 	      $this->_data['url'] = base_url();
 				$this->load->model('Mstaff');
 				$this->load->model('Mstudent');
+				$this->load->model('Mdevice');
+				$this->load->model('Mkey');
 		}
 
 		public function index()
@@ -126,6 +128,7 @@ class Admin extends CI_Controller {
 		{
       $this->_data['subview'] = 'admin/device/devices_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý thiết bị và API';
+			$this->_data['content'] = $this->Mdevice->getList();
       $this->load->view('main.php', $this->_data);
 		}
 
@@ -133,6 +136,7 @@ class Admin extends CI_Controller {
 		{
       $this->_data['subview'] = 'admin/device/api_admin_view.php';
       $this->_data['titlePage'] = 'Quản lý thiết bị và API';
+			$this->_data['content'] = $this->Mkey->getList();
       $this->load->view('main.php', $this->_data);
 		}
 }

@@ -22,4 +22,9 @@ class Mdevice extends CI_Model{
         $this->db->where("id", $id);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function getByIdApi($idApi){
+        $this->db->where("idApi", $idApi);
+        return $this->db->get($this->_table)->row_array();
+    }
 }

@@ -17,67 +17,39 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Khám phá tri thức - Buổi 2</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Khám phá tri thức - Buổi 3</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
+        <?php $stt = 0;
+        foreach ($content as $key => $row) {
+          $stt++;
+          $creator = $this->Maccount->getByUsername($row['userCreator']);
+          $organization = $this->Morg->getOrgById($row['idOrg']);
+          echo '<tr>
+            <td>'.$stt.'</td>
+            <td>'.$row['nameEvent'].'</td>
+            <td>'.$row['timeStart'].'<br />'.$row['dateEvent'].'</td>
+            <td>'.$row['locationEvent'].'</td>
+            <td>'.$row['descriptionEvent'].'</td>
+            <td>'.$creator['name'].'</td>
+            <td>'.$organization['name'].'</td>
+            <td>
+              <button class="btn btn-primary edit-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-danger delete-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+          </tr>';
+        } ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.edit-event').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.delete-event').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>

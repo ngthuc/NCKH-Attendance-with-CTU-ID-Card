@@ -13,34 +13,53 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>TNTN_M_001</td>
-          <td><span class="label label-success">Đang khóa</span></td>
-          <td>
-            <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-lock"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>TNTN_M_002</td>
-          <td><span class="label label-danger">Đang khóa</span></td>
-          <td>
-            <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-lock"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>TNTN_M_003</td>
-          <td><span class="label label-success">Hoạt động</span></td>
-          <td>
-            <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-lock"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-          </td>
-        </tr>
+        <?php $stt = 0;
+        foreach ($content as $key => $row) {
+          $stt++;
+          $device = $this->Mdevice->getByIdApi($row['id']);
+          echo '<tr>
+            <td>'.$stt.'</td>
+            <td>';
+            if ($device) echo $device['name'];
+            else echo '<i>Còn trống</i>';
+            echo '</td>
+            <td>';
+            if ($row['statusApi'] == 1) echo '<span class="label label-success">Hoạt động</span>';
+            else if ($row['statusApi'] == 0) echo '<span class="label label-danger">Đang khóa</span>';
+            else echo '<span class="label label-default">Không rõ tình trạng</span>';
+            echo '</td>
+            <td>';
+            if ($row['statusApi'] == 1) echo '<button class="btn btn-warning lock-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-lock"></span></button>';
+            else if ($row['statusApi'] == 0) echo '<button class="btn btn-success unlock-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-lock"></span></button>';
+            echo '<button class="btn btn-primary edit-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <button class="btn btn-danger delete-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+          </tr>';
+        } ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.lock-key').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.unlock-key').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.edit-key').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.delete-key').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>
