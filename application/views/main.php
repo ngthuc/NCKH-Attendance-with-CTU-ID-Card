@@ -88,9 +88,11 @@
       <div class="collapse navbar-collapse" id="ctudocsnavbar">
         <ul class="nav navbar-nav navbar-right">
           <li class="active"><a href="<?php echo base_url(); ?>">Trang chủ</a></li>
-          <li><a href="<?php echo base_url('admin'); ?>">Quản trị</a></li>
+          <li><a href="<?php echo base_url('events/'); ?>">Sự kiện</a></li>
+          <li><a href="<?php echo base_url('organizations/'); ?>">Tổ chức</a></li>
+          <li><a href="<?php echo base_url('admin/'); ?>">Quản trị</a></li>
           <li><a href="#" data-toggle="modal" data-target="#loginform">Đăng nhập</a></li>
-          <li><a href="<?php echo base_url('auth/logout'.$_SERVER['REQUEST_URI']); ?>">Đăng xuất</a></li>
+          <li><a href="<?php echo base_url('auth/logout/?next='.$_SERVER['REQUEST_URI']); ?>">Đăng xuất</a></li>
         </ul>
       </div> <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -108,7 +110,7 @@
 <!-- Begin Login form -->
 <div class="modal fade" id="loginform">
   <div class="modal-dialog" role="document">
-    <form class="form-horizontal" action="<?php echo base_url('auth/login'.$_SERVER['REQUEST_URI']); ?>" method="post">
+    <form class="form-horizontal" action="<?php echo base_url('auth/login/?next='.$_SERVER['REQUEST_URI']); ?>" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
