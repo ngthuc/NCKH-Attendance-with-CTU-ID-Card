@@ -23,6 +23,12 @@ class Morg extends CI_Model{
         return $this->db->get($this->_table)->row_array();
     }
 
+    public function getParentById($idparent){
+        $this->db->where("id", $idparent);
+        $this->db->order_by("parent","asc");
+        return $this->db->get($this->_table)->row_array();
+    }
+
    // public function deleteUser($id){
    //     $this->db->where("id", $id);
    //     return $this->db->delete($this->_table);

@@ -2,28 +2,29 @@
   <div id="tree_list">
     <!-- <ul> -->
       <?php
-      // foreach ($content as $key => $row) {
-      //   $parent = $this->Morg->getOrgById($row['parent']);
-      //   if ($parent['id'] == $row['parent']) {
-      //     echo '<li>
-      //     <a href="#">'.$row['text'].'</a>
-      //     </li>';
-      //   } else if ($parent['id'] != $row['parent']) {
-      //     echo '<li>
-      //     <a href="#">'.$row['text'].'</a>
-      //     </li>';
-      //   }
-      // }
+      foreach ($content as $key => $row) {
+        $parent = $this->Morg->getParentById($row['parent']);
+        // if ($parent['id'] == $row['parent']) {
+        //   echo '<li>
+        //   <a href="#">'.$row['text'].'</a>
+        //   </li>';
+        // } else if ($parent['id'] != $row['parent']) {
+        //   echo '<li>
+        //   <a href="#">'.$row['text'].'</a>
+        //   </li>';
+        // }
+        print_r($parent);
+      }
       ?>
     <!-- </ul> -->
-    <ul>
-    <li>Root node
-      <ul>
-        <li>Child node 1</li>
-        <li>Child node 2</li>
-      </ul>
-    </li>
-  </ul>
+    <!-- <ul>
+      <li>Root node
+        <ul>
+          <li>Child node 1</li>
+          <li>Child node 2</li>
+        </ul>
+      </li>
+    </ul> -->
   </div>
 
   <!-- Using TreeJS -->
