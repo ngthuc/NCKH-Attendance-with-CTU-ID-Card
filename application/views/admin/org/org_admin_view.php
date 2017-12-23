@@ -18,9 +18,10 @@
         foreach ($content as $key => $row) {
           $stt++;
           $parent = $this->Morg->getOrgById($row['parent']);
+          $name = $row['text'];
           echo '<tr>
             <td>'.$stt.'</td>
-            <td>'.$row['name'].'</td>
+            <td>'.$name.'</td>
             <td>'.$parent['name'].'</td>
             <td>'.$row['description'].'</td>
             <td>

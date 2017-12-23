@@ -31,7 +31,7 @@
             <td>'.$row['locationEvent'].'</td>
             <td>'.$row['descriptionEvent'].'</td>
             <td>'.$creator['name'].'</td>
-            <td>'.$organization['name'].'</td>
+            <td>'.$organization['text'].'</td>
             <td>';
             $time = $row['dateEvent'].' '.$row['timeStart'];
             echo $this->Mtime->time_stamp(strtotime($time));

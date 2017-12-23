@@ -14,7 +14,7 @@ class Organizations extends CI_Controller {
 		{
 				$this->_data['subview'] = 'dontlogin/org_view';
 				$this->_data['titlePage'] = 'Chi tiết tổ chức';
-				// $this->_data['content'] = $this->Morg->getList();
+				$this->_data['content'] = $this->Morg->getList();
 				$this->load->view('main.php', $this->_data);
 		}
 
