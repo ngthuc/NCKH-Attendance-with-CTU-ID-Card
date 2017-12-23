@@ -15,8 +15,16 @@ class Mtime extends CI_Model{
         $weeks = round($time_elapsed / 604800);
         $months = round($time_elapsed / 2600640 );
         $years = round($time_elapsed / 31207680 );
+        // Future
+        if($cur_time < $time_ago) {
+            echo " Thời gian chưa diễn ra ";
+        }
+        // Now
+        else if($cur_time == $time_ago) {
+            echo " Đang diễn ra ";
+        }
         // Seconds
-        if($seconds <= 60) {
+        else if($seconds <= 60) {
             echo " Cách đây $seconds giây ";
         }
         //Minutes
