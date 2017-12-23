@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2017 at 12:41 PM
+-- Generation Time: Dec 23, 2017 at 06:56 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -431,6 +431,12 @@ ALTER TABLE `faculty`
 ALTER TABLE `major`
   ADD PRIMARY KEY (`id`,`idMajor`),
   ADD KEY `idMajor` (`idMajor`);
+
+--
+-- Indexes for table `organizations`
+--
+ALTER TABLE `organizations`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `register`

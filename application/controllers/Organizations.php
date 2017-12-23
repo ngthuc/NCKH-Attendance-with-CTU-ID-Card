@@ -14,7 +14,7 @@ class Organizations extends CI_Controller {
 		{
 				$this->_data['subview'] = 'dontlogin/org_view';
 				$this->_data['titlePage'] = 'Chi tiết tổ chức';
-				$this->_data['content'] = $this->Morg->getList();
+				// $this->_data['content'] = $this->Morg->getList();
 				$this->load->view('main.php', $this->_data);
 		}
 
@@ -22,18 +22,62 @@ class Organizations extends CI_Controller {
 		{
 				$getOrg = $this->Morg->getOrgById($id);
 	      if ($getOrg['parent'] == $getOrg['id']) {
-					$parent['name'] = '<i>Không có cấp cao hơn tại cơ sở</i>';
+					$parent['text'] = '<i>Không có cấp cao hơn tại cơ sở</i>';
 	        $parent['id'] = $getOrg['id'];
 	      } else $parent = $this->Morg->getOrgById($getOrg['parent']);
 
 				$this->_data['subview'] = 'dontlogin/org_detail_view';
 				$this->_data['titlePage'] = 'Chi tiết tổ chức';
 
-	      $this->_data['name'] = $getOrg['name'];
-				$this->_data['parent_name'] = $parent['name'];
+	      $this->_data['name'] = $getOrg['text'];
+				$this->_data['parent_name'] = $parent['text'];
 				$this->_data['parent_id'] = $parent['id'];
 				$this->_data['description'] = $getOrg['description'];
 				$this->load->view('main.php', $this->_data);
+		}
+
+		public function res()
+		{
+				header('Content-Type: application/json;charset=utf-8');
+				$content = $this->Morg->getList();
+				foreach ($content as $key => $row) {
+						if ($row['parent'] == 0) {
+								$parent = '#';
+								$open = true;
+						} else if ($row['parent'] == $row['id']) {
+								$parent = '#';
+								$open = true;
+						} else {
+								$parent = $row['parent'];
+								$open = false;
+						}
+						$data[] = array (
+							'id' => $row['id'],
+							'parent' => $parent,
+							'text' => $row['text'],
+							'icon' => false,
+							'state' => array (
+								'opened' => $open
+							),
+							'a_attr' => array (
+								'href' => base_url('organizations/org/'.$row['id'])
+							)
+					);
+				}
+				echo json_encode($data);
+		}
+
+		public function frm()
+		{
+				$this->_data['subview'] = 'dontlogin/frm';
+				$this->_data['titlePage'] = 'Form';
+				// $this->_data['content'] = $this->Morg->getList();
+				$this->load->view('main.php', $this->_data);
+		}
+
+		public function req()
+		{
+				print_r($_POST);
 		}
 
     public function test()
