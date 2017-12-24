@@ -103,4 +103,4 @@
   </div>
 </div>
 
-<link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/>
+<link rel="stylesheet" href="<?php echo base_url('public/css/cit_login_style.css'); ?>"/>

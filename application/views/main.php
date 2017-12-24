@@ -41,11 +41,11 @@
    <script type="text/javascript" src="<?php echo base_url('public/extensions/jstree/dist/jstree.min.js'); ?>"></script>
 
    <!-- College of ICT - Can Tho University Library -->
-   <link href="http://cit.ctu.edu.vn/quanlylaodong/css/main.css" rel="stylesheet">
-   <!-- <link rel="stylesheet" href="http://cit.ctu.edu.vn/quanlylaodong/css/login.css"/> -->
+   <link href="<?php echo base_url('public/css/cit_main_style.css'); ?>" rel="stylesheet">
+   <!-- <link rel="stylesheet" href="<?php echo base_url('public/css/cit_login_style.css'); ?>"/> -->
 
    <!-- Ho Chi Minh University of Sciences - Viet Nam University, Ho Chi Minh City Library -->
-   <link href="http://sam.doantn.hcmus.edu.vn/static/v2/styles/common.css" rel="stylesheet">
+   <link href="<?php echo base_url('public/css/hcmus_common_style.css'); ?>" rel="stylesheet">
 
    <!-- CSS and JS internal -->
    <style type="text/css">
