@@ -1,5 +1,5 @@
 <?php
-class API extends CI_Controller {
+class APItemp extends CI_Controller {
 
 	  protected $_data = array('isCss' => null,'div_alert' => 'container','type' => null,'url' => null,'content' => null);
 
