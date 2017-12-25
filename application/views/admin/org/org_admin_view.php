@@ -22,7 +22,7 @@
           echo '<tr>
             <td>'.$stt.'</td>
             <td>'.$name.'</td>
-            <td>'.$parent['name'].'</td>
+            <td>'.$parent['text'].'</td>
             <td>'.$row['description'].'</td>
             <td>
               <button class="btn btn-primary edit-org" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>

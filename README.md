@@ -30,6 +30,10 @@ My project for student science research topic
 * Arduino IDE: https://www.arduino.cc/en/Main/Software
 * Netbeans: https://netbeans.org/
 
+## Link reference(s)
+* Github Project IoT: https://github.com/sj96/Attendance_IoT
+* Demo: https://demo.ngthuc.com/project/nckh (coming soon)
+
 ## My Team
 * Mentor: Dr.Le Van Lam
 * Leader: Mr.Le Nguyen Thuc

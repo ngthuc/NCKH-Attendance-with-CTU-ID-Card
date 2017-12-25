@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : Apr 22, 2015, 2:12:47 PM
     Author     : lightx
 */
@@ -11,7 +11,7 @@ and open the template in the editor.
 body {
     /*padding-top: 100px;*/
     /*padding-bottom: 40px;*/
-    background-image: url('../img/bg.png');
+    background-image: url('../images/bg.png');
 }
 
 .panel-login {
@@ -23,7 +23,7 @@ body {
 }
 
 .form-signin {
-    
+
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
