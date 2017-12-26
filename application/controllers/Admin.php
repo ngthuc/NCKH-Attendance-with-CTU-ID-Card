@@ -111,6 +111,7 @@ class Admin extends CI_Controller {
 		{
 			$this->_data['subview'] = 'admin/account/rfid_detail_view.php';
 			$this->_data['titlePage'] = 'Quản lý thẻ RFID - Chi tiết định danh';
+			$this->_data['idCard'] = $id;
 			if ($isStudent == 'student') {
 				$this->_data['typeID'] = 'studentID';
 				$this->_data['typeName'] = 'Student';

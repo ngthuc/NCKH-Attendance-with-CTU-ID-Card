@@ -22,4 +22,8 @@ class Mstudent extends CI_Model{
         $this->db->where("studentID", $id);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function insertStudent($data_insert){
+        $this->db->insert($this->_table,$data_insert);
+    }
 }

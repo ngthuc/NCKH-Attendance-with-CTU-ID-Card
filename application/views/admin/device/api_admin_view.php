@@ -3,6 +3,7 @@
     <h1>Quản lý API</h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
     <a href="<?php echo base_url('admin/device_admin/'); ?>" class="btn btn-info">Quản lý thiết bị</a>
+    <button class="btn btn-success" data-toggle="modal" data-target="#new-api">Cấp phát key mới</button>
   </div>
   <div class="col-md-12">
     <table class="table" id="datatables">
@@ -63,3 +64,25 @@ $('.delete-key').on('click', function() {
    alert($(this).data('id'));
 });
 </script>
+
+<!-- Add new device -->
+<div class="modal fade" id="new-api" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="form-horizontal" action="<?php echo base_url('execute/add_api');?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Cấp phát key mới</h4>
+      </div>
+      <div class="modal-body">
+        <label for="key">Secret Key</label>
+        <input type="text" name="key" id="key" class="form-control" placeholder="Nhập secret key" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

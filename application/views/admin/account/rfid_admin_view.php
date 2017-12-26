@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1>Quản lý thẻ RFID</h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
-    <a href="#" class="btn btn-success">Cấp phát thẻ mới</a>
+    <button class="btn btn-success" data-toggle="modal" data-target="#new-card">Cấp phát thẻ mới</button>
   </div>
   <div class="col-md-12">
     <table class="table" id="datatables">
@@ -48,3 +48,30 @@ $('.delete-card').on('click', function() {
    alert($(this).data('id'));
 });
 </script>
+
+<!-- Add new card -->
+<div class="modal fade" id="new-card" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="form-horizontal" action="<?php echo base_url('execute/add_card');?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Cấp phát thẻ mới</h4>
+      </div>
+      <div class="modal-body">
+        <label for="cid">Mã thẻ</label>
+        <input type="text" name="cid" id="cid" class="form-control" placeholder="Nhập mã thẻ hoặc dùng máy đọc thẻ" required>
+        <label for="pid">Mã số định danh</label>
+        <input type="text" name="pid" id="pid" class="form-control" placeholder="Nhập mã số định danh của cá nhân" required>
+        <label for="type">Kiểu thẻ</label>
+        <label class="radio-inline"><input type="radio" name="type" value="1" required>Sinh viên</label>
+        <label class="radio-inline"><input type="radio" name="type" value="0" required>Cán bộ</label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

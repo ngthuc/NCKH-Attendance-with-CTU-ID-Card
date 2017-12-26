@@ -58,7 +58,7 @@ $('.delete-user').on('click', function() {
 <!-- Add new event -->
 <div class="modal fade" id="new-account" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo base_url('execute/add_org');?>" method="POST">
+    <form class="form-horizontal" action="<?php echo base_url('execute/add_user');?>" method="POST">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -73,16 +73,13 @@ $('.delete-user').on('click', function() {
         <input type="email" name="email" id="email" class="form-control" placeholder="Nhập email của bạn" required>
         <label for="pwd">Mật khẩu</label>
         <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Nhập tên tổ chức" required>
-        <label for="org">Quyền hạn</label>
-        <select class="form-control" name="org">
-          <option value="#"><i>Không có quản lý tại đơn vị</i></option>
-          <?php $org = $this->Mrole->getList();
-          foreach ($org as $key => $row) {
-              echo '<option value="'.$row['id'].'">'.$row['text'].'</option>';
+        <label for="role">Quyền hạn</label>
+        <select class="form-control" name="role">
+          <?php $role = $this->Mrole->getList();
+          foreach ($role as $key => $row) {
+              echo '<option value="'.$row['roleName'].'">'.$row['roleName'].'</option>';
           } ?>
         </select>
-        <label for="description">Mô tả</label>
-        <input type="text" name="description" id="description" class="form-control" placeholder="Nhập mô tả tổ chức" required>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

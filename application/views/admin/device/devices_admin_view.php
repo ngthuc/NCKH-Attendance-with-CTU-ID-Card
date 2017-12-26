@@ -3,7 +3,7 @@
     <h1>Quản lý thiết bị và API</h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
     <a href="<?php echo base_url('admin/api_admin/'); ?>" class="btn btn-info">Quản lý API</a>
-    <a href="#" class="btn btn-success">Đăng ký thiết bị mới</a>
+    <button class="btn btn-success" data-toggle="modal" data-target="#new-device">Đăng ký thiết bị mới</button>
   </div>
   <div class="col-md-12">
     <table class="table" id="datatables">
@@ -52,3 +52,27 @@ $('.delete-device').on('click', function() {
    alert($(this).data('id'));
 });
 </script>
+
+<!-- Add new device -->
+<div class="modal fade" id="new-device" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="form-horizontal" action="<?php echo base_url('execute/add_device');?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Đăng ký thiết bị mới</h4>
+      </div>
+      <div class="modal-body">
+        <label for="name">Tên thiết bị</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên thiết bị" required>
+        <label for="serialNumber">Serial Number</label>
+        <input type="text" name="serialNumber" id="serialNumber" class="form-control" placeholder="Nhập S/N của thiết bị">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

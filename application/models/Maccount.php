@@ -22,4 +22,8 @@ class Maccount extends CI_Model{
         $this->db->where("username", $user);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function insertUser($data_insert){
+        $this->db->insert($this->_table,$data_insert);
+    }
 }

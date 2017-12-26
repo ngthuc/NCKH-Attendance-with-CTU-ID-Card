@@ -28,7 +28,7 @@ class Mevent extends CI_Model{
         return $this->db->get($this->_table)->result_array();
     }
 
-    public function insertUser($data_insert){
+    public function insertEvent($data_insert){
         $this->db->insert($this->_table,$data_insert);
     }
 }
