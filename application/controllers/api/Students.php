@@ -17,4 +17,54 @@ class Students extends CI_Controller {
 				$this->_data['content'] = 'API sinh viên - Access Denied';
 				$this->load->view('alert/load_alert_view',$this->_data);
 		}
+
+		public function get($id = null, $key = null)
+		{
+				if ($key) {
+						$getKey = hash('sha256', $key);
+						$existKey = $this->Mkey->getByKey($getKey);
+						$keyOrigin = $existKey['encriptApi'];
+						if ($keyOrigin == $getKey) {
+								header('Content-Type: application/json;charset=utf-8');
+								$existEvent = $this->Mstudent->getById($id);
+								if ($existEvent) {
+										echo json_encode($existEvent);
+								}
+						} else {
+							$this->_data['type'] = 'warning';
+							$this->_data['content'] = 'API sự kiện - Access Denied';
+							$this->load->view('alert/load_alert_view',$this->_data);
+						}
+				}
+				else {
+					$this->_data['type'] = 'warning';
+					$this->_data['content'] = 'API sự kiện - Access Denied';
+					$this->load->view('alert/load_alert_view',$this->_data);
+				}
+		}
+
+		public function gets($key = null)
+		{
+				if ($key) {
+						$getKey = hash('sha256', $key);
+						$existKey = $this->Mkey->getByKey($getKey);
+						$keyOrigin = $existKey['encriptApi'];
+						if ($keyOrigin == $getKey) {
+								header('Content-Type: application/json;charset=utf-8');
+								$existEvent = $this->Mstudent->getList();
+								if ($existEvent) {
+										echo json_encode($existEvent);
+								}
+						} else {
+							$this->_data['type'] = 'warning';
+							$this->_data['content'] = 'API sự kiện - Access Denied';
+							$this->load->view('alert/load_alert_view',$this->_data);
+						}
+				}
+				else {
+					$this->_data['type'] = 'warning';
+					$this->_data['content'] = 'API sự kiện - Access Denied';
+					$this->load->view('alert/load_alert_view',$this->_data);
+				}
+		}
 }

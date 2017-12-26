@@ -8,7 +8,7 @@ class RFIDs extends CI_Controller {
 		function __construct() {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
-	      $this->_data['url'] = base_url();
+				$this->_data['url'] = base_url();
 		}
 
 		public function index()
@@ -16,5 +16,67 @@ class RFIDs extends CI_Controller {
 				$this->_data['type'] = 'warning';
 				$this->_data['content'] = 'API thẻ RFID - Access Denied';
 				$this->load->view('alert/load_alert_view',$this->_data);
+		}
+
+		public function get($id = null, $key = null)
+		{
+				if ($key) {
+						$getKey = hash('sha256', $key);
+						$existKey = $this->Mkey->getByKey($getKey);
+						$keyOrigin = $existKey['encriptApi'];
+						if ($keyOrigin == $getKey) {
+								header('Content-Type: application/json;charset=utf-8');
+								$existEvent = $this->Mrfid->getByCard($id);
+								if ($existEvent) {
+										echo json_encode($existEvent);
+								}
+						} else {
+							$this->_data['type'] = 'warning';
+							$this->_data['content'] = 'API sự kiện - Access Denied';
+							$this->load->view('alert/load_alert_view',$this->_data);
+						}
+				}
+				else {
+					$this->_data['type'] = 'warning';
+					$this->_data['content'] = 'API sự kiện - Access Denied';
+					$this->load->view('alert/load_alert_view',$this->_data);
+				}
+		}
+
+		public function gets($key = null)
+		{
+				if ($key) {
+						$getKey = hash('sha256', $key);
+						$existKey = $this->Mkey->getByKey($getKey);
+						$keyOrigin = $existKey['encriptApi'];
+						if ($keyOrigin == $getKey) {
+								header('Content-Type: application/json;charset=utf-8');
+								$existEvent = $this->Mrfid->getList();
+								if ($existEvent) {
+										echo json_encode($existEvent);
+								}
+						} else {
+							$this->_data['type'] = 'warning';
+							$this->_data['content'] = 'API sự kiện - Access Denied';
+							$this->load->view('alert/load_alert_view',$this->_data);
+						}
+				}
+				else {
+					$this->_data['type'] = 'warning';
+					$this->_data['content'] = 'API sự kiện - Access Denied';
+					$this->load->view('alert/load_alert_view',$this->_data);
+				}
+		}
+
+		public function posts()
+		{
+				if ($key) {
+						// Code....
+				}
+				else {
+					$this->_data['type'] = 'warning';
+					$this->_data['content'] = 'API sự kiện - Access Denied';
+					$this->load->view('alert/load_alert_view',$this->_data);
+				}
 		}
 }

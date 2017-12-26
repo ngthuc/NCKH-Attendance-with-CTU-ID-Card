@@ -17,4 +17,16 @@ class Attendance extends CI_Controller {
 				$this->_data['content'] = 'API Điểm danh - Access Denied';
 				$this->load->view('alert/load_alert_view',$this->_data);
 		}
+
+		public function posts()
+		{
+				if ($key) {
+						// Code....
+				}
+				else {
+					$this->_data['type'] = 'warning';
+					$this->_data['content'] = 'API sự kiện - Access Denied';
+					$this->load->view('alert/load_alert_view',$this->_data);
+				}
+		}
 }

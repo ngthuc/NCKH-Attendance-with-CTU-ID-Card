@@ -19,8 +19,8 @@ class Mkey extends CI_Model{
       return $this->db->count_all($this->_table);
   }
 
-  public function getById($id){
-      $this->db->where("id", $id);
+  public function getByKey($key){
+      $this->db->where("encriptApi", $key);
       return $this->db->get($this->_table)->row_array();
   }
 
