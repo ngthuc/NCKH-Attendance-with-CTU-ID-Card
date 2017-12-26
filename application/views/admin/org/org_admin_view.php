@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1>Quản lý tổ chức</h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
-    <a href="#" class="btn btn-success">Thêm tổ chức mới</a>
+    <button class="btn btn-success" data-toggle="modal" data-target="#new-org">Thêm tổ chức mới</button>
   </div>
   <div class="col-md-12">
     <table class="table" id="datatables">
@@ -47,3 +47,35 @@ $('.delete-org').on('click', function() {
    alert($(this).data('id'));
 });
 </script>
+
+<!-- Add new event -->
+<div class="modal fade" id="new-org" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="form-horizontal" action="<?php echo base_url('execute/add_org');?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Thêm mới tổ chức</h4>
+      </div>
+      <div class="modal-body">
+        <label for="name">Tên sự kiện</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Nhập tên tổ chức" required>
+        <label for="org">Tổ chức quản lý</label>
+        <select class="form-control" name="org">
+          <option value="#"><i>Không có quản lý tại đơn vị</i></option>
+          <?php $org = $this->Morg->getList();
+          foreach ($org as $key => $row) {
+              echo '<option value="'.$row['id'].'">'.$row['text'].'</option>';
+          } ?>
+        </select>
+        <label for="description">Mô tả</label>
+        <input type="text" name="description" id="description" class="form-control" placeholder="Nhập mô tả tổ chức" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" name="addNew" class="btn btn-primary">Thêm mới</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

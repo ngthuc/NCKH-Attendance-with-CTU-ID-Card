@@ -29,6 +29,10 @@ class Morg extends CI_Model{
         return $this->db->get($this->_table)->row_array();
     }
 
+    public function insertUser($data_insert){
+        $this->db->insert($this->_table,$data_insert);
+    }
+
    // public function deleteUser($id){
    //     $this->db->where("id", $id);
    //     return $this->db->delete($this->_table);
