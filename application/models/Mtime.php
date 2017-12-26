@@ -3,6 +3,7 @@ class Mtime extends CI_Model{
 
     public function __construct(){
         parent::__construct();
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
     }
 
     public function time_stamp($time_ago) {
@@ -81,5 +82,20 @@ class Mtime extends CI_Model{
                 echo " Cách đây $years năm ";
             }
         }
+    }
+
+    public function currentEvent($time_start)
+    {
+        $cur_time=time();
+        $time = $time_start - $cur_time;
+        $days = round($time / 86400 );
+        $weeks = round($time / 604800);
+        if ($time >= 0) {
+          if ($weeks <= 1) {
+            if ($days <= 1) {
+              return 1; // Đang diễn ra
+            } else return 2; // Diễn ra trong tương lai gần (1 tuần)
+          } else return 3; // Diễn ra trong tương lai (nhiều hơn 1 tuần)
+        } else return 0; // Đã diễn ra sự kiện vài phút trước trở lên
     }
 }

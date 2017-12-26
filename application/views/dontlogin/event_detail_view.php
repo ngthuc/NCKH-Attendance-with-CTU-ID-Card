@@ -1,3 +1,6 @@
+<?php
+    $org = $this->Morg->getOrgById($contentPage['idOrg']);
+?>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -5,35 +8,34 @@
         <div class="section-header">Thông tin hoạt động</div>
       </div>
       <div class="form-group">
-        <span><i class="fa fa-graduation-cap"></i><strong>Năm học: </strong></span>
-          2017-2018
-          <br>
         <span><i class="fa fa-home"></i><strong>Đơn vị tổ chức: </strong></span>
-          <a href="<?php echo base_url('/organizations/org/5/')?>">Chi Đoàn 14TTH2</a>
+          <a href="<?php echo base_url('/organizations/org/'.$contentPage['idOrg'].'/')?>"><?php echo $org['text']; ?></a>
           <br>
-        <span><i class="fa fa-calendar"></i><strong>Thời gian: </strong></span>
-          08/12/2017 00:00 - 14/12/2017 23:55
+        <span><i class="fa fa-calendar"></i><strong>Thời gian bắt đầu: </strong></span>
+          <?php echo $contentPage['timeStart'].' '.$contentPage['dateEvent']; ?>
+          <br>
+        <span><i class="fa fa-calendar"></i><strong>Thời gian kết thúc: </strong></span>
+          <?php echo $contentPage['timeEnd'].' '.$contentPage['dateEvent']; ?>
           <br>
         <span><i class="fa fa-map-marker"></i><strong>Địa điểm: </strong></span>
-          <i>Chưa có</i>
-          <br>
-        <span><i class="fa fa-certificate"></i><strong>Thời gian đăng ký: </strong></span>
-          <i>Chưa có</i><?php if ($personalJoined) { echo '
+          <i><?php echo $contentPage['locationEvent']; ?></i>
+          <br><?php if ($personalJoined) { echo '
           <br>
         <span><i class="fa fa-certificate"></i><strong style="color:red">Kết quả tra cứu: </strong></span>';
         if ($isJoined == 'YES') { echo 'Có tham gia';} else { echo '
           <i>Không tham gia sự kiện hoặc không điểm danh</i>'; }}?>
+        <span>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#registerevent">Đăng ký tham gia</button>
+          <button class="btn btn-success" data-toggle="modal" data-target="#checkjoined">Tra cứu điểm danh</button>
+        </span>
       </div>
     </div>
     <div class="col-md-6">
       <div class="section-header-wrap section-header-default">
         <div class="section-header">Mô tả chi tiết</div>
-        <div class="section-header">
-          <a href="#" data-toggle="modal" data-target="#registerevent">Đăng ký tham gia</a>
-        </div>
-        <div class="section-header">
-          <a href="#" data-toggle="modal" data-target="#checkjoined">Tra cứu điểm danh</a>
-        </div>
+      </div>
+      <div class="form-group">
+        <?php echo $contentPage['descriptionEvent']; ?>
       </div>
     </div>
   </div>

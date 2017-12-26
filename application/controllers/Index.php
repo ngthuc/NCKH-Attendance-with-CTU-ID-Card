@@ -13,6 +13,7 @@ class Index extends CI_Controller {
 		{
       $this->_data['subview'] = 'dontlogin/index_view';
       $this->_data['titlePage'] = 'Trang chủ';
+      $this->_data['content'] = $this->Mevent->getList();
       $this->load->view('main.php', $this->_data);
 		}
 }

@@ -1,5 +1,5 @@
 <?php
-class Home extends CI_Controller {
+class Hometemp extends CI_Controller {
     protected $_data;
 
 		// Hàm khởi tạo

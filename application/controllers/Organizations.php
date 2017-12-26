@@ -14,14 +14,14 @@ class Organizations extends CI_Controller {
 		{
 				$this->_data['subview'] = 'dontlogin/org_view';
 				$this->_data['titlePage'] = 'Chi tiết tổ chức';
-				// $this->_data['content'] = $this->Morg->getList();
 				$this->load->view('main.php', $this->_data);
 		}
 
-    public function org($id = '')
+    public function org($id = null)
 		{
 				$getOrg = $this->Morg->getOrgById($id);
-	      if ($getOrg['parent'] == $getOrg['id']) {
+      if ($getOrg) {
+				if ($getOrg['parent'] == $getOrg['id']) {
 					$parent['text'] = '<i>Không có cấp cao hơn tại cơ sở</i>';
 	        $parent['id'] = $getOrg['id'];
 	      } else $parent = $this->Morg->getOrgById($getOrg['parent']);
@@ -29,11 +29,21 @@ class Organizations extends CI_Controller {
 				$this->_data['subview'] = 'dontlogin/org_detail_view';
 				$this->_data['titlePage'] = 'Chi tiết tổ chức';
 
+				$this->_data['event'] = $this->Mevent->getByOrg($id);
+
 	      $this->_data['name'] = $getOrg['text'];
 				$this->_data['parent_name'] = $parent['text'];
 				$this->_data['parent_id'] = $parent['id'];
 				$this->_data['description'] = $getOrg['description'];
 				$this->load->view('main.php', $this->_data);
+			} else {
+				$this->_data['subview'] = 'alert/load_alert_view';
+        $this->_data['titlePage'] = 'Cảnh báo';
+        $this->_data['type'] = 'warning';
+        $this->_data['url'] = base_url('organizations');
+        $this->_data['content'] = 'Không tồn tại tổ chức';
+			}
+      $this->load->view('main.php', $this->_data);
 		}
 
 		public function res()

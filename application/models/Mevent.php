@@ -22,4 +22,9 @@ class Mevent extends CI_Model{
         $this->db->where("id", $id);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function getByOrg($idOrg){
+        $this->db->where("idOrg", $idOrg);
+        return $this->db->get($this->_table)->result_array();
+    }
 }

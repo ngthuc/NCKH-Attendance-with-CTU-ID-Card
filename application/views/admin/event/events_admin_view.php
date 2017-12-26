@@ -23,7 +23,6 @@
           $stt++;
           $creator = $this->Maccount->getByUsername($row['userCreator']);
           $organization = $this->Morg->getOrgById($row['idOrg']);
-          date_default_timezone_set('Asia/Ho_Chi_Minh');
           echo '<tr>
             <td>'.$stt.'</td>
             <td>'.$row['nameEvent'].'</td>
