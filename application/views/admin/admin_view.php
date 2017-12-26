@@ -1,22 +1,35 @@
+<?php
+  $registercount = $this->Mregister->countAll();
+  $event = $this->Mevent->getList();
+  $eventing = 0;
+  foreach ($event as $key => $row) {
+    $timestart = $row['dateEvent'].' '.$row['timeStart'];
+    $doing = $this->Mtime->currentEvent(strtotime($timestart));
+    if ($doing == 1) {
+       $eventing++;
+    }
+  }
+  $personalJoinedCount = $this->Mattendance->countAll();
+?>
 <div class="container">
   <div class="row">
     <!-- Thống kê sơ bộ -->
     <legend>Tổng quan</legend>
     <div class="col-md-4">
         <div class="alert alert-info">
-          <h1>24125</h1>
+          <h1><?php echo $registercount; ?></h1>
           <p>lượt đăng ký tham gia sự kiện</p>
         </div>
     </div>
     <div class="col-md-4">
         <div class="alert alert-success">
-          <h1>17</h1>
+          <h1><?php echo $eventing; ?></h1>
           <p>sự kiện đang diễn ra</p>
         </div>
     </div>
     <div class="col-md-4">
         <div class="alert alert-warning">
-          <h1>16553</h1>
+          <h1><?php echo $personalJoinedCount; ?></h1>
           <p>cá nhân đã tham gia sự kiện</p>
         </div>
     </div>

@@ -15,40 +15,33 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>07:01</td>
-          <td>10:12</td>
-          <td>Hội trường lớn</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>07:11</td>
-          <td>09:59</td>
-          <td>Khoa CNTT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>06:59</td>
-          <td>10:32</td>
-          <td>Khoa CNTT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
+        <?php
+          $stt = 1;
+          $event = $this->Mevent->getList();
+          foreach ($event as $key => $row) {
+            echo '<tr>
+              <td>'.$stt.'</td>
+              <td>'.$row['nameEvent'].'</td>
+              <td>'.$row['timeStart'].'</td>
+              <td>'.$row['timeEnd'].'</td>
+              <td>'.$row['locationEvent'].'</td>
+              <td>
+                <a class="btn btn-primary" href="'.base_url('admin/attendance/'.$row['id'].'/').'"><span class="glyphicon glyphicon-list"></span></a>
+                <button class="btn btn-danger delete-attendance" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
+              </td>
+            </tr>';
+            $stt++;
+          }
+        ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.delete-attendance').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>

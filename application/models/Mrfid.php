@@ -22,4 +22,9 @@ class Mrfid extends CI_Model{
         $this->db->where("id", $id);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function getByCard($id){
+        $this->db->where("idCard", $id);
+        return $this->db->get($this->_table)->row_array();
+    }
 }

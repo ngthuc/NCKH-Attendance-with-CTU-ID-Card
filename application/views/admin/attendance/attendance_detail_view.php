@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page-header">
-    <h1>Quản lý điểm danh cho sự kiện <?php echo $idEvent; ?></h1>
+    <h1>Quản lý điểm danh cho sự kiện <?php echo $event; ?></h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
     <a href="<?php echo base_url('admin/attendance/'); ?>" class="btn btn-info">Quay lại trang quản lý điểm danh</a>
   </div>
@@ -15,40 +15,47 @@
         <th>Quản lý</th>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Nguyễn Văn A</td>
-          <td>B1401234</td>
-          <td>07:01</td>
-          <td>10:12</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Trần Văn B</td>
-          <td>B1401235</td>
-          <td>07:11</td>
-          <td>09:59</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Phạm Thị C</td>
-          <td>B1401236</td>
-          <td>06:59</td>
-          <td>10:32</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
+        <?php
+          $stt = 1;
+          foreach ($content as $key => $row) {
+            $joiner = $this->Mrfid->getByCard($row['idCard']);
+            if ($joiner['isStudent'] == 1) {
+               $student = $this->Mstudent->getById($joiner['personalID']);
+               $name = $student['lastNameStudent'].' '.$student['firstNameStudent'];
+            } else if ($joiner['isStudent'] == 0) {
+               $staff = $this->Mstaff->getById($joiner['personalID']);
+               $name = $staff['lastNameStaff'].' '.$staff['firstNameStaff'];
+            } else {
+               $name = '<i>Không tồn tại</i>';
+            }
+            echo '<tr>
+              <td>'.$stt.'</td>
+              <td>'.$name.'</td>
+              <td>'.$joiner['personalID'].'</td>
+              <td>'.$row['timeIn'].'</td>
+              <td>'.$row['timeOut'].'</td>
+              <td>
+                <button class="btn btn-primary edit-attendance" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+                <button class="btn btn-danger delete-attendance" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
+              </td>
+            </tr>';
+            $stt++;
+          }
+        ?>
       </tbody>
     </table>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.edit-attendance').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+
+$('.delete-attendance').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert($(this).data('id'));
+});
+</script>

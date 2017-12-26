@@ -12,6 +12,8 @@ class Admin extends CI_Controller {
 				$this->load->model('Mstudent');
 				$this->load->model('Mdevice');
 				$this->load->model('Mkey');
+				$this->load->model('Mregister');
+				$this->load->model('Mattendance');
 		}
 
 		public function index()
@@ -31,15 +33,27 @@ class Admin extends CI_Controller {
 
 		public function attendance($event = null)
 		{
-      if ($event) {
-				$this->_data['subview'] = 'admin/attendance/attendance_detail_view.php';
-				$this->_data['titlePage'] = 'Chi tiết điểm danh';
-	      $this->_data['idEvent'] = $event;
-	      $this->load->view('main.php', $this->_data);
+			$result = $this->Mattendance->getByEvent($event);
+			$event = $this->Mevent->getById($event);
+			if ($event) {
+				if ($result) {
+					$this->_data['subview'] = 'admin/attendance/attendance_detail_view.php';
+					$this->_data['titlePage'] = 'Chi tiết điểm danh';
+					$this->_data['content'] = $result;
+		      $this->_data['event'] = $event['nameEvent'];
+		      $this->load->view('main.php', $this->_data);
+				} else {
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Cảnh báo';
+					$this->_data['type'] = 'warning';
+	        $this->_data['url'] = base_url('admin/attendance');;
+	        $this->_data['content'] = 'Sự kiện chưa được điểm danh';
+					$this->load->view('main.php', $this->_data);
+				}
 			} else {
-				$this->_data['subview'] = 'admin/attendance/attendance_admin_view.php';
-	      $this->_data['titlePage'] = 'Quản lý điểm danh';
-	      $this->load->view('main.php', $this->_data);
+					$this->_data['subview'] = 'admin/attendance/attendance_admin_view.php';
+					$this->_data['titlePage'] = 'Quản lý điểm danh';
+					$this->load->view('main.php', $this->_data);
 			}
 		}
 

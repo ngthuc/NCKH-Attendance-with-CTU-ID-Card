@@ -18,8 +18,8 @@ class Mattendance extends CI_Model{
         return $this->db->count_all($this->_table);
     }
 
-    public function getById($id){
-        $this->db->where("id", $id);
-        return $this->db->get($this->_table)->row_array();
+    public function getByEvent($id){
+        $this->db->where("idEvent", $id);
+        return $this->db->get($this->_table)->result_array();
     }
 }
