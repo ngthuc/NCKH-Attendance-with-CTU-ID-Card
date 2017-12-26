@@ -239,4 +239,73 @@ class Execute extends CI_Controller {
 					$this->Mevent->deleteEvent($id);
 					echo 'Xóa thành công';
     }
+
+		public function delete_key(){
+					$id = $_POST['id'];
+
+					$this->Mkey->deleteKey($id);
+					echo 'Xóa thành công';
+    }
+
+		public function lock_key(){
+        if (isset($_POST['id'])) {
+					$id = $_POST['id'];
+					$data['statusApi'] = 0;
+
+          $this->Mkey->updateKey($data,$id);
+					// Thông báo
+					echo 'Khóa thành công';
+        }
+    }
+
+		public function unlock_key(){
+        if (isset($_POST['id'])) {
+					$id = $_POST['id'];
+					$data['statusApi'] = 1;
+
+          $this->Mkey->updateKey($data,$id);
+					// Thông báo
+					echo 'Mở khóa thành công';
+        }
+    }
+
+		public function add_api_device(){
+				if (isset($_POST['addKey'])) {
+					$id = htmlspecialchars(addslashes($_POST['device']));
+					$data['idApi'] = htmlspecialchars(addslashes($_POST['idApi']));
+
+					$this->Mdevice->updateDevice($data,$id);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+					$this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+					$this->_data['url'] = base_url('admin/api_admin');
+					$this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
+				}
+    }
+
+		public function put_device(){
+				if (isset($_POST['putdevice'])) {
+					$id = htmlspecialchars(addslashes($_POST['id']));
+					$data['name'] = htmlspecialchars(addslashes($_POST['name']));
+					$data['serialnumber'] = htmlspecialchars(addslashes($_POST['serialNumber']));
+
+					$this->Mdevice->updateDevice($data,$id);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+					$this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+					$this->_data['url'] = base_url('admin/device_admin');
+					$this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
+				}
+    }
+
+		public function delete_device(){
+					$id = $_POST['id'];
+
+					$this->Mdevice->deleteDevice($id);
+					echo 'Xóa thành công';
+    }
 }

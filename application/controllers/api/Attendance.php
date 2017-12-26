@@ -20,13 +20,19 @@ class Attendance extends CI_Controller {
 
 		public function posts()
 		{
-				if ($key) {
-						// Code....
-				}
-				else {
-					$this->_data['type'] = 'warning';
-					$this->_data['content'] = 'API sự kiện - Access Denied';
-					$this->load->view('alert/load_alert_view',$this->_data);
+				if (!empty($_POST['APIkey'])) {
+					$getKey = hash('sha256', $_POST['APIkey']);
+					$existKey = $this->Mkey->getByKey($getKey);
+					$keyOrigin = $existKey['encriptApi'];
+					if ($keyOrigin == $getKey) {
+							$json = $_POST['data'];
+							foreach ($json as $key => $row) {
+								# code...
+							}
+							echo 'OK';
+					}
+				} else {
+					echo "Access Denied";
 				}
 		}
 }

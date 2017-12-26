@@ -30,7 +30,7 @@
             else echo '<i style="color:red;">Chưa cấp phép</i>';
             echo '</td>
             <td>
-              <button class="btn btn-primary edit-device" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <a href="'.base_url('admin/device_admin/'.$row['id'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
               <button class="btn btn-danger delete-device" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
@@ -42,15 +42,25 @@
 
 <!-- Load ajax -->
 <script type="text/javascript">
-$('.edit-device').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+$('.delete-device').on('click', function() {
+   load_ajax_delete_device($(this).data('id'));
+   // alert($(this).data('id'));
+   location.reload();
 });
 
-$('.delete-device').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
+function load_ajax_delete_device(idDevice){
+    $.ajax({
+        url : "<?php echo base_url('execute/delete_device')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            id : idDevice
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
 </script>
 
 <!-- Add new device -->

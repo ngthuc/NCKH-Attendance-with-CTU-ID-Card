@@ -32,7 +32,7 @@
             <td>';
             if ($row['statusApi'] == 1) echo '<button class="btn btn-warning lock-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-lock"></span></button>';
             else if ($row['statusApi'] == 0) echo '<button class="btn btn-success unlock-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-lock"></span></button>';
-            echo '<button class="btn btn-primary edit-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+            echo '<a href="'.base_url('admin/api_admin/'.$row['id'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
               <button class="btn btn-danger delete-key" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
@@ -45,24 +45,65 @@
 <!-- Load ajax -->
 <script type="text/javascript">
 $('.lock-key').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+   load_ajax_lock_key($(this).data('id'));
+   location.reload();
 });
 
 $('.unlock-key').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
-
-$('.edit-key').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+   load_ajax_unlock_key($(this).data('id'));
+   location.reload();
 });
 
 $('.delete-key').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+    var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
+    if (r == true) {
+        load_ajax_delete_key($(this).data('id'));
+    }
+   // alert($(this).data('id'));
+   location.reload();
 });
+
+function load_ajax_lock_key(idkey){
+    $.ajax({
+        url : "<?php echo base_url('execute/lock_key')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            id : idkey
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
+
+function load_ajax_unlock_key(idkey){
+    $.ajax({
+        url : "<?php echo base_url('execute/unlock_key')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            id : idkey
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
+
+function load_ajax_delete_key(idkey){
+    $.ajax({
+        url : "<?php echo base_url('execute/delete_key')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            id : idkey
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
 </script>
 
 <!-- Add new device -->

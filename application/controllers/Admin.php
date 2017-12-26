@@ -147,19 +147,34 @@ class Admin extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function device_admin()
+		public function device_admin($id = null)
 		{
-      $this->_data['subview'] = 'admin/device/devices_admin_view.php';
-      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
-			$this->_data['content'] = $this->Mdevice->getList();
+			$existDevice = $this->Mdevice->getById($id);
+			if ($existDevice) {
+				$this->_data['subview'] = 'admin/device/device_edit_view.php';
+	      $this->_data['titlePage'] = 'Cấp phát API cho thiết bị';
+				$this->_data['id'] = $id;
+				$this->_data['device'] = $existDevice;
+			} else {
+				$this->_data['subview'] = 'admin/device/devices_admin_view.php';
+	      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
+				$this->_data['content'] = $this->Mdevice->getList();
+			}
       $this->load->view('main.php', $this->_data);
 		}
 
-		public function api_admin()
+		public function api_admin($id = null)
 		{
-      $this->_data['subview'] = 'admin/device/api_admin_view.php';
-      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
-			$this->_data['content'] = $this->Mkey->getList();
+			$existApi = $this->Mkey->getById($id);
+			if($existApi) {
+				$this->_data['subview'] = 'admin/device/api_add_view.php';
+	      $this->_data['titlePage'] = 'Cấp phát API cho thiết bị';
+				$this->_data['idApi'] = $id;
+			} else {
+				$this->_data['subview'] = 'admin/device/api_admin_view.php';
+	      $this->_data['titlePage'] = 'Quản lý thiết bị và API';
+				$this->_data['content'] = $this->Mkey->getList();
+			}
       $this->load->view('main.php', $this->_data);
 		}
 }
