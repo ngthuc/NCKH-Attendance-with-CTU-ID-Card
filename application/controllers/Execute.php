@@ -210,4 +210,33 @@ class Execute extends CI_Controller {
 					$this->Mrole->deleteRole($role);
 					echo 'Xóa thành công';
     }
+
+		public function put_event(){
+        if (isset($_POST['putEvent'])) {
+					$id = htmlspecialchars(addslashes($_POST['idEvent']));
+					$data['nameEvent'] = htmlspecialchars(addslashes($_POST['nameEvent']));
+					$data['timeStart'] = htmlspecialchars(addslashes($_POST['timeStart']));
+					$data['timeEnd'] = htmlspecialchars(addslashes($_POST['timeEnd']));
+					$data['dateEvent'] = htmlspecialchars(addslashes($_POST['dateEvent']));
+					$data['locationEvent'] = htmlspecialchars(addslashes($_POST['locationEvent']));
+					$data['descriptionEvent'] = htmlspecialchars(addslashes($_POST['descriptionEvent']));
+					$data['idOrg'] = htmlspecialchars(addslashes($_POST['org']));
+
+          $this->Mevent->updateEvent($data,$id);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/event');
+	        $this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
+        }
+    }
+
+		public function delete_event(){
+					$id = $_POST['id'];
+
+					$this->Mevent->deleteEvent($id);
+					echo 'Xóa thành công';
+    }
 }

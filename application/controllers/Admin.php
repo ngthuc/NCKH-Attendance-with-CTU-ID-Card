@@ -31,6 +31,14 @@ class Admin extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
+		public function edit_event($id = null)
+		{
+      $this->_data['subview'] = 'admin/event/event_edit_view.php';
+      $this->_data['titlePage'] = 'Chỉnh sửa sự kiện';
+			$this->_data['content'] = $this->Mevent->getById($id);
+      $this->load->view('main.php', $this->_data);
+		}
+
 		public function attendance($event = null)
 		{
 			$result = $this->Mattendance->getByEvent($event);

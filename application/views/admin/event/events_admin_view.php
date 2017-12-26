@@ -31,7 +31,9 @@
             <td>'.$creator['name'].'</td>
             <td>'.$organization['text'].'</td>
             <td>
-              <button class="btn btn-primary edit-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <a href="'.base_url('admin/edit_event/'.$row['id']).'" class="btn btn-primary">
+                <span class="glyphicon glyphicon-edit"></span>
+              </a>
               <button class="btn btn-danger delete-event" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
@@ -40,19 +42,6 @@
     </table>
   </div>
 </div>
-
-<!-- Load ajax -->
-<script type="text/javascript">
-$('.edit-event').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
-
-$('.delete-event').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
-</script>
 
 <!-- Add new event -->
 <div class="modal fade" id="new-event" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
@@ -92,3 +81,29 @@ $('.delete-event').on('click', function() {
     </form>
   </div>
 </div>
+
+<!-- Load ajax -->
+<script type="text/javascript">
+$('.delete-event').on('click', function() {
+    var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
+    if (r == true) {
+        load_ajax_delete($(this).data('id'));
+    }
+   // alert($(this).data('id'));
+   location.reload();
+});
+
+function load_ajax_delete(idevent){
+    $.ajax({
+        url : "<?php echo base_url('execute/delete_event')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            id : idevent
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
+</script>

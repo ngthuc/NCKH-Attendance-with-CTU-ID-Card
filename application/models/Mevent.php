@@ -31,4 +31,14 @@ class Mevent extends CI_Model{
     public function insertEvent($data_insert){
         $this->db->insert($this->_table,$data_insert);
     }
+
+    public function updateEvent($data_update, $id){
+        $this->db->where("id", $id);
+        $this->db->update($this->_table, $data_update);
+    }
+
+    public function deleteEvent($id){
+        $this->db->where("id", $id);
+        return $this->db->delete($this->_table);
+    }
 }
