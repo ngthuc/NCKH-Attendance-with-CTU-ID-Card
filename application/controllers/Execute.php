@@ -14,7 +14,8 @@ class Execute extends CI_Controller {
 				$this->load->model('Mstudent');
 				$this->load->model('Mstaff');
 				$this->load->model('Mdevice');
-        $this->load->model('Mkey');
+				$this->load->model('Mkey');
+        $this->load->model('Mrole');
 		}
 
     public function index(){
@@ -120,6 +121,28 @@ class Execute extends CI_Controller {
           $data['encriptApi'] = hash('sha256', md5(htmlspecialchars(addslashes($_POST['key']))));
 
           $this->Mkey->insertKey($data);
+
+        }
+    }
+
+		public function add_role(){
+        if (isset($_POST['addNew'])) {
+					$data['roleName'] = htmlspecialchars(addslashes($_POST['role']));
+					$data['rolesGroup'] = implode(",",$_POST['add']);
+					$data['roleDesc'] = htmlspecialchars(addslashes($_POST['mota']));
+
+          $this->Mrole->insertRole($data);
+
+        }
+    }
+
+		public function put_role(){
+        if (isset($_POST['putRole'])) {
+					$data['roleName'] = htmlspecialchars(addslashes($_POST['role']));
+					$data['rolesGroup'] = implode(",",$_POST['add']);
+					$data['roleDesc'] = htmlspecialchars(addslashes($_POST['mota']));
+
+          $this->Mrole->insertRole($data);
 
         }
     }

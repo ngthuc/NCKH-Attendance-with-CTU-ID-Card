@@ -4,7 +4,7 @@
     <a href="<?php echo base_url('admin/permissions/'); ?>" class="btn btn-default">Quay lại trang phân quyền</a>
     <a href="<?php echo base_url('admin/permissions/add'); ?>" class="btn btn-success">Thêm nhóm quyền mới</a>
   </div>
-  <form class="form-horizontal" action="#" method="POST">
+  <form class="form-horizontal" action="<?php echo base_url('execute/add_role');?>" method="POST">
     <div class="form-group">
       <div class="col-sm-12">
         <div class="col-sm-4">
@@ -86,8 +86,16 @@
             <input type="checkbox" name='add[]' value="settingCP">Quản lý cài đặt<br />
             <input class="hidden"><br />
           </div>
-          <input type="submit" class="btn btn-primary" name="saveRole" value="Lưu">
+          <input type="submit" class="btn btn-primary" name="addNew" value="Lưu">
       </div>
     </div>
   </form>
 </div>
+
+<?php
+// if (isset($_POST['saveRole'])) {
+//   echo $_POST['role'].' '.$_POST['mota'].'<br />';
+//   $all_value = implode(",",$_POST['add']);
+//   echo $all_value;
+// }
+?>

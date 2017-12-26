@@ -5,13 +5,13 @@
     <a href="<?php echo base_url('admin/permissions/'); ?>" class="btn btn-default">Quay lại trang phân quyền</a>
     <a href="<?php echo base_url('admin/permissions/add/'); ?>" class="btn btn-success">Thêm nhóm quyền mới</a>
   </div>
-  <form class="form-horizontal" action="#" method="POST">
+  <form class="form-horizontal" action="<?php echo base_url('execute/put_role');?>" method="POST">
     <div class="form-group">
       <div class="col-sm-12">
         <div class="col-sm-4">
             <p><strong>Nhóm quyền</strong></p>
             <input type="text" class="form-control" id="disabledInput" value="<?php echo $role['roleName']; ?>" disabled>
-            <input type="text" class="hidden" name="rolename" value="<?php echo $role['roleName']; ?>">
+            <input type="text" class="hidden" name="role" value="<?php echo $role['roleName']; ?>">
         </div>
         <div class="col-sm-8">
             <p><strong>Mô tả nhóm quyền</strong></p>
@@ -50,7 +50,7 @@
             <input type="checkbox" name='add[]' value="fullcontrol"<?php if(in_array("fullcontrol",$rolesGroup)){echo " checked";}?> onClick="toggle(this)">Tất cả quyền
           </div>
           <div class="col-sm-4">
-            <p><strong>Nhóm quyền xem</strong></p>
+            <p><strong>Nhóm quyền cơ bản</strong></p>
             <input type="checkbox" name='add[]' value="device" <?php if(in_array("device",$rolesGroup)){echo "checked";}?>>Xem danh sách thiết bị<br />
             <input type="checkbox" name='add[]' value="borrowDevice" <?php if(in_array("borrowDevice",$rolesGroup)){echo "checked";}?>>Đăng ký mượn thiết bị<br />
             <input type="checkbox" name='add[]' value="members" <?php if(in_array("members",$rolesGroup)){echo "checked";}?>>Xem danh sách thành viên<br />
@@ -101,10 +101,10 @@
 </div>
 
 <?php
-if (isset($_POST['saveRole'])) {
-  echo $_POST['rolename'].' '.$_POST['mota'].'<br />';
-  foreach ($_POST['add'] as $key => $data) {
-    echo $data.' ';
-  }
-}
+// if (isset($_POST['saveRole'])) {
+//   echo $_POST['rolename'].' '.$_POST['mota'].'<br />';
+//   foreach ($_POST['add'] as $key => $data) {
+//     echo $data.' ';
+//   }
+// }
 ?>

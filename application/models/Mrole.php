@@ -27,4 +27,8 @@ class Mrole extends CI_Model{
         $this->db->where("roleName", $name);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function insertRole($data_insert){
+        $this->db->insert($this->_table,$data_insert);
+    }
 }
