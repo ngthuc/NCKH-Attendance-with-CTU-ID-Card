@@ -51,50 +51,25 @@
           </div>
           <div class="col-sm-4">
             <p><strong>Nhóm quyền cơ bản</strong></p>
-            <input type="checkbox" name='add[]' value="device" <?php if(in_array("device",$rolesGroup)){echo "checked";}?>>Xem danh sách thiết bị<br />
-            <input type="checkbox" name='add[]' value="borrowDevice" <?php if(in_array("borrowDevice",$rolesGroup)){echo "checked";}?>>Đăng ký mượn thiết bị<br />
-            <input type="checkbox" name='add[]' value="members" <?php if(in_array("members",$rolesGroup)){echo "checked";}?>>Xem danh sách thành viên<br />
-            <input type="checkbox" name='add[]' value="project" <?php if(in_array("project",$rolesGroup)){echo "checked";}?>>Xem danh sách dự án<br />
-            <input type="checkbox" name='add[]' value="labs" <?php if(in_array("labs",$rolesGroup)){echo "checked";}?>>Xem danh sách Labs<br />
-            <input type="checkbox" name='add[]' value="profile" <?php if(in_array("profile",$rolesGroup)){echo "checked";}?>>Xem thông tin thành viên<br />
-            <input type="checkbox" name='add[]' value="search" <?php if(in_array("search",$rolesGroup)){echo "checked";}?>>Sử dụng Tìm kiếm<br />
-            <input type="checkbox" name='add[]' value="dashboard" <?php if(in_array("dashboard",$rolesGroup)){echo "checked";}?>>Truy cập AdminCP<br />
-            <p><strong>Nhóm quyền SAF</strong></p>
-            <input type="checkbox" name='add[]' value="rolesAD" <?php if(in_array("rolesAD",$rolesGroup)){echo "checked";}?>>Quản lý nhóm quyền<br />
-            <input type="checkbox" name='add[]' value="account" <?php if(in_array("account",$rolesGroup)){echo "checked";}?>>Quản lý tài khoản<br />
-            <input type="checkbox" name='add[]' value="mailCP" <?php if(in_array("mailCP",$rolesGroup)){echo "checked";}?>>Quản lý tính năng email<br />
-            <input type="checkbox" name='add[]' value="urlCP" <?php if(in_array("urlCP",$rolesGroup)){echo "checked";}?>>Quản lý tính năng URL<br />
+            <input type="checkbox" name='add[]' value="admin"<?php if(in_array("admin",$rolesGroup)){echo " checked";}?>>Truy cập trang quản trị<br />
+            <input type="checkbox" name='add[]' value="report"<?php if(in_array("report",$rolesGroup)){echo " checked";}?>>Xem và xuất báo cáo<br />
+            <input type="checkbox" name='add[]' value="newEvent"<?php if(in_array("newEvent",$rolesGroup)){echo " checked";}?>>Đăng sự kiện điểm danh mới<br />
           </div>
           <div class="col-sm-4">
-            <p><strong>Nhóm quyền thêm/xóa</strong></p>
-            <input type="checkbox" name='add[]' value="addDevice" <?php if(in_array("addDevice",$rolesGroup)){echo "checked";}?>>Thêm thiết bị<br />
-            <input type="checkbox" name='add[]' value="removeDevice" <?php if(in_array("removeDevice",$rolesGroup)){echo "checked";}?>>Xóa thiết bị<br />
-            <input type="checkbox" name='add[]' value="addMember" <?php if(in_array("addMember",$rolesGroup)){echo "checked";}?>>Thêm thành viên<br />
-            <input type="checkbox" name='add[]' value="removeMember" <?php if(in_array("removeMember",$rolesGroup)){echo "checked";}?>>Xóa thành viên<br />
-            <input type="checkbox" name='add[]' value="addProject" <?php if(in_array("addProject",$rolesGroup)){echo "checked";}?>>Thêm dự án<br />
-            <input type="checkbox" name='add[]' value="removeProject" <?php if(in_array("removeProject",$rolesGroup)){echo "checked";}?>>Xóa dự án<br />
-            <input type="checkbox" name='add[]' value="addLabs" <?php if(in_array("addLabs",$rolesGroup)){echo "checked";}?>>Thêm Labs<br />
-            <input type="checkbox" name='add[]' value="removeLab" <?php if(in_array("removeLab",$rolesGroup)){echo "checked";}?>>Xóa Labs<br />
-            <input type="checkbox" name='add[]' value="addPartner" <?php if(in_array("addPartner",$rolesGroup)){echo "checked";}?>>Thêm đối tác<br />
-            <input type="checkbox" name='add[]' value="removePartner" <?php if(in_array("removePartner",$rolesGroup)){echo "checked";}?>>Xóa đối tác<br />
+            <p><strong>Nhóm quyền quản lý cơ bản</strong></p>
+            <input type="checkbox" name='add[]' value="event"<?php if(in_array("event",$rolesGroup)){echo " checked";}?>>Quản lý sự kiện<br />
+            <input type="checkbox" name='add[]' value="attendance"<?php if(in_array("attendance",$rolesGroup)){echo " checked";}?>>Quản lý điểm danh<br />
+            <input type="checkbox" name='add[]' value="organization"<?php if(in_array("organization",$rolesGroup)){echo " checked";}?>>Quản lý tổ chức<br />
+            <input type="checkbox" name='add[]' value="identification"<?php if(in_array("identification",$rolesGroup)){echo " checked";}?>>Quản lý định danh sinh viên/cán bộ<br />
           </div>
           <div class="col-sm-4">
-            <p><strong>Nhóm quyền chỉnh sửa/quản lý</strong></p>
-            <p><strong> * Nhóm quyền quản lý cơ bản</strong></p>
-            <input type="checkbox" name='add[]' value="deviceCP" <?php if(in_array("deviceCP",$rolesGroup)){echo "checked";}?>>Quản lý thiết bị<br />
-            <input type="checkbox" name='add[]' value="borrowDeviceCP" <?php if(in_array("borrowDeviceCP",$rolesGroup)){echo "checked";}?>>Quản lý mượn thiết bị<br />
-            <input type="checkbox" name='add[]' value="membersCP" <?php if(in_array("membersCP",$rolesGroup)){echo "checked";}?>>Quản lý thành viên<br />
-            <input type="checkbox" name='add[]' value="projectCP" <?php if(in_array("projectCP",$rolesGroup)){echo "checked";}?>>Quản lý dự án<br />
-            <input type="checkbox" name='add[]' value="labsCP" <?php if(in_array("labsCP",$rolesGroup)){echo "checked";}?>>Quản lý Lab<br />
-            <input type="checkbox" name='add[]' value="producerCP" <?php if(in_array("producerCP",$rolesGroup)){echo "checked";}?>>Quản lý đối tác<br />
-            <p><strong> * Nhóm quyền quản lý cao cấp</strong></p>
-            <input type="checkbox" name='add[]' value="imagesCP" <?php if(in_array("imagesCP",$rolesGroup)){echo "checked";}?>>Quản lý hình ảnh<br />
-            <input type="checkbox" name='add[]' value="rolesCP" <?php if(in_array("rolesCP",$rolesGroup)){echo "checked";}?>>Thay đổi quyền thành viên<br />
-            <input type="checkbox" name='add[]' value="profileCP" <?php if(in_array("profileCP",$rolesGroup)){echo "checked";}?>>Thay đổi thông tin thành viên<br />
-            <input type="checkbox" name='add[]' value="settingCP" <?php if(in_array("settingCP",$rolesGroup)){echo "checked";}?>>Quản lý cài đặt<br />
-            <input class="hidden"><br />
+            <p><strong>Nhóm quyền quản lý nâng cao</strong></p>
+            <input type="checkbox" name='add[]' value="role"<?php if(in_array("role",$rolesGroup)){echo " checked";}?>>Quản lý phân quyền<br />
+            <input type="checkbox" name='add[]' value="account"<?php if(in_array("account",$rolesGroup)){echo " checked";}?>>Quản lý tài khoản<br />
+            <input type="checkbox" name='add[]' value="remove"<?php if(in_array("remove",$rolesGroup)){echo " checked";}?>>Xóa tài khoản<br />
+            <input type="checkbox" name='add[]' value="device"<?php if(in_array("device",$rolesGroup)){echo " checked";}?>>Quản lý thiết bị và API<br />
           </div>
-          <input type="submit" class="btn btn-primary" name="saveRole" value="Lưu">
+          <input type="submit" class="btn btn-primary" name="putRole" value="Lưu">
       </div>
     </div>
   </form>

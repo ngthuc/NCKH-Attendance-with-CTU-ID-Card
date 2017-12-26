@@ -31,4 +31,14 @@ class Mrole extends CI_Model{
     public function insertRole($data_insert){
         $this->db->insert($this->_table,$data_insert);
     }
+
+    public function updateRole($data_update, $role){
+        $this->db->where("roleName", $role);
+        $this->db->update($this->_table, $data_update);
+    }
+
+    public function deleteRole($role){
+        $this->db->where("roleName", $role);
+        return $this->db->delete($this->_table);
+    }
 }

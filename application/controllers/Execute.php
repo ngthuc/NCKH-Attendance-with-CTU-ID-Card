@@ -34,7 +34,13 @@ class Execute extends CI_Controller {
           $data['idOrg'] = $_POST['org'];
 
           $this->Mevent->insertEvent($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/event');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -49,7 +55,13 @@ class Execute extends CI_Controller {
           $data['description'] = htmlspecialchars(addslashes($_POST['description']));
 
           $this->Morg->insertOrg($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/organizations');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -75,7 +87,13 @@ class Execute extends CI_Controller {
           $data['isStudent'] = $_POST['type'];
 
           $this->Mrfid->insertCard($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/rfid_account');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -87,7 +105,13 @@ class Execute extends CI_Controller {
           $data['idMajor'] = $_POST['major'];
 
           $this->Mstudent->insertStudent($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/rfid_account');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -99,7 +123,13 @@ class Execute extends CI_Controller {
           $data['idDepartment'] = $_POST['department'];
 
           $this->Mstaff->insertStaff($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/rfid_account');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -112,7 +142,13 @@ class Execute extends CI_Controller {
 					$data['registerdate'] = date("Y-m-d");
 
           $this->Mdevice->insertDevice($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/device_admin');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -121,7 +157,13 @@ class Execute extends CI_Controller {
           $data['encriptApi'] = hash('sha256', md5(htmlspecialchars(addslashes($_POST['key']))));
 
           $this->Mkey->insertKey($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/api_admin');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
@@ -132,18 +174,40 @@ class Execute extends CI_Controller {
 					$data['roleDesc'] = htmlspecialchars(addslashes($_POST['mota']));
 
           $this->Mrole->insertRole($data);
-
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/permissions');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
         }
     }
 
 		public function put_role(){
         if (isset($_POST['putRole'])) {
 					$data['roleName'] = htmlspecialchars(addslashes($_POST['role']));
-					$data['rolesGroup'] = implode(",",$_POST['add']);
+					$role = $data['roleName'];
+					if ($_POST['add']) {
+						$data['rolesGroup'] = implode(",",$_POST['add']);
+					}
 					$data['roleDesc'] = htmlspecialchars(addslashes($_POST['mota']));
 
-          $this->Mrole->insertRole($data);
-
+          $this->Mrole->updateRole($data,$role);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/permissions');
+	        $this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
         }
+    }
+
+		public function delete_role(){
+					$role = $_POST['rolename'];
+
+					$this->Mrole->deleteRole($role);
+					echo 'Xóa thành công';
     }
 }

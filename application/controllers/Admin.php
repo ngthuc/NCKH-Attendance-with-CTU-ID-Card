@@ -46,7 +46,7 @@ class Admin extends CI_Controller {
 					$this->_data['subview'] = 'alert/load_alert_view';
 	        $this->_data['titlePage'] = 'Cảnh báo';
 					$this->_data['type'] = 'warning';
-	        $this->_data['url'] = base_url('admin/attendance');;
+	        $this->_data['url'] = base_url('admin/attendance');
 	        $this->_data['content'] = 'Sự kiện chưa được điểm danh';
 					$this->load->view('main.php', $this->_data);
 				}

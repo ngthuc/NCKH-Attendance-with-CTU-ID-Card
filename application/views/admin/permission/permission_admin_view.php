@@ -22,7 +22,7 @@
             <td>'.$row['roleDesc'].'</td>
             <td>
               <a href="'.base_url('admin/permissions/custom/').$row['roleName'].'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-              <a href="#" class="btn btn-danger delete-role" data-id="'.$row['roleName'].'"><span class="glyphicon glyphicon-remove"></span></a>
+              <button class="btn btn-danger delete-role" data-id="'.$row['roleName'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
         } ?>
@@ -34,7 +34,25 @@
 <!-- Load ajax -->
 <script type="text/javascript">
 $('.delete-role').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+    var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
+    if (r == true) {
+        load_ajax_delete($(this).data('id'));
+    }
+   // alert($(this).data('id'));
+   location.reload();
 });
+
+function load_ajax_delete(role){
+    $.ajax({
+        url : "<?php echo base_url('execute/delete_role')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            rolename : role
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
 </script>

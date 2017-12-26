@@ -42,48 +42,24 @@
             <input type="checkbox" name='add[]' value="fullcontrol" onClick="toggle(this)">Tất cả quyền
           </div>
           <div class="col-sm-4">
-            <p><strong>Nhóm quyền xem</strong></p>
-            <input type="checkbox" name='add[]' value="device">Xem danh sách thiết bị<br />
-            <input type="checkbox" name='add[]' value="borrowDevice">Đăng ký mượn thiết bị<br />
-            <input type="checkbox" name='add[]' value="members">Xem danh sách thành viên<br />
-            <input type="checkbox" name='add[]' value="project">Xem danh sách dự án<br />
-            <input type="checkbox" name='add[]' value="labs">Xem danh sách Labs<br />
-            <input type="checkbox" name='add[]' value="profile">Xem thông tin thành viên<br />
-            <input type="checkbox" name='add[]' value="search">Sử dụng Tìm kiếm<br />
-            <input type="checkbox" name='add[]' value="dashboard">Truy cập AdminCP<br />
-            <p><strong>Nhóm quyền SAF</strong></p>
-            <input type="checkbox" name='add[]' value="rolesAD">Quản lý nhóm quyền<br />
+            <p><strong>Nhóm quyền cơ bản</strong></p>
+            <input type="checkbox" name='add[]' value="admin">Truy cập trang quản trị<br />
+            <input type="checkbox" name='add[]' value="report">Xem và xuất báo cáo<br />
+            <input type="checkbox" name='add[]' value="newEvent">Đăng sự kiện điểm danh mới<br />
+          </div>
+          <div class="col-sm-4">
+            <p><strong>Nhóm quyền quản lý cơ bản</strong></p>
+            <input type="checkbox" name='add[]' value="event">Quản lý sự kiện<br />
+            <input type="checkbox" name='add[]' value="attendance">Quản lý điểm danh<br />
+            <input type="checkbox" name='add[]' value="organization">Quản lý tổ chức<br />
+            <input type="checkbox" name='add[]' value="identification">Quản lý định danh sinh viên/cán bộ<br />
+          </div>
+          <div class="col-sm-4">
+            <p><strong>Nhóm quyền quản lý nâng cao</strong></p>
+            <input type="checkbox" name='add[]' value="role">Quản lý phân quyền<br />
             <input type="checkbox" name='add[]' value="account">Quản lý tài khoản<br />
-            <input type="checkbox" name='add[]' value="mailCP">Quản lý tính năng email<br />
-            <input type="checkbox" name='add[]' value="urlCP">Quản lý tính năng URL<br />
-          </div>
-          <div class="col-sm-4">
-            <p><strong>Nhóm quyền thêm/xóa</strong></p>
-            <input type="checkbox" name='add[]' value="addDevice">Thêm thiết bị<br />
-            <input type="checkbox" name='add[]' value="removeDevice">Xóa thiết bị<br />
-            <input type="checkbox" name='add[]' value="addMember">Thêm thành viên<br />
-            <input type="checkbox" name='add[]' value="removeMember">Xóa thành viên<br />
-            <input type="checkbox" name='add[]' value="addProject">Thêm dự án<br />
-            <input type="checkbox" name='add[]' value="removeProject">Xóa dự án<br />
-            <input type="checkbox" name='add[]' value="addLabs">Thêm Labs<br />
-            <input type="checkbox" name='add[]' value="removeLab">Xóa Labs<br />
-            <input type="checkbox" name='add[]' value="addPartner">Thêm đối tác<br />
-            <input type="checkbox" name='add[]' value="removePartner">Xóa đối tác<br />
-          </div>
-          <div class="col-sm-4">
-            <p><strong>Nhóm quyền chỉnh sửa/quản lý</strong></p>
-            <p><strong> * Nhóm quyền quản lý cơ bản</strong></p>
-            <input type="checkbox" name='add[]' value="deviceCP">Quản lý thiết bị<br />
-            <input type="checkbox" name='add[]' value="borrowDeviceCP">Quản lý mượn thiết bị<br />
-            <input type="checkbox" name='add[]' value="membersCP">Quản lý thành viên<br />
-            <input type="checkbox" name='add[]' value="projectCP">Quản lý dự án<br />
-            <input type="checkbox" name='add[]' value="labsCP">Quản lý Lab<br />
-            <input type="checkbox" name='add[]' value="producerCP">Quản lý đối tác<br />
-            <p><strong> * Nhóm quyền quản lý cao cấp</strong></p>
-            <input type="checkbox" name='add[]' value="imagesCP">Quản lý hình ảnh<br />
-            <input type="checkbox" name='add[]' value="rolesCP">Thay đổi quyền thành viên<br />
-            <input type="checkbox" name='add[]' value="profileCP">Thay đổi thông tin thành viên<br />
-            <input type="checkbox" name='add[]' value="settingCP">Quản lý cài đặt<br />
+            <input type="checkbox" name='add[]' value="remove">Xóa tài khoản<br />
+            <input type="checkbox" name='add[]' value="device">Quản lý thiết bị và API<br />
             <input class="hidden"><br />
           </div>
           <input type="submit" class="btn btn-primary" name="addNew" value="Lưu">
