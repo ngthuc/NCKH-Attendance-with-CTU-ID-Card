@@ -1,84 +1,58 @@
+<?php
+if(isset($_POST['view'])) {
+  $idEvent = $_POST['nameEvent'];
+} else {
+  $idEvent = ' ';
+}
+?>
 <div class="container">
   <div class="page-header">
-    <h1>Quản lý báo cáo</h1>
+    <h1>Thống kê hoạt động</h1>
     <a href="<?php echo base_url('admin/'); ?>" class="btn btn-default">Quay lại trang quản trị</a>
-    <a href="#" class="btn btn-success">Tạo báo cáo mới</a>
-    <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-export"> Xuất báo cáo</span></a>
+    <!-- <a href="#" class="btn btn-success">Tạo báo cáo mới</a>
+    <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-export"> Xuất báo cáo</span></a> -->
   </div>
   <div class="col-md-12">
-    <table class="table" id="datatables">
-      <thead>
-        <th>STT</th>
-        <th>Tên sự kiện</th>
-        <th>Thời gian diễn ra</th>
-        <th>Địa điểm</th>
-        <th>Mô tả</th>
-        <th>Người đăng</th>
-        <th>Đơn vị tổ chức</th>
-        <th>Quản lý</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Khám phá tri thức - Buổi 1</td>
-          <td>
-            Ngày 07/12/2017<br />
-            Giờ bắt đầu: 07:00<br />
-            Giờ kết thúc: 11:00
-          </td>
-          <td>
-            Hội trường lớn<br />
-            Khu 2 Đại học Cần Thơ
-          </td>
-          <td>Sự kiện việc làm CNTT</td>
-          <td>Quản trị hệ thống</td>
-          <td>Đoàn khoa CNTT&TT</td>
-          <td>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="col-md-6">
+      <form class="form-inline" action="#" method="post">
+        <label for="viewEvent">Xem thống kê sự kiện</label>
+        <select class="form-control" name="nameEvent" id="viewEvent">
+          <?php $event = $this->Mevent->getList();
+          foreach ($event as $key => $row) {
+            echo '<option value="'.$row['id'].'">'.$row['nameEvent'].'</option>';
+          }
+          ?>
+        </select>
+        <input type="submit" class="form-inline btn btn-primary" name="view" value="Xem">
+      </form>
+    </div>
+    <div class="col-md-6" id="view">
+      <?php
+        $viewEvent = $this->Mevent->getById($idEvent);
+        if ($viewEvent) {
+          $count = $this->Mattendance->countAll($idEvent);
+          echo '<div class="alert alert-info">
+          <h1>'.$count.'</h1>
+          <p>lượt điểm danh sự kiện</p>
+        </div>';
+          echo '<button class="btn btn-info" id="report"><span class="glyphicon glyphicon-export"></span> Xuất báo cáo</button>';
+        }
+      ?>
+    </div>
   </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#viewEvent').on('change', function() {
+    var $form = $(this).closest('form');
+    $form.find('input[type=submit]').click();
+  });
+});
+
+<!-- Load ajax -->
+$('#report').on('click', function() {
+   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
+   alert('Đang phát triển');
+});
+</script>

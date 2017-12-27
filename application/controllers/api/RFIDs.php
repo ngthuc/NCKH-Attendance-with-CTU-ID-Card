@@ -75,11 +75,20 @@ class RFIDs extends CI_Controller {
 					$existKey = $this->Mkey->getByKey($getKey);
 					$keyOrigin = $existKey['encriptApi'];
 					if ($keyOrigin == $getKey) {
-							$json = $_POST['data'];
-							foreach ($json as $key => $row) {
-								# code...
+						$json = json_decode($_POST['data'], TRUE);
+						foreach ($json as $key => $row) {
+							$data['idCard'] = $row['idCard'];
+							$data['personalID'] = $row['personalID'];
+							$data['isStudent'] = $row['isStudent'];
+
+							$checkIdCard = $this->Mrfid->getByCard($row['idCard']);
+							if (empty($checkIdCard)) {
+								$this->Mattendance->insertCard($data);
+							} else {
+								$this->Mattendance->updateCard($data,$row['idCard']);
 							}
-							echo 'OK';
+						}
+						echo 'OK';
 					}
 				} else {
 					echo "Access Denied";

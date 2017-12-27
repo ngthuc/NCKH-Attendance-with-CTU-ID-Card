@@ -25,9 +25,19 @@ class Attendance extends CI_Controller {
 					$existKey = $this->Mkey->getByKey($getKey);
 					$keyOrigin = $existKey['encriptApi'];
 					if ($keyOrigin == $getKey) {
-							$json = $_POST['data'];
+							$json = json_decode($_POST['data'], TRUE);
 							foreach ($json as $key => $row) {
-								# code...
+								$data['idEvent'] = $row['idEvent'];
+								$data['idCard'] = $row['idCard'];
+								$data['timeIn'] = $row['timeIn'];
+								$data['timeOut'] = $row['timeOut'];
+
+								$checkIdCard = $this->Mattendance->getByCard($row['idCard']);
+								if (empty($checkIdCard)) {
+									$this->Mattendance->insertAttendance($data);
+								} else {
+									$this->Mattendance->updateUserAttendance($data,$row['idEvent'],$row['idCard']);
+								}
 							}
 							echo 'OK';
 					}
