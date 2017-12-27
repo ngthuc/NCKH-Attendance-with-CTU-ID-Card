@@ -16,7 +16,8 @@ class Execute extends CI_Controller {
 				$this->load->model('Mdevice');
 				$this->load->model('Mkey');
 				$this->load->model('Mrole');
-        $this->load->model('Mattendance');
+				$this->load->model('Mattendance');
+        $this->load->model('Mregister');
 		}
 
     public function index(){
@@ -67,18 +68,38 @@ class Execute extends CI_Controller {
     }
 
 		public function add_user(){
-        // if (isset($_POST['addNew'])) {
-        //   if ($_POST['org'] == '#') {
-        //     // Đây là tổ chức cha
-        //     $count = $this->Morg->countAll();
-        //     $data['parent'] = $count + 1;
-        //   } else $data['parent'] = $_POST['org'];
-        //   $data['text'] = htmlspecialchars(addslashes($_POST['name']));
-        //   $data['description'] = htmlspecialchars(addslashes($_POST['description']));
-        //
-        //   $this->Maccount->insertUser($data);
+        if (isset($_POST['addNew'])) {
+					$data['username'] = htmlspecialchars(addslashes($_POST['uid']));
+					$data['password'] = htmlspecialchars(addslashes($_POST['pwd']));
+					$data['email'] = htmlspecialchars(addslashes($_POST['email']));
+					$data['name'] = htmlspecialchars(addslashes($_POST['name']));
+          $data['rolename'] = htmlspecialchars(addslashes($_POST['role']));
 
-        // }
+          $this->Maccount->insertUser($data);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = base_url('admin/user_account');
+	        $this->_data['content'] = 'Thêm mới thành công';
+					$this->load->view('main.php', $this->_data);
+        }
+    }
+
+		public function register_event(){
+        if (isset($_POST['register'])) {
+					$data['personalID'] = htmlspecialchars(addslashes($_POST['maso']));
+					$data['idEvent'] = htmlspecialchars(addslashes($_POST['idEvent']));
+
+          $this->Mregister->insertRegister($data);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+	        $this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+	        $this->_data['url'] = $_POST['url'];
+	        $this->_data['content'] = 'Đăng ký thành công';
+					$this->load->view('main.php', $this->_data);
+        }
     }
 
 		public function add_card(){

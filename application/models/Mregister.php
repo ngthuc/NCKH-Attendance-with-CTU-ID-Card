@@ -22,4 +22,8 @@ class Mregister extends CI_Model{
         $this->db->where("id", $id);
         return $this->db->get($this->_table)->row_array();
     }
+
+    public function insertRegister($data_insert){
+        $this->db->insert($this->_table,$data_insert);
+    }
 }

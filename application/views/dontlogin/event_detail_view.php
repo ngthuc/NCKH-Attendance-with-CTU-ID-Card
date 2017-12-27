@@ -2,6 +2,8 @@
     $org = $this->Morg->getOrgById($contentPage['idOrg']);
 ?>
 <div class="container">
+  <h1><?php echo $contentPage['nameEvent']; ?></h1>
+  <hr>
   <div class="row">
     <div class="col-md-6">
       <div class="section-header-wrap section-header-default">
@@ -19,14 +21,10 @@
           <br>
         <span><i class="fa fa-map-marker"></i><strong>Địa điểm: </strong></span>
           <i><?php echo $contentPage['locationEvent']; ?></i>
-          <br><?php if ($personalJoined) { echo '
           <br>
-        <span><i class="fa fa-certificate"></i><strong style="color:red">Kết quả tra cứu: </strong></span>';
-        if ($isJoined == 'YES') { echo 'Có tham gia';} else { echo '
-          <i>Không tham gia sự kiện hoặc không điểm danh</i>'; }}?>
         <span>
           <button class="btn btn-primary" data-toggle="modal" data-target="#registerevent">Đăng ký tham gia</button>
-          <button class="btn btn-success" data-toggle="modal" data-target="#checkjoined">Tra cứu điểm danh</button>
+          <!-- <button class="btn btn-success" data-toggle="modal" data-target="#checkjoined">Tra cứu điểm danh</button> -->
         </span>
       </div>
     </div>
@@ -44,14 +42,15 @@
 <!-- modal register -->
 <div class="modal fade" id="registerevent" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
   <div class="modal-dialog">
-    <form class="form-horizontal" action="<?php echo base_url('event/register'); ?>" method="post">
+    <form class="form-horizontal" action="<?php echo base_url('execute/register_event'); ?>" method="post">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">Đăng ký tham dự sự kiện</h4>
         </div>
         <div class="modal-body">
-          <input type="hidden" name="eventid" value="">
+          <input type="hidden" name="idEvent" value="<?php echo $contentPage['id']; ?>">
+          <input type="hidden" name="url" value="<?php echo $_SERVER['REQUEST_URI']; ?>">
           <input type="text" name="maso" class="form-control" placeholder="Nhập MSSV/MSCB để đăng ký">
         </div>
         <div class="modal-footer">

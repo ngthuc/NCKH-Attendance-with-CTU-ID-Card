@@ -48,7 +48,7 @@ $('.delete-user').on('click', function() {
     var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
     if (r == true) {
         load_ajax_delete_user($(this).data('id'));
-    }      
+    }
    // alert($(this).data('id'));
    location.reload();
 });
@@ -85,7 +85,7 @@ function load_ajax_delete_user(username){
         <label for="email">Email</label>
         <input type="email" name="email" id="email" class="form-control" placeholder="Nhập email của bạn" required>
         <label for="pwd">Mật khẩu</label>
-        <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Nhập tên tổ chức" required>
+        <input type="password" name="pwd" id="pwd" class="form-control" placeholder="Nhập mật khẩu" required>
         <label for="role">Quyền hạn</label>
         <select class="form-control" name="role">
           <?php $role = $this->Mrole->getList();
