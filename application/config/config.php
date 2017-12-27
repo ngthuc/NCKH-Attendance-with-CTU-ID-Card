@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 // $config['base_url'] = 'http://sam.ctu.edu.vn/nckh/';
 $config['base_url'] = 'http://192.168.1.2/nckh/'; // Testing
+// $config['base_url'] = 'http://192.168.43.178/nckh/'; // Nghiemthu
 
 /*
 |--------------------------------------------------------------------------
