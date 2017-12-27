@@ -35,8 +35,8 @@
               <td>'.$row['timeIn'].'</td>
               <td>'.$row['timeOut'].'</td>
               <td>
-                <button class="btn btn-primary edit-attendance" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>
-                <button class="btn btn-danger delete-attendance" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
+                <a href="'.base_url('admin/edit_attendance/'.$row['idCard'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                <button class="btn btn-danger delete-attendance" data-pid="'.$row['idCard'].'"><span class="glyphicon glyphicon-remove"></span></button>
               </td>
             </tr>';
             $stt++;
@@ -49,13 +49,46 @@
 
 <!-- Load ajax -->
 <script type="text/javascript">
-$('.edit-attendance').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+$('.delete-attendance').on('click', function() {
+    var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
+    if (r == true) {
+        load_ajax_delete_attendance($(this).data('pid'));
+    }
+   // alert($(this).data('id'));
+   location.reload();
 });
 
-$('.delete-attendance').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
+function load_ajax_delete_attendance(pid){
+    $.ajax({
+        url : "<?php echo base_url('execute/delete_user_attendance')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            pid : pid
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
 </script>
+
+<div class="modal fade" id="put-attendance" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="form-horizontal" action="<?php echo base_url('execute/put_card');?>" method="POST">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Chỉnh sửa điểm danh</h4>
+      </div>
+      <div class="modal-body">
+        <!-- AJAX -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" name="putAttendance" class="btn btn-primary">Lưu thay đổi</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

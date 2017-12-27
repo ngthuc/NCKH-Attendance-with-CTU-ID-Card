@@ -27,7 +27,6 @@
               <td>'.$row['locationEvent'].'</td>
               <td>
                 <a class="btn btn-primary" href="'.base_url('admin/attendance/'.$row['id'].'/').'"><span class="glyphicon glyphicon-list"></span></a>
-                <button class="btn btn-danger delete-attendance" data-id="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>
               </td>
             </tr>';
             $stt++;

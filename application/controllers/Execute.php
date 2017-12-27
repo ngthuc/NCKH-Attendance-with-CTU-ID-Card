@@ -15,7 +15,8 @@ class Execute extends CI_Controller {
 				$this->load->model('Mstaff');
 				$this->load->model('Mdevice');
 				$this->load->model('Mkey');
-        $this->load->model('Mrole');
+				$this->load->model('Mrole');
+        $this->load->model('Mattendance');
 		}
 
     public function index(){
@@ -405,5 +406,30 @@ class Execute extends CI_Controller {
 
 					$this->Maccount->deleteUser($uid);
 					echo 'Xóa thành công';
+    }
+
+		public function delete_user_attendance(){
+					$uid = $_POST['uid'];
+
+					$this->Mattendance->deleteUserAttendance($uid);
+					echo 'Xóa thành công';
+    }
+
+		public function put_attendance(){
+			if (isset($_POST['editAttendance'])) {
+				$id = htmlspecialchars(addslashes($_POST['id']));
+				$pid = htmlspecialchars(addslashes($_POST['pid']));
+
+				$data['timeIn'] = htmlspecialchars(addslashes($_POST['timeIn']));
+				$data['timeOut'] = htmlspecialchars(addslashes($_POST['timeOut']));
+				$this->Mattendance->updateUserAttendance($data,$id, $pid);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+					$this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+					$this->_data['url'] = base_url('admin/attendance');
+					$this->_data['content'] = 'Cập nhật thành công';
+				$this->load->view('main.php', $this->_data);
+			}
     }
 }

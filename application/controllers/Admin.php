@@ -65,6 +65,20 @@ class Admin extends CI_Controller {
 			}
 		}
 
+		public function edit_attendance($idCard = null)
+		{
+			$result = $this->Mattendance->getByCard($idCard);
+			if ($result) {
+					$this->_data['subview'] = 'admin/attendance/attendance_edit_view.php';
+					$this->_data['titlePage'] = 'Chi tiết điểm danh';
+					$this->_data['idCard'] = $idCard;
+					$this->_data['content'] = $result;
+					$this->load->view('main.php', $this->_data);
+			} else {
+					$this->load->view('alert/load_alert_view',$this->_data);
+			}
+		}
+
 		public function analytics()
 		{
       $this->_data['subview'] = 'admin/report/report_admin_view.php';
