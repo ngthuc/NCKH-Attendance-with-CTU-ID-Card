@@ -23,16 +23,16 @@
             <td>'.$row['username'].'</td>
             <td>'.$row['name'].'</td>
             <td>'.$row['email'].'</td>
-            <td>'; if ($row['rolename'] == 'admin') {
-              echo '<span class="label label-danger">Admin</span>';
-            } else if ($row['rolename'] == 'manager') {
-              echo '<span class="label label-success">Manager</span>';
-            } else if ($row['rolename'] == 'user') {
-              echo '<span class="label label-default">User</span>';
-            } else echo '<i>Không xác định</i>';
+            <td>'; if ($row['rolename'] == 'Admin') {
+              echo '<span class="label label-danger">'.$row['rolename'].'</span>';
+            } else if ($row['rolename'] == 'Manager') {
+              echo '<span class="label label-success">'.$row['rolename'].'</span>';
+            } else if ($row['rolename'] == 'User') {
+              echo '<span class="label label-default">'.$row['rolename'].'</span>';
+            } else echo '<i>'.$row['rolename'].'</i>';
             echo '</td>
             <td>
-              <button class="btn btn-primary edit-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-edit"></span></button>
+              <a href="'.base_url('admin/edit_account/'.$row['username'].'/').'" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
               <button class="btn btn-danger delete-user" data-id="'.$row['username'].'"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>';
@@ -44,15 +44,28 @@
 
 <!-- Load ajax -->
 <script type="text/javascript">
-$('.edit-user').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+$('.delete-user').on('click', function() {
+    var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
+    if (r == true) {
+        load_ajax_delete_user($(this).data('id'));
+    }      
+   // alert($(this).data('id'));
+   location.reload();
 });
 
-$('.delete-user').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
+function load_ajax_delete_user(username){
+    $.ajax({
+        url : "<?php echo base_url('execute/delete_user')?>",
+        type : "post",
+        dateType:"text",
+        data : {
+            uid : username
+        },
+    success : function (result){
+			alert(result);
+    }
+  });
+}
 </script>
 
 <!-- Add new event -->

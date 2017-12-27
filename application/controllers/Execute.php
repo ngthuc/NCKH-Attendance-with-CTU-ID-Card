@@ -308,4 +308,102 @@ class Execute extends CI_Controller {
 					$this->Mdevice->deleteDevice($id);
 					echo 'Xóa thành công';
     }
+
+		public function delete_card(){
+					$id = $_POST['id'];
+
+					$this->Mrfid->deleteCard($id);
+					echo 'Xóa thành công';
+    }
+
+		public function get_edit_card(){
+					$id = $_POST['id'];
+
+					$json = $this->Mrfid->getByCard($id);
+					if ($json) {
+						echo json_encode($json);
+					}
+    }
+
+		public function put_card(){
+				if (isset($_POST['putCard'])) {
+					$id = htmlspecialchars(addslashes($_POST['cid']));
+					$data['personalID'] = htmlspecialchars(addslashes($_POST['pid']));
+					$data['isStudent'] = htmlspecialchars(addslashes($_POST['type']));
+
+					$this->Mrfid->updateCard($data,$id);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+					$this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+					$this->_data['url'] = base_url('admin/rfid_account');
+					$this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
+				}
+    }
+
+		public function change_info(){
+				if (isset($_POST['change_info'])) {
+					$uid = htmlspecialchars(addslashes($_POST['uid']));
+					$data['name'] = htmlspecialchars(addslashes($_POST['name']));
+					$data['email'] = htmlspecialchars(addslashes($_POST['email']));
+
+					$this->Maccount->updateUser($data,$uid);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+					$this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+					$this->_data['url'] = base_url('admin/user_account');
+					$this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
+				}
+    }
+
+		public function change_role(){
+				if (isset($_POST['change_role'])) {
+					$uid = htmlspecialchars(addslashes($_POST['uid']));
+					$data['rolename'] = htmlspecialchars(addslashes($_POST['role']));
+
+					$this->Maccount->updateUser($data,$uid);
+					// Thông báo
+					$this->_data['subview'] = 'alert/load_alert_view';
+					$this->_data['titlePage'] = 'Thành công';
+					$this->_data['type'] = 'success';
+					$this->_data['url'] = base_url('admin/user_account');
+					$this->_data['content'] = 'Cập nhật thành công';
+					$this->load->view('main.php', $this->_data);
+				}
+    }
+
+		public function change_pwd(){
+				if (isset($_POST['change_pwd'])) {
+					$uid = htmlspecialchars(addslashes($_POST['uid']));
+					$checkAccount = $this->Maccount->getByUsername($uid);
+					if($checkAccount['password'] == $_POST['pwd']) {
+						$data['password'] = htmlspecialchars(addslashes($_POST['pwd2']));
+						$this->Maccount->updateUser($data,$uid);
+						// Thông báo
+						$this->_data['subview'] = 'alert/load_alert_view';
+						$this->_data['titlePage'] = 'Thành công';
+						$this->_data['type'] = 'success';
+						$this->_data['url'] = base_url('admin/user_account');
+						$this->_data['content'] = 'Cập nhật thành công';
+					} else {
+						// Thông báo
+						$this->_data['subview'] = 'alert/load_alert_view';
+						$this->_data['titlePage'] = 'Thất bại';
+						$this->_data['type'] = 'warning';
+						$this->_data['url'] = base_url('admin/user_account');
+						$this->_data['content'] = 'Sai mật khẩu hiện tại - Thao tác thất bại';
+					}
+					$this->load->view('main.php', $this->_data);
+				}
+    }
+
+		public function delete_user(){
+					$uid = $_POST['uid'];
+
+					$this->Maccount->deleteUser($uid);
+					echo 'Xóa thành công';
+    }
 }

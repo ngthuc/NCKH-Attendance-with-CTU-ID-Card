@@ -43,7 +43,10 @@
 <!-- Load ajax -->
 <script type="text/javascript">
 $('.delete-device').on('click', function() {
-   load_ajax_delete_device($(this).data('id'));
+    var r = confirm("Nhấn OK để xóa\nNhấn Cancel để hủy thao tác.");
+    if (r == true) {
+        load_ajax_delete_device($(this).data('id'));
+    }
    // alert($(this).data('id'));
    location.reload();
 });

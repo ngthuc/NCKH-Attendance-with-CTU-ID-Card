@@ -26,4 +26,14 @@ class Maccount extends CI_Model{
     public function insertUser($data_insert){
         $this->db->insert($this->_table,$data_insert);
     }
+
+    public function updateUser($data_update, $id){
+        $this->db->where("username", $id);
+        $this->db->update($this->_table, $data_update);
+    }
+
+    public function deleteUser($id){
+        $this->db->where("username", $id);
+        return $this->db->delete($this->_table);
+    }
 }

@@ -140,6 +140,18 @@ class Admin extends CI_Controller {
       $this->load->view('main.php', $this->_data);
 		}
 
+		public function edit_account($uid = null)
+		{
+			$existAccount = $this->Maccount->getByUsername($uid);
+      if ($existAccount) {
+				$this->_data['subview'] = 'admin/account/account_edit_view.php';
+				$this->_data['titlePage'] = 'Chỉnh sửa tài khoản';
+	      $this->_data['uid'] = $uid;
+				$this->_data['content'] = $existAccount;
+			}
+      $this->load->view('main.php', $this->_data);
+		}
+
 		public function device_api()
 		{
       $this->_data['subview'] = 'admin/device/index_admin_view.php';

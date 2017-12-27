@@ -41,7 +41,6 @@
             <td>'.$unit.' - '.$faculty.'</td>
             <td>
               <a href="#" class="btn btn-primary edit-info" data-id="'.$content[$typeID].'"><span class="glyphicon glyphicon-edit"></span></a>
-              <a href="#" class="btn btn-danger delete-info" data-id="'.$content[$typeID].'"><span class="glyphicon glyphicon-remove"></span></a>
             </td>
           </tr>';
         // }
@@ -55,12 +54,8 @@
 <script type="text/javascript">
 $('.edit-info').on('click', function() {
    // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
-});
-
-$('.delete-info').on('click', function() {
-   // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+   // alert($(this).data('id'));
+   alert('Đang phát triển');
 });
 </script>
 

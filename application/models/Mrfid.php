@@ -31,4 +31,14 @@ class Mrfid extends CI_Model{
     public function insertCard($data_insert){
         $this->db->insert($this->_table,$data_insert);
     }
+
+    public function updateCard($data_update, $id){
+        $this->db->where("idCard", $id);
+        $this->db->update($this->_table, $data_update);
+    }
+
+    public function deleteCard($id){
+        $this->db->where("idCard", $id);
+        return $this->db->delete($this->_table);
+    }
 }

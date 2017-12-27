@@ -39,12 +39,14 @@
 <script type="text/javascript">
 $('.edit-org').on('click', function() {
    // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+   // alert($(this).data('id'));
+   alert('Đang phát triển');
 });
 
 $('.delete-org').on('click', function() {
    // load_ajax_update($(this).data('id'),$(this).data('monhoc'));
-   alert($(this).data('id'));
+   // alert($(this).data('id'));
+   alert('Đang phát triển');
 });
 </script>
 
