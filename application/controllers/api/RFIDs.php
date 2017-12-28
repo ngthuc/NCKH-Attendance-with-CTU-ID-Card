@@ -9,6 +9,7 @@ class RFIDs extends CI_Controller {
 				// Gọi đến hàm khởi tạo của cha
 				parent::__construct();
 				$this->_data['url'] = base_url();
+				$this->load->model('Mrfid');
 		}
 
 		public function index()
@@ -75,6 +76,7 @@ class RFIDs extends CI_Controller {
 					$existKey = $this->Mkey->getByKey($getKey);
 					$keyOrigin = $existKey['encriptApi'];
 					if ($keyOrigin == $getKey) {
+						// $json = $_POST['data'];
 						$json = json_decode($_POST['data'], TRUE);
 						foreach ($json as $key => $row) {
 							$data['idCard'] = $row['idCard'];
@@ -83,9 +85,9 @@ class RFIDs extends CI_Controller {
 
 							$checkIdCard = $this->Mrfid->getByCard($row['idCard']);
 							if (empty($checkIdCard)) {
-								$this->Mattendance->insertCard($data);
+								$this->Mrfid->insertCard($data);
 							} else {
-								$this->Mattendance->updateCard($data,$row['idCard']);
+								$this->Mrfid->updateCard($data,$row['idCard']);
 							}
 						}
 						echo 'OK';
