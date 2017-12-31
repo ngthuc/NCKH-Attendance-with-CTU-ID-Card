@@ -16,18 +16,7 @@
             <input class="form-control" name="mota" type="text" placeholder="Nhập mô tả quyền">
         </div>
       </div>
-      <div class="col-sm-12 roles-admin">
-          <p><strong>Tùy biến phân quyền của nhóm</strong></p>
-          <script language="JavaScript">
-            function toggle(source) {
-              checkboxes = document.getElementsByName('add[]');
-              for(var i=1, n=checkboxes.length;i<n;i++) {
-                checkboxes[i].checked = source.checked;
-              }
-            }
-          </script>
-      </div>
-      <div class="col-sm-12 roles-admin">
+      <div class="col-sm-12">
           <script language="JavaScript">
             function toggle(source) {
               checkboxes = document.getElementsByName('add[]');
@@ -37,32 +26,35 @@
             }
           </script>
           <div class="col-sm-12">
+            <br />
             <label for="roleGroup">Chức năng nhóm quyền</label><br  />
             <input type="checkbox" onClick="toggle(this)" id="roleGroup"> Chọn tất cả
             <input type="checkbox" name='add[]' value="fullcontrol" onClick="toggle(this)">Tất cả quyền
           </div>
-          <div class="col-sm-4">
-            <p><strong>Nhóm quyền cơ bản</strong></p>
-            <input type="checkbox" name='add[]' value="admin">Truy cập trang quản trị<br />
-            <input type="checkbox" name='add[]' value="report">Xem và xuất báo cáo<br />
-            <input type="checkbox" name='add[]' value="newEvent">Đăng sự kiện điểm danh mới<br />
+          <div class="col-sm-12">
+            <div class="col-sm-4">
+              <p><strong>Nhóm quyền cơ bản</strong></p>
+              <input type="checkbox" name='add[]' value="admin">Truy cập trang quản trị<br />
+              <input type="checkbox" name='add[]' value="report">Xem và xuất báo cáo<br />
+              <input type="checkbox" name='add[]' value="newEvent">Đăng sự kiện điểm danh mới<br />
+            </div>
+            <div class="col-sm-4">
+              <p><strong>Nhóm quyền quản lý cơ bản</strong></p>
+              <input type="checkbox" name='add[]' value="event">Quản lý sự kiện<br />
+              <input type="checkbox" name='add[]' value="attendance">Quản lý điểm danh<br />
+              <input type="checkbox" name='add[]' value="organization">Quản lý tổ chức<br />
+              <input type="checkbox" name='add[]' value="identification">Quản lý định danh sinh viên/cán bộ<br />
+            </div>
+            <div class="col-sm-4">
+              <p><strong>Nhóm quyền quản lý nâng cao</strong></p>
+              <input type="checkbox" name='add[]' value="role">Quản lý phân quyền<br />
+              <input type="checkbox" name='add[]' value="account">Quản lý tài khoản<br />
+              <input type="checkbox" name='add[]' value="remove">Xóa tài khoản<br />
+              <input type="checkbox" name='add[]' value="device">Quản lý thiết bị và API<br />
+            </div>
           </div>
-          <div class="col-sm-4">
-            <p><strong>Nhóm quyền quản lý cơ bản</strong></p>
-            <input type="checkbox" name='add[]' value="event">Quản lý sự kiện<br />
-            <input type="checkbox" name='add[]' value="attendance">Quản lý điểm danh<br />
-            <input type="checkbox" name='add[]' value="organization">Quản lý tổ chức<br />
-            <input type="checkbox" name='add[]' value="identification">Quản lý định danh sinh viên/cán bộ<br />
-          </div>
-          <div class="col-sm-4">
-            <p><strong>Nhóm quyền quản lý nâng cao</strong></p>
-            <input type="checkbox" name='add[]' value="role">Quản lý phân quyền<br />
-            <input type="checkbox" name='add[]' value="account">Quản lý tài khoản<br />
-            <input type="checkbox" name='add[]' value="remove">Xóa tài khoản<br />
-            <input type="checkbox" name='add[]' value="device">Quản lý thiết bị và API<br />
-            <input class="hidden"><br />
-          </div>
-          <input type="submit" class="btn btn-primary" name="addNew" value="Lưu">
+          <br />
+          <input type="submit" class="col-sm-12 btn btn-primary" name="addNew" value="Lưu">
       </div>
     </div>
   </form>
