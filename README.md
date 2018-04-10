@@ -1,4 +1,4 @@
-# Attendance CTU NCKH
+# Attendance - CTU Science Research of Student (TSV2017-12)
 My project for student science research topic
 
 ## Technology
