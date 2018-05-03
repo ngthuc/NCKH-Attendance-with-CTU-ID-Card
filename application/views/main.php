@@ -91,8 +91,14 @@
           <li><a href="<?php echo base_url('events/'); ?>">Sự kiện</a></li>
           <li><a href="<?php echo base_url('organizations/'); ?>">Tổ chức</a></li>
           <li><a href="<?php echo base_url('admin/'); ?>">Quản trị</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#loginform">Đăng nhập</a></li>
-          <li><a href="<?php echo base_url('auth/logout/?next='.$_SERVER['REQUEST_URI']); ?>">Đăng xuất</a></li>
+          <?php
+          $user = $this->session->userdata('user');
+          if($user) {
+            echo '<li><a href="'.base_url('auth/logout/?next='.$_SERVER['REQUEST_URI']).'">Đăng xuất</a></li>';
+          } else {
+            echo '<li><a href="#" data-toggle="modal" data-target="#loginform">Đăng nhập</a></li>';
+          }
+          ?>
         </ul>
       </div> <!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

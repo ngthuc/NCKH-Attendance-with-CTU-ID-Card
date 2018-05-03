@@ -31,21 +31,45 @@ class Auth extends CI_Controller {
           $this->_uid = $_POST['uid'];
           $this->_pwd = $_POST['pwd'];
         }
+        $a_UserInfo['username'] = $this->input->post('uid');
+        $a_UserInfo['password'] = $this->input->post('pwd');
+			  // $a_UserInfo['password'] = md5($this->input->post('password'));
+        $a_UserChecking = $this->Mauth->a_fCheckUser( $a_UserInfo );
+
         $this->_data['subview'] = 'alert/load_alert_view';
         $this->_data['titlePage'] = 'Đăng nhập';
-        $this->_data['type'] = 'success';
         $this->_data['url'] = $_GET['next'];
-        $this->_data['content'] = 'Đăng nhập thành công với tài khoản '.$this->_uid.' và mật khẩu '.$this->_pwd;
+
+        if($a_UserChecking){
+  				$this->session->set_userdata('user', $a_UserChecking);
+  				$this->_data['type'] = 'success';
+          $this->_data['content'] = 'Đăng nhập thành công với tài khoản '.$this->_uid;
+    		} else{
+          $this->_data['type'] = 'warning';
+          $this->_data['content'] = 'Đăng nhập thất bại với tài khoản '.$this->_uid;
+    		}
+
         $this->load->view('main.php', $this->_data);
     }
 
     public function logout()
 		{
+        $this->session->unset_userdata('user');	// Unset session of user
         $this->_data['subview'] = 'alert/load_alert_view';
         $this->_data['titlePage'] = 'Đăng xuất';
         $this->_data['type'] = 'success';
         $this->_data['url'] = $_GET['next'];
         $this->_data['content'] = 'Đăng xuất thành công';
+        $this->load->view('main.php', $this->_data);
+		}
+
+    public function success()
+		{
+        $this->_data['subview'] = 'alert/load_alert_view';
+        $this->_data['titlePage'] = 'Thông báo';
+        $this->_data['type'] = 'success';
+        $user = $this->session->userdata('user');
+        $this->_data['content'] = 'Đăng nhập thành công với tài khoản ' . $user['username'];
         $this->load->view('main.php', $this->_data);
 		}
 }
