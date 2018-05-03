@@ -1,7 +1,7 @@
 # Attendance - CTU Science Research of Student (TSV2017-12)
 My project for student science research topic
 
-## Installation
+## Installation Web App
 - Go to /application/config/database.php
 - Edit field: hostname - username - password - database (from line 78 to line 81)
 - Go to /application/config/config.php
