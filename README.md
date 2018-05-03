@@ -1,6 +1,13 @@
 # Attendance - CTU Science Research of Student (TSV2017-12)
 My project for student science research topic
 
+## Installation
+- Go to /application/config/database.php
+- Edit field: hostname - username - password - database (from line 78 to line 81)
+- Go to /application/config/config.php
+- Edit field: $config['base_url'] (line 27) as localhost/host ip or address
+- View at address/ip like base_url
+
 ## Technology
 ### WebApp
 * PHP 7.1.10
