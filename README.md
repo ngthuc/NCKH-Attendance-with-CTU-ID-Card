@@ -6,7 +6,7 @@ My project for student science research topic
 - Edit field: hostname - username - password - database (from line 78 to line 81)
 - Go to /application/config/config.php
 - Edit field: $config['base_url'] (line 27) as localhost/host ip or address
-- View at address/ip like base_url
+- View at address/ip like base_url 
 
 ## Technology
 ### WebApp
