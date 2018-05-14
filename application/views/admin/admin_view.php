@@ -1,4 +1,12 @@
 <?php
+// Check role
+$sessRole = $this->session->userdata('access');
+$_role = $sessRole['rolesGroup'];
+$fetchRole = explode(',',$_role);
+if(in_array('admin',$fetchRole) == FALSE) {
+  header("Location: ".base_url());
+}
+
   $registercount = $this->Mregister->countAll();
   $event = $this->Mevent->getList();
   $eventing = 0;
