@@ -6,7 +6,7 @@ My project for student science research topic
 - Edit field: hostname - username - password - database (from line 78 to line 81)
 - Go to /application/config/config.php
 - Edit field: $config['base_url'] (line 27) as localhost/host ip or address
-- View at address/ip like base_url 
+- View at address/ip like base_url
 
 ## Technology
 ### WebApp
@@ -71,7 +71,7 @@ My project for student science research topic
 * Notepad++: https://notepad-plus-plus.org/download/v7.5.1.html
 * Arduino IDE: https://www.arduino.cc/en/Main/Software
 * Netbeans: https://netbeans.org/
-* Github Project IoT: https://github.com/sj96/Attendance_IoT
+* Github Project IoT: https://github.com/sj96/Attendance_IoT ([fork by ngthuc](https://github.com/ngthuc/TSV2017-12-Module-IoT))
 * Demo: https://demo.ngthuc.com/project/nckh (coming soon)
 * Google Chart - https://developers.google.com/chart/interactive/docs/quick_start (coming soon)
 * DataTables language plugin: https://datatables.net/plug-ins/i18n/Vietnamese
